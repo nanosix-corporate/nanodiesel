@@ -1,0 +1,72 @@
+import {defineField, defineType} from 'sanity'
+
+export default defineType({
+  name: 'post',
+  title: 'Artikel',
+  type: 'document',
+  fields: [
+    defineField({
+      name: 'title',
+      title: 'Judul',
+      type: 'string',
+    }),
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96,
+      },
+    }),
+    defineField({
+      name: 'category',
+      title: 'Kategori',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Pembaruan Produk', value: 'Pembaruan Produk'},
+          {title: 'Berita Industri', value: 'Berita Industri'},
+          {title: 'Studi Kasus', value: 'Studi Kasus'},
+          {title: 'Tips & Edukasi', value: 'Tips & Edukasi'},
+        ],
+      },
+    }),
+    defineField({
+      name: 'mainImage',
+      title: 'Gambar Utama (Upload)',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
+      name: 'imageUrl',
+      title: 'URL Gambar (Lama)',
+      description: 'Link gambar dari luar (Gunakan Gambar Utama di atas untuk upload baru)',
+      type: 'url',
+    }),
+    defineField({
+      name: 'seoKeywords',
+      title: 'SEO Keywords',
+      type: 'string',
+      description: 'Kata kunci untuk SEO, pisahkan dengan koma (contoh: aditif solar, hemat bbm)',
+    }),
+    defineField({
+      name: 'author',
+      title: 'Penulis',
+      type: 'string',
+    }),
+    defineField({
+      name: 'excerpt',
+      title: 'Ringkasan (Excerpt)',
+      type: 'text',
+    }),
+    defineField({
+      name: 'content',
+      title: 'Konten',
+      type: 'array',
+      of: [{type: 'block'}],
+    }),
+  ],
+})

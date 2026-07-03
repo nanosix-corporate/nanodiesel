@@ -1,0 +1,444 @@
+export interface ProductDetail {
+  id: string;
+  title: string;
+  subtitle: string;
+  price: string;
+  description: string;
+  image: string;
+  sections: { heading: string; body: string[] }[];
+  shopee: string | null;
+  tokopedia: string | null;
+}
+
+const productDetails: Record<string, ProductDetail> = {
+  'nano-diesel-1-botol-70ml': {
+    id: 'Nano Diesel 1 Botol (70ml)',
+    title: '1 Botol',
+    subtitle: 'Aditif Solar Diesel Nanodiesel 70 ml - Hemat Bahan Bakar & Performa Mesin Diesel 1 botol',
+    price: 'Rp 70.000',
+    description: 'Cocok untuk satu kali pengisian penuh. Coba rasakan perbedaannya di tangki kendaraan Anda.',
+    image: '/images/product/product-image-1.webp',
+    sections: [
+      {
+        heading: 'Cocok Digunakan Untuk',
+        body: [
+          'Semua jenis mobil diesel',
+          'Truk & kendaraan logistik',
+          'Alat berat',
+        ],
+      },
+      {
+        heading: 'Keunggulan Nanodiesel',
+        body: [
+          'Teknologi nanopartikel ramah lingkungan berbasis karbon',
+        ],
+      },
+      {
+        heading: 'Manfaat Penggunaan',
+        body: [
+          'Menaikan angkat Cetane',
+          'Konsumsi bahan bakar mesin lebih hemat',
+          'Tarikan mesin lebih responsif',
+          'Mesin lebih halus',
+          'Membantu memperpanjang umur mesin',
+          'Biaya operasional lebih efisien',
+        ],
+      },
+      {
+        heading: 'Cara Kerja Nanodiesel',
+        body: [
+          'Meningkatkan penguapan bahan bakar',
+          'Membantu proses pembakaran lebih merata',
+          'Menjaga nyala pembakaran lebih stabil',
+          'Mendukung sistem pelumasan modern',
+        ],
+      },
+      {
+        heading: 'Cara Pakai',
+        body: [
+          '1 mL Nanodiesel dicampurkan untuk 1 Liter Solar atau Biosolar',
+          '1 botol Nanodiesel 70 mL untuk pencampuran Full tanki bahan bakar mobil diesel kapasitas 70 L',
+        ],
+      },
+      {
+        heading: 'Isi & Ukuran',
+        body: [
+          'Isi : 1 botol',
+          'Ukuran : 70 ml',
+        ],
+      },
+      {
+        heading: 'Hasil Pengujian Performa',
+        body: [
+          'Peningkatan efisiensi & kualitas pelumasan',
+          'Penurunan hidrokarbon tidak terbakar (HC) hingga >99%',
+          'Peningkatan tenaga maksimum',
+          'Peningkatan torsi maksimum',
+          'Pembakaran lebih bersih & efisien',
+        ],
+      },
+      {
+        heading: 'Kenapa Pilih Nano Diesel?',
+        body: [
+          'Teknologi telah diuji berdasarkan data dari LEMIGAS dan Mutu Agung Lestari',
+          'Satu solusi untuk semua mesin diesel',
+          'Performa maksimal, biaya operasional lebih rendah',
+        ],
+      },
+      {
+        heading: 'Cara Simpan',
+        body: [
+          'Simpan di tempat yang sejuk dan jauhkan dari jangkauan anak-anak',
+        ],
+      },
+    ],
+    shopee: 'https://tinyurl.com/yt764pn9',
+    tokopedia: 'https://tinyurl.com/9dfysxtz',
+  },
+  'nano-diesel-2-botol-2x70ml': {
+    id: 'Nano Diesel 2 Botol (2x70ml)',
+    title: '2 Botol',
+    subtitle: 'Aditif Solar Diesel, Value Pack (2 botol) - Hemat Bahan Bakar, Mesin Diesel Optimal - Nanodiesel 70 ml',
+    price: 'Rp 135.000',
+    description: 'Pilihan paling populer. Cukup untuk dua kali pengisian dan merasakan manfaat penuh Nano Diesel.',
+    image: '/images/product/product-image-2.webp',
+    sections: [
+      {
+        heading: 'Cocok Digunakan Untuk',
+        body: [
+          'Semua jenis mobil diesel',
+          'Truk & kendaraan logistik',
+          'Alat berat',
+        ],
+      },
+      {
+        heading: 'Keunggulan Nanodiesel',
+        body: [
+          'Teknologi nanopartikel ramah lingkungan berbasis karbon',
+        ],
+      },
+      {
+        heading: 'Manfaat Penggunaan',
+        body: [
+          'Menaikan angkat Cetane',
+          'Konsumsi bahan bakar mesin lebih hemat',
+          'Tarikan mesin lebih responsif',
+          'Mesin lebih halus',
+          'Membantu memperpanjang umur mesin',
+          'Biaya operasional lebih efisien',
+        ],
+      },
+      {
+        heading: 'Cara Kerja Nanodiesel',
+        body: [
+          'Meningkatkan penguapan bahan bakar',
+          'Membantu proses pembakaran lebih merata',
+          'Menjaga nyala pembakaran lebih stabil',
+          'Mendukung sistem pelumasan modern',
+        ],
+      },
+      {
+        heading: 'Cara Pakai',
+        body: [
+          '1 mL Nanodiesel dicampurkan untuk 1 Liter Solar atau Biosolar',
+          '1 botol Nanodiesel 70 mL untuk pencampuran Full tanki bahan bakar mobil diesel kapasitas 70 L',
+        ],
+      },
+      {
+        heading: 'Isi & Ukuran',
+        body: [
+          'Isi : 2 botol',
+          'Ukuran : 70 ml/botol',
+        ],
+      },
+      {
+        heading: 'Hasil Pengujian Performa',
+        body: [
+          'Peningkatan efisiensi & kualitas pelumasan',
+          'Penurunan hidrokarbon tidak terbakar (HC) hingga >99%',
+          'Peningkatan tenaga maksimum',
+          'Peningkatan torsi maksimum',
+          'Pembakaran lebih bersih & efisien',
+        ],
+      },
+      {
+        heading: 'Kenapa Pilih Nano Diesel?',
+        body: [
+          'Teknologi telah diuji berdasarkan data dari LEMIGAS dan Mutu Agung Lestari',
+          'Satu solusi untuk semua mesin diesel',
+          'Performa maksimal, biaya operasional lebih rendah',
+        ],
+      },
+      {
+        heading: 'Cara Simpan',
+        body: [
+          'Simpan di tempat yang sejuk dan jauhkan dari jangkauan anak-anak',
+        ],
+      },
+    ],
+    shopee: 'https://tinyurl.com/yfrk2wcj',
+    tokopedia: 'https://tinyurl.com/2nme32bu',
+  },
+  'nano-diesel-3-botol-3x70ml': {
+    id: 'Nano Diesel 3 Botol (3x70ml)',
+    title: '3 Botol',
+    subtitle: 'Aditif Solar Diesel | Nanodiesel PAKET 3 BOTOL - Boost Performa Mesin, Lubrikasi Maksimal, Mesin Awet',
+    price: 'Rp 185.000',
+    description: 'Pilihan tengah yang pas untuk pemakaian beberapa kali. Cocok untuk perjalanan jauh dan aktivitas harian.',
+    image: '/images/product/product-image-5.webp',
+    sections: [
+      {
+        heading: 'Cocok Digunakan Untuk',
+        body: [
+          'Semua jenis mobil diesel',
+          'Truk & kendaraan logistik',
+          'Alat berat',
+        ],
+      },
+      {
+        heading: 'Keunggulan Nanodiesel',
+        body: [
+          'Teknologi nanopartikel ramah lingkungan berbasis karbon',
+        ],
+      },
+      {
+        heading: 'Manfaat Penggunaan',
+        body: [
+          'Menaikan angkat Cetane',
+          'Konsumsi bahan bakar mesin lebih hemat',
+          'Tarikan mesin lebih responsif',
+          'Mesin lebih halus',
+          'Membantu memperpanjang umur mesin',
+          'Biaya operasional lebih efisien',
+        ],
+      },
+      {
+        heading: 'Cara Kerja Nanodiesel',
+        body: [
+          'Meningkatkan penguapan bahan bakar',
+          'Membantu proses pembakaran lebih merata',
+          'Menjaga nyala pembakaran lebih stabil',
+          'Mendukung sistem pelumasan modern',
+        ],
+      },
+      {
+        heading: 'Cara Pakai',
+        body: [
+          '1 mL Nanodiesel dicampurkan untuk 1 Liter Solar atau Biosolar',
+          '1 botol Nanodiesel 70 mL untuk pencampuran Full tanki bahan bakar mobil diesel kapasitas +-70 L',
+        ],
+      },
+      {
+        heading: 'Isi & Ukuran',
+        body: [
+          'Isi : 3 botol',
+          'Ukuran : 70 ml/botol',
+        ],
+      },
+      {
+        heading: 'Hasil Pengujian Performa',
+        body: [
+          'Peningkatan efisiensi & kualitas pelumasan',
+          'Penurunan hidrokarbon tidak terbakar (HC) hingga >99%',
+          'Peningkatan tenaga maksimum',
+          'Peningkatan torsi maksimum',
+          'Pembakaran lebih bersih & efisien',
+        ],
+      },
+      {
+        heading: 'Kenapa Pilih Nano Diesel?',
+        body: [
+          'Teknologi telah diuji berdasarkan data dari LEMIGAS dan Mutu Agung Lestari',
+          'Satu solusi untuk semua mesin diesel',
+          'Performa maksimal, biaya operasional lebih rendah',
+        ],
+      },
+      {
+        heading: 'Cara Simpan',
+        body: [
+          'Simpan di tempat yang sejuk dan jauhkan dari jangkauan anak-anak',
+        ],
+      },
+    ],
+    shopee: 'https://tinyurl.com/4t43cnbx',
+    tokopedia: 'https://tinyurl.com/3s5bp2s6',
+  },
+  'nano-diesel-6-botol-6x70ml': {
+    id: 'Nano Diesel 6 Botol (6x70ml)',
+    title: '5 Botol Gratis 1 Botol',
+    subtitle: 'Aditif Solar Nano Technology - Fleet pack 70 ml (PAKET HEMAT 6 BOTOL) - Hemat Operasional Diesel',
+    price: 'Rp 350.000',
+    description: 'Paket ekonomis untuk pemakaian rutin. Ideal untuk armada kecil atau stok bulanan kendaraan diesel Anda.',
+    image: '/images/product/product-image-3.webp',
+    sections: [
+      {
+        heading: 'Cocok Digunakan Untuk',
+        body: [
+          'Semua jenis mobil diesel',
+          'Truk & kendaraan logistik',
+          'Alat berat',
+        ],
+      },
+      {
+        heading: 'Keunggulan Nanodiesel',
+        body: [
+          'Teknologi nanopartikel ramah lingkungan berbasis karbon',
+        ],
+      },
+      {
+        heading: 'Manfaat Penggunaan',
+        body: [
+          'Menaikan angkat Cetane',
+          'Konsumsi bahan bakar mesin lebih hemat',
+          'Tarikan mesin lebih responsif',
+          'Mesin lebih halus',
+          'Membantu memperpanjang umur mesin',
+          'Biaya operasional lebih efisien',
+        ],
+      },
+      {
+        heading: 'Cara Kerja Nanodiesel',
+        body: [
+          'Meningkatkan penguapan bahan bakar',
+          'Membantu proses pembakaran lebih merata',
+          'Menjaga nyala pembakaran lebih stabil',
+          'Mendukung sistem pelumasan modern',
+        ],
+      },
+      {
+        heading: 'Cara Pakai',
+        body: [
+          '1 mL Nanodiesel dicampurkan untuk 1 Liter Solar atau Biosolar',
+          '1 botol Nanodiesel 70 mL untuk pencampuran Full tanki bahan bakar mobil diesel kapasitas 70 L',
+        ],
+      },
+      {
+        heading: 'Isi & Ukuran',
+        body: [
+          'Isi : 5 botol GRATIS 1',
+          'Ukuran : 70 ml/botol',
+        ],
+      },
+      {
+        heading: 'Hasil Pengujian Performa',
+        body: [
+          'Peningkatan efisiensi & kualitas pelumasan',
+          'Penurunan hidrokarbon tidak terbakar (HC) hingga >99%',
+          'Peningkatan tenaga maksimum',
+          'Peningkatan torsi maksimum',
+          'Pembakaran lebih bersih & efisien',
+        ],
+      },
+      {
+        heading: 'Kenapa Pilih Nano Diesel?',
+        body: [
+          'Teknologi telah diuji berdasarkan data dari LEMIGAS dan Mutu Agung Lestari',
+          'Satu solusi untuk semua mesin diesel',
+          'Performa maksimal, biaya operasional lebih rendah',
+        ],
+      },
+      {
+        heading: 'Cara Simpan',
+        body: [
+          'Simpan di tempat yang sejuk dan jauhkan dari jangkauan anak-anak',
+        ],
+      },
+    ],
+    shopee: 'https://tinyurl.com/2kh92vwd',
+    tokopedia: 'https://tinyurl.com/3b5ukya2',
+  },
+  'nano-diesel-12-botol-12x70ml': {
+    id: 'Nano Diesel 12 Botol (12x70ml)',
+    title: '10 Botol Gratis 2 Botol',
+    subtitle: 'BELI 10 GRATIS 2 | NanoDiesel Fleet Pack Pro 70ml - Paket Hemat Operasional Diesel',
+    price: 'Rp 700.000',
+    description: 'Paket super hemat untuk pemakaian jangka panjang. Solusi paling ekonomis untuk armada atau stok besar.',
+    image: '/images/product/product-image-6.webp',
+    sections: [
+      {
+        heading: 'Cocok Digunakan Untuk',
+        body: [
+          'Semua jenis mobil diesel',
+          'Truk & kendaraan logistik',
+          'Alat berat',
+        ],
+      },
+      {
+        heading: 'Keunggulan Nanodiesel',
+        body: [
+          'Teknologi nanopartikel ramah lingkungan berbasis karbon',
+        ],
+      },
+      {
+        heading: 'Manfaat Penggunaan',
+        body: [
+          'Menaikan angkat Cetane',
+          'Konsumsi bahan bakar mesin lebih hemat',
+          'Tarikan mesin lebih responsif',
+          'Mesin lebih halus',
+          'Membantu memperpanjang umur mesin',
+          'Biaya operasional lebih efisien',
+        ],
+      },
+      {
+        heading: 'Cara Kerja Nanodiesel',
+        body: [
+          'Meningkatkan penguapan bahan bakar',
+          'Membantu proses pembakaran lebih merata',
+          'Menjaga nyala pembakaran lebih stabil',
+          'Mendukung sistem pelumasan modern',
+        ],
+      },
+      {
+        heading: 'Cara Pakai',
+        body: [
+          '1 mL Nanodiesel dicampurkan untuk 1 Liter Solar atau Biosolar',
+          '1 botol Nanodiesel 70 mL untuk pencampuran Full tanki bahan bakar mobil diesel kapasitas 70 L',
+        ],
+      },
+      {
+        heading: 'Isi & Ukuran',
+        body: [
+          'Isi : 12 botol',
+          'Ukuran : 70 ml/botol',
+        ],
+      },
+      {
+        heading: 'Hasil Pengujian Performa',
+        body: [
+          'Peningkatan efisiensi & kualitas pelumasan',
+          'Penurunan hidrokarbon tidak terbakar (HC) hingga >99%',
+          'Peningkatan tenaga maksimum',
+          'Peningkatan torsi maksimum',
+          'Pembakaran lebih bersih & efisien',
+        ],
+      },
+      {
+        heading: 'Kenapa Pilih Nano Diesel?',
+        body: [
+          'Teknologi telah diuji berdasarkan data dari LEMIGAS dan Mutu Agung Lestari',
+          'Satu solusi untuk semua mesin diesel',
+          'Performa maksimal, biaya operasional lebih rendah',
+        ],
+      },
+      {
+        heading: 'Cara Simpan',
+        body: [
+          'Simpan di tempat yang sejuk dan jauhkan dari jangkauan anak-anak',
+        ],
+      },
+    ],
+    shopee: 'https://tinyurl.com/yk8tbyer',
+    tokopedia: 'https://tinyurl.com/bdd9c26c',
+  },
+};
+
+export function getProductBySlug(slug: string): ProductDetail | undefined {
+  return productDetails[slug];
+}
+
+export function getAllSlugs(): string[] {
+  return Object.keys(productDetails);
+}
+
+export default productDetails;
