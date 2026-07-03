@@ -44,7 +44,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             <h1 className="text-4xl md:text-6xl font-headline font-black mb-6">Artikel Tidak Ditemukan</h1>
             <p className="text-olive-300 mb-8">Halaman yang Anda cari tidak tersedia.</p>
             <Link href="/news" className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-xl text-sm transition-all">
-              Kembali ke News
+              Kembali
             </Link>
           </div>
         </div>
@@ -63,7 +63,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         <div className="absolute inset-0 bg-gradient-to-b from-emerald-900/40 via-transparent to-brand-dark" />
         <div className="max-w-[1000px] mx-auto text-left relative z-10">
           <Link href="/news" className="text-xs font-black text-emerald-400 uppercase tracking-[0.3em] mb-6 inline-block hover:text-emerald-300 transition-colors">
-            &larr; Kembali ke News
+            &larr; Kembali
           </Link>
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-headline font-black mb-6 max-w-4xl leading-tight">{post.title}</h1>
           {post.excerpt && (
