@@ -55,34 +55,22 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   return (
     <main className="pt-[72px] min-h-screen">
       {/* Page Header */}
-      <div className="-mt-[72px] bg-brand-dark text-white px-6 lg:px-12 py-20 md:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-emerald-900/10 via-transparent to-brand-dark" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-emerald-500/5 rounded-full blur-3xl" />
-        <div className="max-w-[800px] mx-auto text-center relative z-10">
-          <Link href="/news" className="text-xs font-black text-emerald-400 uppercase tracking-[0.3em] mb-4 inline-block hover:text-emerald-300 transition-colors">
+      <div
+        className="-mt-[72px] bg-brand-dark text-white px-6 lg:px-12 pt-32 pb-20 md:pt-40 md:pb-28 relative overflow-hidden bg-cover bg-center"
+        style={{ backgroundImage: (post.mainImageUrl || post.imageUrl) ? `url(${post.mainImageUrl || post.imageUrl})` : 'none' }}
+      >
+        <div className="absolute inset-0 bg-brand-dark/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-emerald-900/40 via-transparent to-brand-dark" />
+        <div className="max-w-[1000px] mx-auto text-left relative z-10">
+          <Link href="/news" className="text-xs font-black text-emerald-400 uppercase tracking-[0.3em] mb-6 inline-block hover:text-emerald-300 transition-colors">
             &larr; Kembali ke News
           </Link>
-          <h1 className="text-3xl md:text-5xl font-headline font-black mb-6">{post.title}</h1>
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-headline font-black mb-6 max-w-4xl leading-tight">{post.title}</h1>
           {post.excerpt && (
-            <p className="text-base md:text-lg text-olive-300 max-w-2xl mx-auto leading-relaxed">{post.excerpt}</p>
+            <p className="text-base md:text-xl text-olive-200 max-w-2xl leading-relaxed">{post.excerpt}</p>
           )}
         </div>
       </div>
-
-      {/* Featured Image */}
-      {(post.mainImageUrl || post.imageUrl) && (
-        <div className="bg-white border-t border-olive-200">
-          <div className="max-w-[1000px] mx-auto px-6 lg:px-12 pt-8 md:pt-12">
-            <div className="rounded-2xl overflow-hidden shadow-lg">
-              <ArticleImage
-                src={post.mainImageUrl || post.imageUrl}
-                alt={post.title}
-                className="w-full h-64 md:h-96 object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Content */}
       <section className="py-16 md:py-24 px-6 lg:px-12 bg-white border-t border-olive-200">
