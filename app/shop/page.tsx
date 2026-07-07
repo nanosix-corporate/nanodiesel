@@ -158,7 +158,7 @@ export default function ShopPage() {
                   <div className="mt-auto">
                     {product.dark ? (
                       <>
-                        <div className="text-lg md:text-xl font-black mb-3 text-emerald-400">
+                        <div className="text-lg md:text-xl font-black mb-3 text-brand-white">
                           {product.price}
                         </div>
                         <a

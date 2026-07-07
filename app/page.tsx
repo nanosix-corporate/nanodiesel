@@ -241,18 +241,16 @@ export default function HomePage() {
             {products.map((product) => (
               <div
                 key={product.id}
-                className={`rounded-2xl overflow-hidden transition-all duration-300 flex flex-col relative ${
-                  product.dark
-                    ? 'bg-brand-dark shadow-lg shadow-black/20'
-                    : 'bg-white border border-olive-200 shadow-sm hover:shadow-xl hover:border-emerald-200'
-                }`}
+                className={`rounded-2xl overflow-hidden transition-all duration-300 flex flex-col relative ${product.dark
+                  ? 'bg-brand-dark shadow-lg shadow-black/20'
+                  : 'bg-white border border-olive-200 shadow-sm hover:shadow-xl hover:border-emerald-200'
+                  }`}
               >
                 {product.badge && (
-                  <div className={`absolute top-3 right-3 text-white text-fs-sm font-bold px-3 py-1 rounded-full uppercase tracking-wider z-10 shadow-lg ${
-                    product.badge === 'Best Seller' ? 'bg-emerald-600' :
+                  <div className={`absolute top-3 right-3 text-white text-fs-sm font-bold px-3 py-1 rounded-full uppercase tracking-wider z-10 shadow-lg ${product.badge === 'Best Seller' ? 'bg-emerald-600' :
                     product.badge === 'B2B' ? 'bg-brand-dark border border-emerald-500/40 text-emerald-400' :
-                    'bg-amber-500'
-                  }`}>
+                      'bg-amber-500'
+                    }`}>
                     {product.badge}
                   </div>
                 )}
@@ -281,20 +279,20 @@ export default function HomePage() {
                     >
                       Lihat deskripsi produk
                       <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="transition-transform group-hover:translate-x-0.5">
-                        <path d="M3 1L7 5L3 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M3 1L7 5L3 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </a>
                   )}
                   <div className="mt-auto">
                     {product.dark ? (
                       <>
-                        <div className="text-fs-md md:text-fs-lg font-black mb-3 text-emerald-400">
+                        <div className="text-fs-md md:text-fs-lg font-black mb-3 text-brand-white">
                           {product.price}
                         </div>
                         <a
                           href={`https://wa.me/622122483303?text=Halo%20Nano%20Diesel%2C%20saya%20ingin%20bertanya%20mengenai%20produk%20${encodeURIComponent(product.wa)}`}
                           target="_blank" rel="noreferrer"
-                          className="w-full py-2 px-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg text-xs md:text-sm text-center transition-all hover:shadow-lg hover:shadow-emerald-600/20 block"
+                          className="w-full py-2 px-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg text-fs-base md:text-sm text-center transition-all hover:shadow-lg hover:shadow-emerald-600/20 block"
                         >
                           Hubungi via WhatsApp
                         </a>
@@ -475,7 +473,7 @@ export default function HomePage() {
           </h2>
           <p className="text-base md:text-lg text-olive-300 mb-8 md:mb-10 leading-relaxed">
             Rasakan sendiri perbedaan mesin diesel setelah menggunakan <strong className="text-white">Nano Diesel - aditif bahan bakar</strong> berbasis nano teknologi.
-            <br/>Tersedia di Shopee dan Tokopedia Official Store.
+            <br />Tersedia di Shopee dan Tokopedia Official Store.
           </p>
           <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4">
             <a

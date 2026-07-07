@@ -56,8 +56,8 @@ export default function OurTechnologyPage() {
           </p>
           <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-start">
             <div className="relative">
-              <div className="absolute -inset-4 bg-emerald-500/10 rounded-3xl blur-sm" />
-              <div className="relative rounded-2xl overflow-hidden shadow-xl h-[250px] md:h-[400px]">
+              <div className="absolute -inset-4 rounded-3xl blur-sm" />
+              <div className="relative rounded-2xl overflow-hidden h-[250px] md:h-[400px]">
                 <video autoPlay loop muted playsInline className="w-full h-full object-cover">
                   <source src="/video/technology.webm" type="video/webm" />
                 </video>

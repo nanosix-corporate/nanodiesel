@@ -19,6 +19,7 @@ export default {
       fontSize: {
         'fs-xs': '0.75rem',
         'fs-sm': '0.875rem',
+        'fs-nav': '0.92rem',
         'fs-base': '1rem',
         'fs-md': '1.125rem',
         'fs-lg': '1.5rem',
