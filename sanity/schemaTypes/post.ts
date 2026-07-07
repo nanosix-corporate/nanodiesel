@@ -65,7 +65,45 @@ export default defineType({
       name: 'content',
       title: 'Konten',
       type: 'array',
-      of: [{type: 'block'}],
+      of: [
+        {
+          type: 'block',
+          marks: {
+            annotations: [
+              {
+                name: 'link',
+                type: 'object',
+                title: 'External Link',
+                fields: [
+                  {
+                    name: 'href',
+                    type: 'url',
+                    title: 'URL',
+                  },
+                  {
+                    name: 'blank',
+                    title: 'Open in new tab',
+                    type: 'boolean',
+                  },
+                ],
+              },
+              {
+                name: 'internalLink',
+                type: 'object',
+                title: 'Internal Link',
+                fields: [
+                  {
+                    name: 'reference',
+                    type: 'reference',
+                    title: 'Reference',
+                    to: [{ type: 'post' }],
+                  },
+                ],
+              },
+            ],
+          },
+        }
+      ],
     }),
   ],
 })

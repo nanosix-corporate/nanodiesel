@@ -50,7 +50,19 @@ export async function generateStaticParams() {
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = await client.fetch(
-    `*[_type == "post" && slug.current == $slug][0] { ..., "mainImageUrl": mainImage.asset->url }`,
+    `*[_type == "post" && slug.current == $slug][0] { 
+      ..., 
+      "mainImageUrl": mainImage.asset->url,
+      content[] {
+        ...,
+        markDefs[] {
+          ...,
+          _type == "internalLink" => {
+            "slug": @.reference->slug.current
+          }
+        }
+      }
+    }`,
     { slug }
   );
 
@@ -93,8 +105,34 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       {/* Content */}
       <section className="py-16 md:py-24 px-6 lg:px-12 bg-white border-t border-olive-200">
         <div className="max-w-[750px] mx-auto">
-          <div className="prose prose-lg max-w-none">
-            <PortableText value={post.content} />
+          <div className="prose prose-lg max-w-none prose-a:no-underline">
+            <PortableText 
+              value={post.content} 
+              components={{
+                marks: {
+                  internalLink: ({value, children}: any) => {
+                    const slug = value?.slug || '';
+                    return (
+                      <Link href={`/news/${slug}`} className="text-emerald-600 hover:text-emerald-700 font-semibold underline decoration-emerald-600/30 underline-offset-2">
+                        {children}
+                      </Link>
+                    );
+                  },
+                  link: ({value, children}: any) => {
+                    const { blank, href } = value || {};
+                    return blank ? (
+                      <a href={href} target="_blank" rel="noopener noreferrer" className="text-brand-dark hover:text-emerald-600 font-semibold underline decoration-brand-dark/30 underline-offset-2">
+                        {children}
+                      </a>
+                    ) : (
+                      <a href={href} className="text-brand-dark hover:text-emerald-600 font-semibold underline decoration-brand-dark/30 underline-offset-2">
+                        {children}
+                      </a>
+                    );
+                  }
+                }
+              }}
+            />
           </div>
         </div>
       </section>
