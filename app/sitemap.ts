@@ -4,7 +4,7 @@ import { client } from '../sanity/client'
 export const revalidate = 0; // Ensures sitemap is updated dynamically when a new post is published
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.nanosix.net'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.nanodiesel.id'
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
