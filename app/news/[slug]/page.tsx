@@ -9,7 +9,7 @@ export const revalidate = 0;
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const post = await client.fetch(
-    `*[_type == "post" && slug.current == $slug][0] { title, excerpt, seoKeywords }`,
+    `*[_type == "post" && slug.current == $slug][0] { title, excerpt, seo { ..., "metaImageUrl": metaImage.asset->url, openGraph { ..., "imageUrl": image.asset->url } } }`,
     { slug }
   );
 
@@ -17,10 +17,28 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return { title: 'Artikel Tidak Ditemukan | Nano Diesel' };
   }
 
+  const defaultDesc = 'Baca artikel dan edukasi terbaru seputar perawatan mesin diesel, aditif solar terbaik, dan cara hemat bbm.';
+  const defaultKeywords = ['aditif solar terbaik', 'aditif bahan bakar', 'hemat bbm diesel', 'solar murah jadi rasa premium'];
+
   return {
-    title: `${post.title} | Nano Diesel`,
-    description: post.excerpt || 'Baca artikel dan edukasi terbaru seputar perawatan mesin diesel, aditif solar terbaik, dan cara hemat bbm.',
-    keywords: post.seoKeywords || 'aditif solar terbaik, aditif bahan bakar, hemat bbm diesel, solar murah jadi rasa premium',
+    title: post.seo?.metaTitle || `${post.title} | Nano Diesel`,
+    description: post.seo?.metaDescription || post.excerpt || defaultDesc,
+    keywords: post.seo?.seoKeywords || defaultKeywords,
+    openGraph: {
+      title: post.seo?.openGraph?.title || post.seo?.metaTitle || post.title,
+      description: post.seo?.openGraph?.description || post.seo?.metaDescription || post.excerpt || defaultDesc,
+      siteName: post.seo?.openGraph?.siteName || 'Nano Diesel',
+      images: post.seo?.openGraph?.imageUrl || post.seo?.metaImageUrl ? [
+        {
+          url: post.seo?.openGraph?.imageUrl || post.seo?.metaImageUrl,
+        }
+      ] : [],
+    },
+    twitter: {
+      card: (post.seo?.twitter?.cardType as any) || 'summary_large_image',
+      site: post.seo?.twitter?.site || '@nanodiesel',
+      creator: post.seo?.twitter?.creator || '@nanodiesel',
+    }
   };
 }
 

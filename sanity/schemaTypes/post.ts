@@ -47,10 +47,9 @@ export default defineType({
       type: 'url',
     }),
     defineField({
-      name: 'seoKeywords',
-      title: 'SEO Keywords',
-      type: 'string',
-      description: 'Kata kunci untuk SEO, pisahkan dengan koma (contoh: aditif solar, hemat bbm)',
+      name: 'seo',
+      title: 'SEO',
+      type: 'seoMetaFields',
     }),
     defineField({
       name: 'author',
