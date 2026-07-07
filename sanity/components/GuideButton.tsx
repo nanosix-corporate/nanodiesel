@@ -22,7 +22,6 @@ export function GuideButton() {
           mode="default"
           padding={3}
           radius={4}
-          shadow={2}
           onClick={() => setIsOpen(true)}
           style={{ cursor: 'pointer' }}
         />
