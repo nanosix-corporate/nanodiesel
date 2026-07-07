@@ -153,8 +153,8 @@ export default function HomePage() {
           <div className="overflow-hidden border border-brand-primary bg-brand-primary py-2 z-20">
             <div className="animate-marquee min-w-max flex items-center whitespace-nowrap text-sm md:text-base text-[#F5F9FA] will-change-transform">
               <span className="inline-flex items-center gap-2 px-8">
-                <span className="material-symbols-outlined text-base md:text-lg text-[#F5F9FA]">task_alt</span>
-                Tersertifikasi Lemigas
+                <span className="material-symbols-outlined text-base md:text-lg text-[#F5F9FA]">verified</span>
+                Tersertifikasi Lemigas dan Mutuagung Lestari
               </span>
               <span className="inline-flex items-center gap-2 px-8">
                 <span className="material-symbols-outlined text-base md:text-lg text-[#F5F9FA]">speed</span>
@@ -165,17 +165,17 @@ export default function HomePage() {
                 Meningkatkan Kualitas BBM
               </span>
               <span className="inline-flex items-center gap-2 px-8">
-                <span className="material-symbols-outlined text-base md:text-lg text-[#F5F9FA]">emoji_events</span>
+                <span className="material-symbols-outlined text-base md:text-lg text-[#F5F9FA]">local_gas_station</span>
                 Hemat BBM Hingga 20%
               </span>
               <span className="inline-flex items-center gap-2 px-8">
-                <span className="material-symbols-outlined text-base md:text-lg text-[#F5F9FA]">shield</span>
+                <span className="material-symbols-outlined text-base md:text-lg text-[#F5F9FA]">oil_barrel</span>
                 Cocok Untuk Biodiesel B35–B50
               </span>
               {/* Duplicate for seamless loop */}
               <span className="inline-flex items-center gap-2 px-8">
-                <span className="material-symbols-outlined text-base md:text-lg text-[#F5F9FA]">task_alt</span>
-                Tersertifikasi Lemigas
+                <span className="material-symbols-outlined text-base md:text-lg text-[#F5F9FA]">verified</span>
+                Tersertifikasi Lemigas dan Mutuagung Lestari
               </span>
               <span className="inline-flex items-center gap-2 px-8">
                 <span className="material-symbols-outlined text-base md:text-lg text-[#F5F9FA]">speed</span>
@@ -186,11 +186,11 @@ export default function HomePage() {
                 Meningkatkan Kualitas BBM
               </span>
               <span className="inline-flex items-center gap-2 px-8">
-                <span className="material-symbols-outlined text-base md:text-lg text-[#F5F9FA]">emoji_events</span>
+                <span className="material-symbols-outlined text-base md:text-lg text-[#F5F9FA]">local_gas_station</span>
                 Hemat BBM Hingga 20%
               </span>
               <span className="inline-flex items-center gap-2 px-8">
-                <span className="material-symbols-outlined text-base md:text-lg text-[#F5F9FA]">shield</span>
+                <span className="material-symbols-outlined text-base md:text-lg text-[#F5F9FA]">oil_barrel</span>
                 Cocok Untuk Biodiesel B35–B50
               </span>
             </div>
@@ -205,8 +205,8 @@ export default function HomePage() {
               <br />
               <span className="font-extrabold">Hemat BBM Hingga 20%</span>
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-fs-base leading-relaxed text-slate-200 md:text-fs-md">
-              Nano Diesel adalah <strong>aditif bahan bakar diesel</strong> berbasis nano teknologi yang membuat mesin diesel lebih bertenaga, konsumsi BBM lebih irit, suara mesin lebih halus, dan emisi gas buang jauh lebih bersih. Cocok untuk Biodiesel B35, B40, dan B50.
+            <p className="mx-auto mt-6 max-w-3xl text-fs-base leading-relaxed text-slate-200 md:text-fs-md">
+              Nano Diesel adalah <strong>aditif bahan bakar diesel</strong> berbasis nano teknologi yang membuat mesin diesel lebih bertenaga, konsumsi BBM lebih irit, suara mesin lebih halus, dan emisi gas buang jauh lebih bersih. Cocok untuk Biodiesel <strong>B35, B40, dan B50</strong>.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
