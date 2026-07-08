@@ -16,6 +16,28 @@ export const metadata: Metadata = {
   description: 'Nano Diesel adalah aditif solar diesel berbasis nano teknologi untuk performa dan efisiensi terbaik.',
 };
 
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.nanodiesel.id';
+
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Nano Diesel',
+  url: BASE_URL,
+  logo: `${BASE_URL}/images/logo/nanodiesel-logo-brand.svg`,
+  description:
+    'Nano Diesel adalah aditif solar diesel berbasis nano teknologi untuk meningkatkan performa mesin, menghemat bahan bakar, dan memperpanjang umur mesin diesel.',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+62-21-2248-3303',
+    contactType: 'customer service',
+    availableLanguage: 'Indonesian',
+  },
+  sameAs: [
+    'https://shopee.co.id/nanodiesel',
+    'https://www.tokopedia.com/nanodiesel',
+  ],
+};
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="id" className={`${nunitoSans.variable}`}>
@@ -23,6 +45,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet"
+        />
+        {/* JSON-LD: Organization Schema — berlaku global di semua halaman */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
       </head>
       <body className="min-h-screen bg-olive-50 text-brand-copy antialiased font-sans">

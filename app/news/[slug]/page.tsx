@@ -4,6 +4,8 @@ import Link from 'next/link';
 import ArticleImage from '../../../components/ArticleImage';
 import { Metadata } from 'next';
 
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.nanodiesel.id';
+
 export const revalidate = 0;
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -82,8 +84,45 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     );
   }
 
+  // JSON-LD: Article Schema
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.excerpt || '',
+    image: post.mainImageUrl ? [post.mainImageUrl] : [],
+    url: `${BASE_URL}/news/${slug}`,
+    dateModified: post._updatedAt || new Date().toISOString(),
+    datePublished: post._createdAt || post._updatedAt || new Date().toISOString(),
+    author: [
+      {
+        '@type': 'Organization',
+        name: 'Nano Diesel',
+        url: BASE_URL,
+      },
+    ],
+    publisher: {
+      '@type': 'Organization',
+      name: 'Nano Diesel',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${BASE_URL}/images/logo/nanodiesel-logo-brand.svg`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${BASE_URL}/news/${slug}`,
+    },
+  };
+
   return (
-    <main className="pt-[72px] min-h-screen">
+    <>
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <main className="pt-[72px] min-h-screen">
       {/* Page Header */}
       <div
         className="-mt-[72px] bg-brand-dark text-white px-6 lg:px-12 pt-32 pb-20 md:pt-40 md:pb-28 relative overflow-hidden bg-cover bg-center"
@@ -137,5 +176,6 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
     </main>
+    </>
   );
 }
