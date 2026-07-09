@@ -14,25 +14,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 1,
     },
     {
-      url: `${baseUrl}/shop`,
+      url: `${baseUrl}/produk`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/news`,
+      url: `${baseUrl}/artikel`,
       lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/our-story`,
+      url: `${baseUrl}/profil`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/our-technology`,
+      url: `${baseUrl}/teknologi-kami`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
@@ -45,7 +45,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
 
   const dynamicRoutes: MetadataRoute.Sitemap = posts.map((post: any) => ({
-    url: `${baseUrl}/news/${post.slug}`,
+    url: `${baseUrl}/artikel/${post.slug}`,
     lastModified: new Date(post._updatedAt),
     changeFrequency: 'weekly',
     priority: 0.7,

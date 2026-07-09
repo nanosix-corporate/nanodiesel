@@ -14,10 +14,10 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (S, { schemaType
             const slug = (doc?.slug as any)?.current
             
             if (slug) {
-              return `${baseUrl}/news/${slug}`
+              return `${baseUrl}/artikel/${slug}`
             }
             // Jika slug belum ada (artikel baru), arahkan ke halaman utama berita
-            return `${baseUrl}/news`
+            return `${baseUrl}/artikel`
           },
           reload: {
             button: true, // Menambahkan tombol reload manual

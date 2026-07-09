@@ -233,8 +233,8 @@ export default function HomePage() {
         <div className="max-w-[1200px] mx-auto">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-16">
             <h2 className="text-fs-lg md:text-fs-xl font-headline font-black text-brand-dark">Pilih Sesuai Kebutuhan Anda</h2>
-            <a href="/shop" className="text-fs-base md:text-fs-md font-bold text-brand-dark hover:text-emerald-600 no-underline hover:underline underline-offset-4 decoration-2 decoration-emerald-600 transition-all whitespace-nowrap">
-              Lihat Semua Produk &rarr;
+            <a href="/produk" className="text-fs-base md:text-fs-md font-bold text-brand-dark hover:text-emerald-600 no-underline hover:underline underline-offset-4 decoration-2 decoration-emerald-600 transition-all whitespace-nowrap inline-flex items-center gap-1">
+              Lihat Semua Produk <span className="material-symbols-outlined text-[0.8em] font-bold">arrow_forward_ios</span>
             </a>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
@@ -274,7 +274,7 @@ export default function HomePage() {
                   </p>
                   {!product.dark && (
                     <a
-                      href={`/shop/${product.id.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '')}?from=home`}
+                      href={`/produk/${product.id.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '')}?from=home`}
                       className="inline-flex items-center gap-1 text-fs-sm font-medium text-emerald-600 hover:text-emerald-700 hover:underline underline-offset-2 transition-all my-2"
                     >
                       Lihat deskripsi produk
@@ -351,8 +351,8 @@ export default function HomePage() {
             Nano Diesel hadir sebagai solusi yang dirancang dengan presisi ilmiah. Kita memahami bahwa bahan bakar masa kini—dengan segala sifat alaminya—sering kali menghambat potensi mesin Anda. Melalui <strong className="text-brand-dark">Oxygenated Technology</strong>, kami memperbaiki apa yang tidak bisa dilakukan mesin secara alami: mengubah tetesan bahan bakar yang berat menjadi kabut halus yang sempurna.
           </p>
           <a
-            href="/our-technology"
-            className="inline-flex items-center gap-2 bg-brand-dark hover:bg-emerald-600 text-white font-bold py-3.5 px-8 rounded-xl text-sm transition-all hover:shadow-lg hover:shadow-brand-dark/20"
+            href="/teknologi-kami"
+            className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-8 rounded-full transition-all text-lg hover:shadow-lg hover:shadow-brand-dark/20"
           >
             <span className="material-symbols-outlined text-base">biotech</span>
             Lihat Teknologi Kami

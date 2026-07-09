@@ -30,7 +30,7 @@ export default function OurTechnologyPage() {
       <div className="-mt-[72px] bg-brand-white px-6 lg:px-12 pt-32 md:pt-44 pb-24 md:pb-36 relative overflow-hidden">
         <div className="max-w-[1200px] mx-auto">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-headline font-black text-brand-dark leading-tight mb-6 max-w-4xl">
-            Our Technology
+            Teknologi Kami
           </h1>
           <p className="text-xl md:text-2xl font-semibold text-brand-copy mb-6 max-w-3xl leading-snug">
             Bio Nano Aditif dengan Oxygenated Technology — dirancang khusus untuk mendukung pembakaran yang lebih bersih, efisien, dan optimal pada Mesin Diesel.
@@ -110,12 +110,20 @@ export default function OurTechnologyPage() {
       <section className="py-20 md:py-28 px-6 lg:px-12 bg-white border-t border-olive-200">
         <div className="max-w-[1200px] mx-auto">
           <h2 className="text-3xl md:text-3xl lg:text-4xl font-headline font-black text-brand-dark leading-tight mb-4">
-            Hasil Uji Terstandar
+            Ringkasan Hasil Uji Nano Diesel
           </h2>
           <p className="text-base md:text-lg text-brand-copy max-w-2xl mb-14 leading-relaxed">
             Nano Diesel telah diuji oleh lembaga riset independen. Pilih kategori untuk melihat perbandingan hasil sebelum dan sesudah penggunaan Nano Diesel.
           </p>
           <TestResultsChart />
+          <div className="mt-12 text-center">
+            <a
+              href="/bukti-uji"
+              className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-8 rounded-full transition-all text-lg hover:shadow-lg hover:shadow-brand-dark/20"
+            >
+              Lihat Bukti Uji Selengkapnya <span className="material-symbols-outlined text-[0.9em] font-bold">arrow_forward_ios</span>
+            </a>
+          </div>
         </div>
       </section>
     </main>

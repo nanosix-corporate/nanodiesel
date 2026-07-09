@@ -1,7 +1,7 @@
 export function Footer() {
   return (
     <footer className="bg-[#121E10] border-t border-olive-800/50 text-olive-400 text-sm">
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-12 py-12 md:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr] gap-10 md:gap-12 lg:gap-16">
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-12 py-12 md:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-12 lg:gap-10">
         <div className="space-y-6">
           <img src="/images/logo/nanodiesel-logo-mono-white.svg" alt="Nano Diesel" className="h-10 w-auto object-contain" />
           <p className="leading-relaxed text-white text-sm">
@@ -18,6 +18,18 @@ export function Footer() {
             <li><a href="/document/hasil-test/Lemigas - Power, Torsi dan Emisi.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">Lemigas - Power, Torsi & Emisi</a></li>
             <li><a href="/document/hasil-test/Dyno Dastek B50 - Pajero.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">Dyno Dastek B50 - Pajero</a></li>
             <li><a href="/document/hasil-test/Dyno Elika B100 - Fortuner dan Pajero.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">Dyno Elika B100 - Fortuner & Pajero</a></li>
+          </ul>
+        </div>
+
+        <div className="space-y-6">
+          <h4 className="text-white font-bold uppercase tracking-widest text-sm border-l-2 border-emerald-500 pl-3 md:border-none md:pl-0">
+            Informasi
+          </h4>
+          <ul className="space-y-3 text-white">
+            <li><a href="/bukti-uji" className="hover:text-emerald-400 transition-colors">Bukti Uji</a></li>
+            <li><a href="/cara-pakai" className="hover:text-emerald-400 transition-colors">Cara Pakai</a></li>
+            <li><a href="/faq" className="hover:text-emerald-400 transition-colors">FAQ</a></li>
+            <li><a href="/profil" className="hover:text-emerald-400 transition-colors">Profil</a></li>
           </ul>
         </div>
 

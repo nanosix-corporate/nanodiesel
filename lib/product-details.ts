@@ -350,7 +350,7 @@ const productDetails: Record<string, ProductDetail> = {
   'nano-diesel-12-botol-12x70ml': {
     id: 'Nano Diesel 12 Botol (12x70ml)',
     title: '10 Botol Gratis 2 Botol',
-    subtitle: 'BELI 10 GRATIS 2 | NanoDiesel Fleet Pack Pro 70ml - Paket Hemat Operasional Diesel',
+    subtitle: 'BELI 10 GRATIS 2 | Nano Diesel Fleet Pack Pro 70ml - Paket Hemat Operasional Diesel',
     price: 'Rp 700.000',
     description: 'Paket super hemat untuk pemakaian jangka panjang. Solusi paling ekonomis untuk armada atau stok besar.',
     image: '/images/product/product-image-6.webp',

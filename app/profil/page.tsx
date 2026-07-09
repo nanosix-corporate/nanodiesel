@@ -32,7 +32,7 @@ export default function OurStoryPage() {
       <div className="-mt-[72px] bg-brand-white px-6 lg:px-12 pt-32 md:pt-44 pb-24 md:pb-36 relative overflow-hidden">
         <div className="max-w-[1200px] mx-auto">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-headline font-black text-brand-dark leading-tight mb-6 max-w-4xl">
-            Our Story
+            Cerita Kami
           </h1>
           <p className="text-xl md:text-2xl font-semibold text-brand-copy mb-6 max-w-3xl leading-snug">
             Nano Diesel lahir dari kebutuhan nyata: membawa teknologi diesel yang lebih bersih, lebih efisien, dan lebih tangguh ke jalanan Indonesia.

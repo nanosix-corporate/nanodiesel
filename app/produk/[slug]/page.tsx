@@ -68,7 +68,7 @@ export default async function ProductDetailPage({
             Maaf, produk yang Anda cari tidak tersedia.
           </p>
           <Link
-            href="/shop"
+            href="/produk"
             className="inline-flex items-center gap-2 bg-brand-dark text-white font-bold py-3 px-6 rounded-xl text-sm hover:bg-emerald-600 transition-all"
           >
             Kembali ke Shop
@@ -97,7 +97,7 @@ export default async function ProductDetailPage({
       priceCurrency: 'IDR',
       price: price,
       availability: 'https://schema.org/InStock',
-      url: `${BASE_URL}/shop/${slug}`,
+      url: `${BASE_URL}/produk/${slug}`,
       seller: {
         '@type': 'Organization',
         name: 'Nano Diesel',
@@ -119,7 +119,7 @@ export default async function ProductDetailPage({
           <Suspense
             fallback={
               <Link
-                href="/shop"
+                href="/produk"
                 className="inline-flex items-center gap-1 text-sm text-olive-500 hover:text-emerald-600 transition-colors mb-6"
               >
                 <span className="material-symbols-outlined text-base">arrow_back</span>

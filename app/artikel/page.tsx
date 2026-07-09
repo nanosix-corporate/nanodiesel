@@ -39,7 +39,7 @@ function buildHref(category: string, searchParams: { q?: string }) {
   if (category !== 'Semua') params.set('category', category);
   if (searchParams.q) params.set('q', searchParams.q);
   const qs = params.toString();
-  return `/news${qs ? `?${qs}` : ''}`;
+  return `/artikel${qs ? `?${qs}` : ''}`;
 }
 
 export default async function NewsPage({
@@ -98,7 +98,7 @@ export default async function NewsPage({
               {posts.map((post: any) => (
                 <a
                   key={post._id}
-                  href={`/news/${post.slug?.current || '#'}`}
+                  href={`/artikel/${post.slug?.current || '#'}`}
                   className="group flex flex-col rounded-2xl border border-olive-100 bg-white overflow-hidden hover:shadow-lg hover:border-olive-200 transition-all duration-300"
                 >
                   {/* Image Thumbnail */}

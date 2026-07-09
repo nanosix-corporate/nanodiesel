@@ -6,8 +6,8 @@ import Link from 'next/link';
 export function BackButton() {
   const searchParams = useSearchParams();
   const from = searchParams.get('from');
-  const backHref = from === 'home' ? '/' : '/shop';
-  const backLabel = from === 'home' ? 'Kembali ke Beranda' : 'Kembali ke Shop';
+  const backHref = from === 'home' ? '/' : '/produk';
+  const backLabel = from === 'home' ? 'Kembali ke Beranda' : 'Kembali ke Produk';
 
   return (
     <Link

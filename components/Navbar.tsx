@@ -3,10 +3,13 @@
 import { useState } from 'react';
 
 const menu = [
-  { label: 'Shop', href: '/shop' },
-  { label: 'Our Story', href: '/our-story' },
-  { label: 'News & Update', href: '/news' },
-  { label: 'Our Technology', href: '/our-technology' },
+  { label: 'Produk', href: '/produk' },
+  { label: 'Profil', href: '/profil' },
+  { label: 'Artikel', href: '/artikel' },
+  { label: 'Teknologi Kami', href: '/teknologi-kami' },
+  { label: 'Bukti Uji', href: '/bukti-uji' },
+  { label: 'Cara Pakai', href: '/cara-pakai' },
+  { label: 'FAQ', href: '/faq' },
 ];
 
 export function Navbar() {

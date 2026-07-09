@@ -137,14 +137,14 @@ const itemListJsonLd = {
   name: 'Produk Nano Diesel — Aditif Solar Diesel',
   description:
     'Daftar produk Nano Diesel dalam berbagai kemasan untuk kendaraan dan industri.',
-  url: `${BASE_URL}/shop`,
+  url: `${BASE_URL}/produk`,
   itemListElement: shopProducts
     .filter((p) => p.slug)
     .map((p, index) => ({
       '@type': 'ListItem',
       position: index + 1,
       name: `${p.id} - Aditif Solar Nano Diesel`,
-      url: `${BASE_URL}/shop/${p.slug}`,
+      url: `${BASE_URL}/produk/${p.slug}`,
       item: {
         '@type': 'Product',
         name: `${p.id} - Aditif Solar Nano Diesel`,
@@ -249,7 +249,7 @@ export default function ShopPage() {
                     </p>
                     {!product.dark && product.slug && (
                       <Link
-                        href={`/shop/${product.slug}`}
+                        href={`/produk/${product.slug}`}
                         className="inline-flex items-center gap-1 text-xs font-medium text-emerald-600 hover:text-emerald-700 hover:underline underline-offset-2 transition-all my-2"
                       >
                         Lihat deskripsi produk

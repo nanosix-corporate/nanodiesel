@@ -18,7 +18,7 @@ export default function SearchForm({ initialQuery }: { initialQuery: string }) {
       params.delete('q');
     }
     const qs = params.toString();
-    router.push(`/news${qs ? `?${qs}` : ''}`);
+    router.push(`/artikel${qs ? `?${qs}` : ''}`);
   }
 
   return (

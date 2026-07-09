@@ -9,14 +9,14 @@ export default defineType({
       name: 'source',
       title: 'URL Lama (Source)',
       type: 'string',
-      description: 'Contoh: /news/judul-lama',
+      description: 'Contoh: /artikel/judul-lama',
       validation: (Rule) => Rule.required().regex(/^\//, { name: 'Dimulai dengan /', invert: false }),
     }),
     defineField({
       name: 'destination',
       title: 'URL Baru (Destination)',
       type: 'string',
-      description: 'Contoh: /news/judul-baru-yang-keren',
+      description: 'Contoh: /artikel/judul-baru-yang-keren',
       validation: (Rule) => Rule.required().regex(/^\//, { name: 'Dimulai dengan /', invert: false }),
     }),
     defineField({

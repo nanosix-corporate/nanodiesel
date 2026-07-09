@@ -5,9 +5,18 @@ const nextConfig = {
     const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
     const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2024-06-29';
 
+    const staticRedirects = [
+      { source: '/shop', destination: '/produk', permanent: true },
+      { source: '/shop/:path*', destination: '/produk/:path*', permanent: true },
+      { source: '/our-story', destination: '/profil', permanent: true },
+      { source: '/news', destination: '/artikel', permanent: true },
+      { source: '/news/:path*', destination: '/artikel/:path*', permanent: true },
+      { source: '/our-technology', destination: '/teknologi-kami', permanent: true },
+    ];
+
     if (!projectId || !dataset) {
       console.warn('Sanity credentials missing, skipping redirects fetch');
-      return [];
+      return staticRedirects;
     }
 
     try {
@@ -17,16 +26,16 @@ const nextConfig = {
       const res = await fetch(url);
       const json = await res.json();
       
-      const redirects = json?.result?.map((doc) => ({
+      const sanityRedirects = json?.result?.map((doc) => ({
         source: doc.source,
         destination: doc.destination,
         permanent: doc.permanent ?? true,
       })) || [];
       
-      return redirects;
+      return [...staticRedirects, ...sanityRedirects];
     } catch (error) {
       console.error('Error fetching redirects from Sanity:', error);
-      return [];
+      return staticRedirects;
     }
   },
 };
