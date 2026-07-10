@@ -2,15 +2,15 @@ import { client } from '../../sanity/client';
 import ArticleImage from '../../components/ArticleImage';
 import SearchForm from './SearchForm';
 import Link from 'next/link';
-import { Metadata } from 'next';
+import { generateSeoMetadata } from '../../lib/seo';
 
 export const revalidate = 0;
 
-export const metadata: Metadata = {
-  title: 'Berita & Artikel | Nano Diesel',
-  description: 'Baca berita, artikel, dan edukasi terbaru seputar perawatan mesin diesel, aditif solar terbaik, dan cara hemat bbm.',
-  keywords: 'aditif solar terbaik, aditif bahan bakar, hemat bbm diesel, solar murah jadi rasa premium',
-};
+export const metadata = generateSeoMetadata({
+  title: 'Artikel & Edukasi Aditif Solar Diesel | Nano Diesel',
+  description: 'Panduan lengkap aditif bahan bakar solar: cara kerja, manfaat, dan tips hemat BBM mesin diesel.',
+  path: '/artikel',
+});
 
 const categories = ['Semua', 'Pembaruan Produk', 'Berita Industri', 'Studi Kasus', 'Tips & Edukasi'];
 

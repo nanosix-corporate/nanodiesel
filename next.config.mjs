@@ -10,7 +10,7 @@ const nextConfig = {
       { source: '/shop/:path*', destination: '/produk/:path*', permanent: true },
       { source: '/our-story', destination: '/profil', permanent: true },
       { source: '/news', destination: '/artikel', permanent: true },
-      { source: '/news/:path*', destination: '/artikel/:path*', permanent: true },
+      { source: '/news/:path*', destination: '/artikel', permanent: true },
       { source: '/our-technology', destination: '/teknologi-kami', permanent: true },
     ];
 

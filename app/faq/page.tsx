@@ -1,17 +1,11 @@
-import { Metadata } from 'next';
 import Link from 'next/link';
+import { generateSeoMetadata } from '../../lib/seo';
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.nanodiesel.id';
-
-export const metadata: Metadata = {
-  title: 'Aditif Solar Diesel Adalah? FAQ & Cara Pakai Aditif Solar',
-  description: 'Cari tahu apa aditif solar diesel adalah & manfaatnya. Temukan panduan lengkap cara pakai aditif solar dengan benar di halaman FAQ kami. Kunjungi sekarang!',
-  openGraph: {
-    title: 'Aditif Solar Diesel Adalah? FAQ & Cara Pakai Aditif Solar',
-    description: 'Cari tahu apa aditif solar diesel adalah & manfaatnya. Temukan panduan lengkap cara pakai aditif solar dengan benar di halaman FAQ kami. Kunjungi sekarang!',
-    siteName: 'Nano Diesel',
-  },
-};
+export const metadata = generateSeoMetadata({
+  title: 'FAQ Aditif Solar Diesel — Pertanyaan Umum | Nano Diesel',
+  description: 'Jawaban lengkap: apa itu aditif solar, dosis, kompatibilitas common rail, dan manfaat untuk biosolar B35 B40.',
+  path: '/faq',
+});
 
 const faqs = [
   {

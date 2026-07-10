@@ -6,6 +6,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.nanodiesel.id'
 export const metadata: Metadata = {
   title: 'Cara Pakai Nano Diesel',
   description: 'Cara pakai Nano Diesel: takaran 1mL per 1L bahan bakar, tanpa bongkar mesin. Panduan lengkap untuk semua jenis diesel B30-B100.',
+  alternates: { canonical: 'https://www.nanodiesel.id/cara-pakai' },
   openGraph: {
     title: 'Cara Pakai Nano Diesel',
     description: 'Cara pakai Nano Diesel: takaran 1mL per 1L bahan bakar, tanpa bongkar mesin. Panduan lengkap untuk semua jenis diesel B30-B100.',

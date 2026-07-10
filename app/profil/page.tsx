@@ -2,8 +2,9 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: 'Profil Perusahaan',
-  description: 'Cerita dan visi Nano Diesel — aditif solar diesel berbasis nano teknologi yang lahir dari kebutuhan nyata pengguna diesel di Indonesia.',
+  title: 'Tentang Kami | Nano Diesel Indonesia',
+  description: 'Mengenal Nano Diesel — produsen aditif bahan bakar solar berbasis teknologi nano untuk industri dan kendaraan diesel Indonesia.',
+  alternates: { canonical: 'https://www.nanodiesel.id/profil' },
   openGraph: {
     title: 'Profil Perusahaan Nano Diesel',
     description: 'Cerita dan visi Nano Diesel — lahir dari kebutuhan nyata: membawa teknologi diesel yang lebih bersih, efisien, dan tangguh ke jalanan Indonesia.',

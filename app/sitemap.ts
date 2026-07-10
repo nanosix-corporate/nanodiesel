@@ -1,79 +1,27 @@
 import { MetadataRoute } from 'next'
-import { client } from '../sanity/client'
+import { getAllSlugs } from '../lib/product-details'
 
-export const revalidate = 0; // Ensures sitemap is updated dynamically when a new post is published
+const baseUrl = 'https://www.nanodiesel.id'
+const lastmod = new Date('2026-07-10')
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.nanodiesel.id'
-
   const staticRoutes: MetadataRoute.Sitemap = [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/produk`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/artikel`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/profil`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/teknologi-kami`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/bukti-uji`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/cara-pakai`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/faq`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/kalkulator-hemat-bbm`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
+    { url: baseUrl, lastModified: lastmod, changeFrequency: 'weekly', priority: 1 },
+    { url: `${baseUrl}/produk`, lastModified: lastmod, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${baseUrl}/teknologi-kami`, lastModified: lastmod, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/bukti-uji`, lastModified: lastmod, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/artikel`, lastModified: lastmod, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${baseUrl}/faq`, lastModified: lastmod, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${baseUrl}/profil`, lastModified: lastmod, changeFrequency: 'yearly', priority: 0.5 },
   ]
 
-  // Fetch dynamic posts from Sanity
-  const posts = await client.fetch(
-    `*[_type == "post" && defined(slug.current)]{ "slug": slug.current, _updatedAt }`
-  );
-
-  const dynamicRoutes: MetadataRoute.Sitemap = posts.map((post: any) => ({
-    url: `${baseUrl}/artikel/${post.slug}`,
-    lastModified: new Date(post._updatedAt),
+  const productSlugs = getAllSlugs()
+  const productRoutes: MetadataRoute.Sitemap = productSlugs.map((slug) => ({
+    url: `${baseUrl}/produk/${slug}`,
+    lastModified: lastmod,
     changeFrequency: 'weekly',
-    priority: 0.7,
-  }));
+    priority: 0.9,
+  }))
 
-  return [...staticRoutes, ...dynamicRoutes]
+  return [...staticRoutes, ...productRoutes]
 }

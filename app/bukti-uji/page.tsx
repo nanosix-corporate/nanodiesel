@@ -1,17 +1,11 @@
-import { Metadata } from 'next';
 import Link from 'next/link';
+import { generateSeoMetadata, BASE_URL } from '../../lib/seo';
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.nanodiesel.id';
-
-export const metadata: Metadata = {
-  title: 'Bukti Aditif Solar & Hasil Uji Aditif Diesel Resmi',
-  description: 'Lihat langsung bukti aditif solar Nano Diesel dari lab resmi. Hasil uji aditif diesel menunjukkan peningkatan performa dan efisiensi. Cek laporannya!',
-  openGraph: {
-    title: 'Bukti Aditif Solar & Hasil Uji Aditif Diesel Resmi',
-    description: 'Lihat langsung bukti aditif solar Nano Diesel dari lab resmi. Hasil uji aditif diesel menunjukkan peningkatan performa dan efisiensi. Cek laporannya!',
-    siteName: 'Nano Diesel',
-  },
-};
+export const metadata = generateSeoMetadata({
+  title: 'Hasil Uji & Bukti Nyata Aditif Solar Nano Diesel | Data Lapangan',
+  description: 'Lihat data uji independen efisiensi BBM, pengurangan emisi, dan performa mesin diesel setelah menggunakan Nano Diesel.',
+  path: '/bukti-uji',
+});
 
 const jsonLd = {
   '@context': 'https://schema.org',

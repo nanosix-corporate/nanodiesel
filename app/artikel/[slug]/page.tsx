@@ -11,7 +11,7 @@ export const revalidate = 0;
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const post = await client.fetch(
-    `*[_type == "post" && slug.current == $slug][0] { title, excerpt, seo { ..., "metaImageUrl": metaImage.asset->url, openGraph { ..., "imageUrl": image.asset->url } } }`,
+    `*[_type == "post" && slug.current == $slug][0] { title, excerpt, seo { metaTitle, metaDescription, canonicalUrl, seoKeywords, "metaImageUrl": metaImage.asset->url, openGraph { title, description, siteName, "imageUrl": image.asset->url }, twitter { cardType, site, creator } } }`,
     { slug }
   );
 
@@ -21,14 +21,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   const defaultDesc = 'Baca artikel dan edukasi terbaru seputar perawatan mesin diesel, aditif solar terbaik, dan cara hemat bbm.';
   const defaultKeywords = ['aditif solar terbaik', 'aditif bahan bakar', 'hemat bbm diesel', 'solar murah jadi rasa premium'];
+  const canonical = post.seo?.canonicalUrl ?? `https://www.nanodiesel.id/artikel/${slug}`;
 
   return {
     title: post.seo?.metaTitle || `${post.title} | Nano Diesel`,
     description: post.seo?.metaDescription || post.excerpt || defaultDesc,
+    alternates: { canonical },
     keywords: post.seo?.seoKeywords || defaultKeywords,
     openGraph: {
       title: post.seo?.openGraph?.title || post.seo?.metaTitle || post.title,
       description: post.seo?.openGraph?.description || post.seo?.metaDescription || post.excerpt || defaultDesc,
+      url: canonical,
       siteName: post.seo?.openGraph?.siteName || 'Nano Diesel',
       images: post.seo?.openGraph?.imageUrl || post.seo?.metaImageUrl ? [
         {

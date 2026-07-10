@@ -1,29 +1,13 @@
-import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ShopModalController } from '../../components/ShopModalController';
+import { generateSeoMetadata, BASE_URL } from '../../lib/seo';
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.nanodiesel.id';
-
-export const metadata: Metadata = {
-  title: 'Jual Aditif Solar Terbaik | Cek Harga Aditif Solar',
-  description:
-    'Sedang cari yang jual aditif solar berkualitas? Temukan harga aditif solar Nano Diesel yang terjangkau. Pesan hari ini untuk merawat mesin diesel Anda!',
-  keywords: [
-    'beli aditif solar',
-    'nano diesel harga',
-    'aditif diesel murah',
-    'hemat bbm diesel',
-    'paket aditif solar',
-  ],
-  openGraph: {
-    title: 'Jual Aditif Solar Terbaik | Cek Harga Aditif Solar',
-    description:
-      'Sedang cari yang jual aditif solar berkualitas? Temukan harga aditif solar Nano Diesel yang terjangkau. Pesan hari ini untuk merawat mesin diesel Anda!',
-    siteName: 'Nano Diesel',
-    images: [{ url: `${BASE_URL}/images/shop-banner.webp` }],
-  },
-};
+export const metadata = generateSeoMetadata({
+  title: 'Harga Aditif Solar Diesel Nano Diesel | Beli Online Indonesia',
+  description: 'Beli aditif solar diesel Nano Diesel mulai 1 botol 70ml. Pengiriman ke seluruh Indonesia.',
+  path: '/produk',
+});
 
 // Data produk didefinisikan di server — tidak ada 'use client'
 export const shopProducts = [

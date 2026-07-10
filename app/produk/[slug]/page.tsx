@@ -29,9 +29,12 @@ export async function generateMetadata({
     return { title: 'Produk Tidak Ditemukan | Nano Diesel' };
   }
 
+  const canonical = `https://www.nanodiesel.id/produk/${slug}`;
+
   return {
     title: `Beli Aditif Solar ${product.title} - Nano Diesel Original`,
     description: `Beli aditif solar ${product.title.toLowerCase()} dari Nano Diesel. Praktis untuk pemakaian, hemat BBM, dan bersihkan injektor. Pesan sekarang untuk mesin awet!`,
+    alternates: { canonical },
     keywords: [
       'aditif solar',
       'aditif diesel',
@@ -44,6 +47,7 @@ export async function generateMetadata({
     openGraph: {
       title: `Beli Aditif Solar ${product.title} - Nano Diesel Original`,
       description: `Beli aditif solar ${product.title.toLowerCase()} dari Nano Diesel. Praktis untuk pemakaian, hemat BBM, dan bersihkan injektor. Pesan sekarang untuk mesin awet!`,
+      url: canonical,
       siteName: 'Nano Diesel',
       images: [{ url: `${BASE_URL}${product.image}` }],
     },

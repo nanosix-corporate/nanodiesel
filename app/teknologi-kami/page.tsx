@@ -1,15 +1,11 @@
-import { Metadata } from 'next';
 import TestResultsChart from '../../components/TestResultsChart';
+import { generateSeoMetadata } from '../../lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Teknologi Aditif Solar & Cara Kerja Aditif Diesel',
-  description: 'Pelajari teknologi aditif solar dari Nano Diesel. Temukan cara kerja aditif diesel membersihkan mesin & menghemat BBM. Baca selengkapnya di sini!',
-  openGraph: {
-    title: 'Teknologi Aditif Solar & Cara Kerja Aditif Diesel',
-    description: 'Pelajari teknologi aditif solar dari Nano Diesel. Temukan cara kerja aditif diesel membersihkan mesin & menghemat BBM. Baca selengkapnya di sini!',
-    siteName: 'Nano Diesel',
-  },
-};
+export const metadata = generateSeoMetadata({
+  title: 'Teknologi Nano Aditif Solar Diesel | Cara Kerja Nano Diesel',
+  description: 'Pelajari bagaimana formula Bio Nano Aditif dengan Oxygenated Technology meningkatkan pembakaran solar diesel.',
+  path: '/teknologi-kami',
+});
 
 
 export default function OurTechnologyPage() {
