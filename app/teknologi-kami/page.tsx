@@ -1,4 +1,16 @@
+import { Metadata } from 'next';
 import TestResultsChart from '../../components/TestResultsChart';
+
+export const metadata: Metadata = {
+  title: 'Teknologi Aditif Solar & Cara Kerja Aditif Diesel',
+  description: 'Pelajari teknologi aditif solar dari Nano Diesel. Temukan cara kerja aditif diesel membersihkan mesin & menghemat BBM. Baca selengkapnya di sini!',
+  openGraph: {
+    title: 'Teknologi Aditif Solar & Cara Kerja Aditif Diesel',
+    description: 'Pelajari teknologi aditif solar dari Nano Diesel. Temukan cara kerja aditif diesel membersihkan mesin & menghemat BBM. Baca selengkapnya di sini!',
+    siteName: 'Nano Diesel',
+  },
+};
+
 
 export default function OurTechnologyPage() {
   const features = [
@@ -58,7 +70,7 @@ export default function OurTechnologyPage() {
             <div className="relative">
               <div className="absolute -inset-4 rounded-3xl blur-sm" />
               <div className="relative rounded-2xl overflow-hidden h-[250px] md:h-[400px]">
-                <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+                <video autoPlay loop muted playsInline preload="auto" poster="/images/og-image.webp" className="w-full h-full object-cover">
                   <source src="/video/technology.webm" type="video/webm" />
                 </video>
               </div>

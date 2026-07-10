@@ -23,7 +23,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}/artikel`,
       lastModified: new Date(),
       changeFrequency: 'daily',
-      priority: 0.9,
+      priority: 0.7,
     },
     {
       url: `${baseUrl}/profil`,
@@ -33,6 +33,30 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${baseUrl}/teknologi-kami`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/bukti-uji`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/cara-pakai`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/faq`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/kalkulator-hemat-bbm`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,

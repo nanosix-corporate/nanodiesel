@@ -4,11 +4,11 @@ import Link from 'next/link';
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.nanodiesel.id';
 
 export const metadata: Metadata = {
-  title: 'FAQ - Pertanyaan Umum Nano Diesel',
-  description: 'Pertanyaan yang sering diajukan mengenai Nano Diesel: keamanan mesin, cara kerja, peningkatan performa, cara pakai, hingga garansi mobil.',
+  title: 'Aditif Solar Diesel Adalah? FAQ & Cara Pakai Aditif Solar',
+  description: 'Cari tahu apa aditif solar diesel adalah & manfaatnya. Temukan panduan lengkap cara pakai aditif solar dengan benar di halaman FAQ kami. Kunjungi sekarang!',
   openGraph: {
-    title: 'FAQ - Pertanyaan Umum Nano Diesel',
-    description: 'Pertanyaan yang sering diajukan mengenai Nano Diesel: keamanan mesin, cara kerja, peningkatan performa, cara pakai, hingga garansi mobil.',
+    title: 'Aditif Solar Diesel Adalah? FAQ & Cara Pakai Aditif Solar',
+    description: 'Cari tahu apa aditif solar diesel adalah & manfaatnya. Temukan panduan lengkap cara pakai aditif solar dengan benar di halaman FAQ kami. Kunjungi sekarang!',
     siteName: 'Nano Diesel',
   },
 };

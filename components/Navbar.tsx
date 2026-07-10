@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 const menu = [
   { label: 'Produk', href: '/produk' },
@@ -19,7 +20,7 @@ export function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-olive-200/50 glass-panel font-manrope text-fs-nav font-semibold tracking-wide">
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-4 nav:px-12">
         <a href="/" className="flex items-center gap-3">
-          <img src="/images/logo/nanodiesel-logo-brand.svg" alt="Nano Diesel" className="h-10 w-auto object-contain" />
+          <Image src="/images/logo/nanodiesel-logo-brand.svg" alt="Nano Diesel" width={160} height={40} className="h-10 w-auto object-contain" priority />
         </a>
 
         <nav className="hidden nav:flex items-center gap-8 text-brand-dark">

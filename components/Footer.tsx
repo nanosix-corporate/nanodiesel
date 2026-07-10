@@ -1,9 +1,12 @@
+import Link from 'next/link';
+import Image from 'next/image';
+
 export function Footer() {
   return (
     <footer className="bg-[#121E10] border-t border-olive-800/50 text-olive-400 text-sm">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12 py-12 md:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-12 lg:gap-10">
         <div className="space-y-6">
-          <img src="/images/logo/nanodiesel-logo-mono-white.svg" alt="Nano Diesel" className="h-10 w-auto object-contain" />
+          <Image src="/images/logo/nanodiesel-logo-mono-white.svg" alt="Nano Diesel" width={160} height={40} className="h-10 w-auto object-contain" />
           <p className="leading-relaxed text-white text-sm">
             Solusi Aditif Solar & Cetane Booster berteknologi nano untuk menaklukkan batasan Biodiesel B35 dan B50. Bersih, mesin bertenaga, uang terjaga.
           </p>

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 interface OrderModalProps {
   open: boolean;
   onClose: () => void;
@@ -50,7 +51,7 @@ export function OrderModal({ open, onClose, product }: OrderModalProps) {
                 className="flex items-center justify-between rounded-2xl bg-olive-900 px-4 py-4 text-white transition hover:bg-emerald-600"
               >
                 <div className="flex items-center gap-3">
-                  <img src="/images/icon/shopee_icon.svg" alt="Shopee" className="h-6 w-6 object-contain" />
+                  <Image src="/images/icon/shopee_icon.svg" alt="Shopee" width={24} height={24} className="object-contain" />
                   <span className="font-semibold">Beli di Shopee</span>
                 </div>
                 <span className="material-symbols-outlined">arrow_forward</span>
@@ -64,7 +65,7 @@ export function OrderModal({ open, onClose, product }: OrderModalProps) {
                 className="flex items-center justify-between rounded-2xl bg-olive-900 px-4 py-4 text-white transition hover:bg-emerald-600"
               >
                 <div className="flex items-center gap-3">
-                  <img src="/images/icon/tokopedia_icon.svg" alt="Tokopedia" className="h-6 w-6 object-contain" />
+                  <Image src="/images/icon/tokopedia_icon.svg" alt="Tokopedia" width={24} height={24} className="object-contain" />
                   <span className="font-semibold">Beli di Tokopedia</span>
                 </div>
                 <span className="material-symbols-outlined">arrow_forward</span>
@@ -77,7 +78,7 @@ export function OrderModal({ open, onClose, product }: OrderModalProps) {
               className="flex items-center justify-between rounded-2xl border border-emerald-600 bg-white px-4 py-4 text-brand-dark transition hover:bg-emerald-50"
             >
               <div className="flex items-center gap-3">
-                <img src="/images/icon/whatsapp_icon.svg" alt="WhatsApp" className="h-6 w-6 object-contain" />
+                <Image src="/images/icon/whatsapp_icon.svg" alt="WhatsApp" width={24} height={24} className="object-contain" />
                 <span className="font-semibold">Hubungi WA</span>
               </div>
               <span className="material-symbols-outlined">arrow_forward</span>

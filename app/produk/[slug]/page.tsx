@@ -30,8 +30,8 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${product.subtitle} | Nano Diesel`,
-    description: product.description,
+    title: `Beli Aditif Solar ${product.title} - Nano Diesel Original`,
+    description: `Beli aditif solar ${product.title.toLowerCase()} dari Nano Diesel. Praktis untuk pemakaian, hemat BBM, dan bersihkan injektor. Pesan sekarang untuk mesin awet!`,
     keywords: [
       'aditif solar',
       'aditif diesel',
@@ -39,10 +39,11 @@ export async function generateMetadata({
       product.title,
       'hemat bbm',
       'aditif bahan bakar diesel',
+      `beli aditif solar ${product.title.toLowerCase()}`
     ],
     openGraph: {
-      title: `${product.subtitle} | Nano Diesel`,
-      description: product.description,
+      title: `Beli Aditif Solar ${product.title} - Nano Diesel Original`,
+      description: `Beli aditif solar ${product.title.toLowerCase()} dari Nano Diesel. Praktis untuk pemakaian, hemat BBM, dan bersihkan injektor. Pesan sekarang untuk mesin awet!`,
       siteName: 'Nano Diesel',
       images: [{ url: `${BASE_URL}${product.image}` }],
     },

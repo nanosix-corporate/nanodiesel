@@ -1,3 +1,16 @@
+import { Metadata } from 'next';
+import Image from 'next/image';
+
+export const metadata: Metadata = {
+  title: 'Profil Perusahaan',
+  description: 'Cerita dan visi Nano Diesel — aditif solar diesel berbasis nano teknologi yang lahir dari kebutuhan nyata pengguna diesel di Indonesia.',
+  openGraph: {
+    title: 'Profil Perusahaan Nano Diesel',
+    description: 'Cerita dan visi Nano Diesel — lahir dari kebutuhan nyata: membawa teknologi diesel yang lebih bersih, efisien, dan tangguh ke jalanan Indonesia.',
+    siteName: 'Nano Diesel',
+  },
+};
+
 export default function OurStoryPage() {
   const pillars = [
     {
@@ -110,7 +123,7 @@ export default function OurStoryPage() {
               target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-2.5 bg-white border-2 border-brand-dark text-brand-dark font-bold py-3.5 px-7 rounded-xl text-sm transition-all hover:shadow-lg hover:bg-olive-100"
             >
-              <img src="/images/icon/shopee_icon.svg" alt="Shopee" className="w-5 h-5 object-contain" />
+              <Image src="/images/icon/shopee_icon.svg" alt="Shopee" width={20} height={20} className="object-contain" />
               Shopee Official Store
             </a>
             <a
@@ -118,7 +131,7 @@ export default function OurStoryPage() {
               target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-2.5 bg-white border-2 border-brand-dark text-brand-dark font-bold py-3.5 px-7 rounded-xl text-sm transition-all hover:shadow-lg hover:bg-olive-100"
             >
-              <img src="/images/icon/tokopedia_icon.svg" alt="Tokopedia" className="w-5 h-5 object-contain" />
+              <Image src="/images/icon/tokopedia_icon.svg" alt="Tokopedia" width={20} height={20} className="object-contain" />
               Tokopedia Official Store
             </a>
             <a

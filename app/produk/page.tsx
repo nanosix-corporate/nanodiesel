@@ -1,13 +1,14 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ShopModalController } from '../../components/ShopModalController';
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.nanodiesel.id';
 
 export const metadata: Metadata = {
-  title: 'Shop | Pilih Produk Nano Diesel',
+  title: 'Jual Aditif Solar Terbaik | Cek Harga Aditif Solar',
   description:
-    'Beli Nano Diesel aditif solar diesel dalam berbagai kemasan — 1 botol, 2 botol, paket hemat, hingga drum industri. Tersedia di Shopee & Tokopedia.',
+    'Sedang cari yang jual aditif solar berkualitas? Temukan harga aditif solar Nano Diesel yang terjangkau. Pesan hari ini untuk merawat mesin diesel Anda!',
   keywords: [
     'beli aditif solar',
     'nano diesel harga',
@@ -16,9 +17,9 @@ export const metadata: Metadata = {
     'paket aditif solar',
   ],
   openGraph: {
-    title: 'Shop Nano Diesel — Aditif Solar Terbaik',
+    title: 'Jual Aditif Solar Terbaik | Cek Harga Aditif Solar',
     description:
-      'Berbagai paket Nano Diesel untuk kendaraan pribadi, armada, hingga industri. Hemat BBM & performa mesin optimal.',
+      'Sedang cari yang jual aditif solar berkualitas? Temukan harga aditif solar Nano Diesel yang terjangkau. Pesan hari ini untuk merawat mesin diesel Anda!',
     siteName: 'Nano Diesel',
     images: [{ url: `${BASE_URL}/images/shop-banner.webp` }],
   },
@@ -171,21 +172,29 @@ export default function ShopPage() {
 
       <main className="pt-[72px] min-h-screen">
         {/* Page Header */}
-        <div className="-mt-[72px] bg-brand-dark text-brand-white px-6 lg:px-12 pt-28 md:pt-40 pb-20 md:pb-28 relative overflow-hidden bg-[url('/images/shop-banner.webp')] bg-cover bg-center">
+        <div className="-mt-[72px] bg-brand-dark text-brand-white px-6 lg:px-12 pt-28 md:pt-40 pb-16 md:pb-20 relative overflow-hidden bg-[url('/images/shop-banner.webp')] bg-cover bg-center">
           <div className="absolute inset-0 bg-gradient-to-r from-[#121212] via-[#121212]/70 to-transparent" />
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-emerald-500/5 rounded-full blur-3xl" />
           <div className="max-w-[1200px] mx-auto text-left relative z-10">
-            <div className="max-w-4xl">
+            <div className="max-w-3xl">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-headline font-extrabold text-brand-white leading-tight mb-6">
                 Pilih Sesuai Kebutuhan Anda
               </h1>
-              <p className="text-base md:text-lg text-olive-300 leading-relaxed max-w-2xl">
-                Nano Diesel tersedia dalam berbagai kemasan untuk kendaraan
-                pribadi, armada, hingga industri berskala besar.
+              <p className="text-base md:text-lg text-olive-300 leading-relaxed max-w-2xl mb-8">
+                Cari kemasan Nano Diesel yang tepat untuk kendaraan atau industri Anda? Jangan dikira-kira. Yuk, hitung pasti hematnya tiap bulan pakai Kalkulator Hemat BBM berbasis data uji resmi LEMIGAS!
               </p>
+              <Link
+                href="/kalkulator-hemat-bbm"
+                className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-8 rounded-2xl text-sm md:text-base transition-all hover:shadow-lg hover:shadow-emerald-600/25 group"
+              >
+                Coba Kalkulator Hemat BBM
+                <span className="material-symbols-outlined text-[1em] transition-transform group-hover:translate-x-1">arrow_forward</span>
+              </Link>
             </div>
           </div>
         </div>
+
+
 
         {/* Product Grid */}
         <section className="py-16 md:py-24 px-6 lg:px-12 bg-olive-50 border-t border-olive-200">
@@ -194,56 +203,52 @@ export default function ShopPage() {
               {shopProducts.map((product) => (
                 <div
                   key={product.id}
-                  className={`rounded-2xl overflow-hidden transition-all duration-300 flex flex-col relative ${
-                    product.dark
-                      ? 'bg-brand-dark shadow-lg shadow-black/20'
-                      : 'bg-white border border-olive-200 shadow-sm hover:shadow-xl hover:border-emerald-200'
-                  }`}
+                  className={`rounded-2xl overflow-hidden transition-all duration-300 flex flex-col relative ${product.dark
+                    ? 'bg-brand-dark shadow-lg shadow-black/20'
+                    : 'bg-white border border-olive-200 shadow-sm hover:shadow-xl hover:border-emerald-200'
+                    }`}
                 >
                   {product.badge && (
                     <div
-                      className={`absolute top-3 right-3 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider z-10 shadow-lg ${
-                        product.badge === 'Best Seller'
-                          ? 'bg-emerald-600'
-                          : product.badge === 'B2B'
+                      className={`absolute top-3 right-3 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider z-10 shadow-lg ${product.badge === 'Best Seller'
+                        ? 'bg-emerald-600'
+                        : product.badge === 'B2B'
                           ? 'bg-brand-dark border border-emerald-500/40 text-emerald-400'
                           : 'bg-amber-500'
-                      }`}
+                        }`}
                     >
                       {product.badge}
                     </div>
                   )}
                   <div
-                    className={`aspect-[4/3] relative overflow-hidden ${
-                      product.dark ? 'bg-brand-darkest' : 'bg-olive-100'
-                    }`}
+                    className={`aspect-[4/3] relative overflow-hidden ${product.dark ? 'bg-brand-darkest' : 'bg-olive-100'
+                      }`}
                   >
-                    <img
+                    <Image
                       src={product.image}
                       alt={product.title}
-                      className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+                      fill
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                      className="object-cover object-center transition-transform duration-500 hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/40 to-transparent" />
                   </div>
                   <div className="p-3 flex-grow flex flex-col gap-1">
                     <h3
-                      className={`text-xs md:text-sm font-bold font-headline leading-tight line-clamp-2 ${
-                        product.dark ? 'text-white' : 'text-brand-dark'
-                      }`}
+                      className={`text-xs md:text-sm font-bold font-headline leading-tight line-clamp-2 ${product.dark ? 'text-white' : 'text-brand-dark'
+                        }`}
                     >
                       {product.title}
                     </h3>
                     <span
-                      className={`text-xs font-medium ${
-                        product.dark ? 'text-olive-400/70' : 'text-olive-400'
-                      }`}
+                      className={`text-xs font-medium ${product.dark ? 'text-olive-400/70' : 'text-olive-400'
+                        }`}
                     >
                       {product.subtitle}
                     </span>
                     <p
-                      className={`text-xs leading-relaxed line-clamp-1 ${
-                        product.dark ? 'text-olive-400' : 'text-brand-copy/80'
-                      }`}
+                      className={`text-xs leading-relaxed line-clamp-1 ${product.dark ? 'text-olive-400' : 'text-brand-copy/80'
+                        }`}
                     >
                       {product.description}
                     </p>
@@ -327,10 +332,12 @@ export default function ShopPage() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-2.5 bg-white hover:bg-olive-100 text-brand-dark font-bold py-3.5 px-7 rounded-xl text-sm transition-all hover:shadow-lg"
                   >
-                    <img
+                    <Image
                       src="/images/icon/shopee_icon.svg"
                       alt="Shopee"
-                      className="w-5 h-5 object-contain"
+                      width={20}
+                      height={20}
+                      className="object-contain"
                     />
                     Shopee Official Store
                   </a>
@@ -340,10 +347,12 @@ export default function ShopPage() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-2.5 bg-white hover:bg-olive-100 text-brand-dark font-bold py-3.5 px-7 rounded-xl text-sm transition-all hover:shadow-lg"
                   >
-                    <img
+                    <Image
                       src="/images/icon/tokopedia_icon.svg"
                       alt="Tokopedia"
-                      className="w-5 h-5 object-contain"
+                      width={20}
+                      height={20}
+                      className="object-contain"
                     />
                     Tokopedia Official Store
                   </a>

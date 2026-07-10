@@ -4,11 +4,11 @@ import Link from 'next/link';
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.nanodiesel.id';
 
 export const metadata: Metadata = {
-  title: 'Bukti Uji Nano Diesel',
-  description: 'Bukti uji Nano Diesel: hasil dyno LC200, Fortuner, Pajero Sport Dakar, data LEMIGAS & PT Mutuagung Lestari dengan nomor LHU lengkap.',
+  title: 'Bukti Aditif Solar & Hasil Uji Aditif Diesel Resmi',
+  description: 'Lihat langsung bukti aditif solar Nano Diesel dari lab resmi. Hasil uji aditif diesel menunjukkan peningkatan performa dan efisiensi. Cek laporannya!',
   openGraph: {
-    title: 'Bukti Uji Nano Diesel',
-    description: 'Bukti uji Nano Diesel: hasil dyno LC200, Fortuner, Pajero Sport Dakar, data LEMIGAS & PT Mutuagung Lestari dengan nomor LHU lengkap.',
+    title: 'Bukti Aditif Solar & Hasil Uji Aditif Diesel Resmi',
+    description: 'Lihat langsung bukti aditif solar Nano Diesel dari lab resmi. Hasil uji aditif diesel menunjukkan peningkatan performa dan efisiensi. Cek laporannya!',
     siteName: 'Nano Diesel',
   },
 };
