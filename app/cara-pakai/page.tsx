@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': ['HowTo', 'Product'],
+  '@type': 'HowTo',
   name: 'Cara Pakai Nano Diesel',
   description: 'Panduan lengkap cara menggunakan aditif Nano Diesel pada tangki bahan bakar kendaraan.',
   step: [
