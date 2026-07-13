@@ -19,6 +19,7 @@ export function Footer() {
           <ul className="space-y-3 text-white">
             <li><a href="/document/hasil-test/Lemigas - Kualitas Bahan Bakar.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">Lemigas - Kualitas Bahan Bakar</a></li>
             <li><a href="/document/hasil-test/Lemigas - Power, Torsi dan Emisi.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">Lemigas - Power, Torsi & Emisi</a></li>
+            <li><a href="/document/hasil-test/Mutu Agung.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">Mutu Agung</a></li>
             <li><a href="/document/hasil-test/Dyno Dastek B50 - Pajero.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">Dyno Dastek B50 - Pajero</a></li>
             <li><a href="/document/hasil-test/Dyno Elika B100 - Fortuner dan Pajero.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">Dyno Elika B100 - Fortuner & Pajero</a></li>
           </ul>

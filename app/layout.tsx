@@ -78,7 +78,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_balance_wallet,agriculture,arrow_back,arrow_forward,arrow_forward_ios,article,biotech,bolt,calculate,chat,cleaning_services,close,directions_bus,directions_car,eco,image,local_fire_department,local_gas_station,local_shipping,oil_barrel,science,search,shield_with_heart,shopping_cart,speed,swipe_left,verified,water_drop&display=block"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_balance_wallet,agriculture,arrow_back,arrow_forward,arrow_forward_ios,article,biotech,bolt,calculate,chat,cleaning_services,close,directions_bus,directions_car,eco,image,local_fire_department,local_gas_station,local_shipping,menu,oil_barrel,science,search,shield_with_heart,shopping_cart,speed,swipe_left,verified,water_drop&display=block"
           rel="stylesheet"
         />
         {/* JSON-LD: Organization Schema — berlaku global di semua halaman */}

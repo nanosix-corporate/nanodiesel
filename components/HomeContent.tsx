@@ -295,7 +295,7 @@ export default function HomeContent() {
                         <a
                           href={`https://wa.me/622122483303?text=Halo%20Nano%20Diesel%2C%20saya%20ingin%20bertanya%20mengenai%20produk%20${encodeURIComponent(product.wa)}`}
                           target="_blank" rel="noreferrer"
-                          className="w-full py-2 px-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg text-fs-base md:text-sm text-center transition-all hover:shadow-lg hover:shadow-emerald-600/20 block"
+                          className="w-full py-2 px-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg                           text-xs md:text-sm text-center transition-all hover:shadow-lg hover:shadow-emerald-600/20 block"
                         >
                           Hubungi via WhatsApp
                         </a>
@@ -308,7 +308,7 @@ export default function HomeContent() {
                         <button
                           type="button"
                           onClick={() => { setSelectedProduct(product); setModalOpen(true); }}
-                          className="w-full py-2 px-3 bg-brand-dark hover:bg-emerald-600 text-white font-bold rounded-lg text-[11px] md:text-xs transition-all"
+                          className="w-full py-2 px-3 bg-brand-dark hover:bg-emerald-600 text-white font-bold rounded-lg                           text-xs md:text-sm transition-all"
                         >
                           Beli Sekarang
                         </button>
@@ -467,9 +467,6 @@ export default function HomeContent() {
 
       {/* ── CTA Section ── */}
       <section className="py-16 md:py-24 px-6 lg:px-12 bg-brand-dark relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <Image src="/images/engine_tech.png" fill className="object-cover mix-blend-screen" alt="" aria-hidden="true" sizes="100vw" quality={60} />
-        </div>
         <div className="max-w-[px] mx-auto text-center relative z-10">
           <h2 className="text-2xl md:text-5xl font-headline font-black text-white mb-6">
             Beli Aditif Solar Diesel Terbaik Sekarang
