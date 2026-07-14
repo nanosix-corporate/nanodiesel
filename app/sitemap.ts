@@ -4,6 +4,8 @@ import { client } from '../sanity/client'
 
 const baseUrl = 'https://www.nanodiesel.id'
 
+export const revalidate = 0 // Mematikan caching agar selalu fetching artikel terbaru
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Gunakan tanggal saat ini sebagai fallback untuk rute statis
   const currentDate = new Date()
