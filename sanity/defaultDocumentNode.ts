@@ -14,7 +14,7 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (S, { schemaType
             const slug = (doc?.slug as any)?.current
             
             if (slug) {
-              return `${baseUrl}/artikel/${slug}`
+              return `${baseUrl}/api/draft?slug=${slug}&secret=preview-secret`
             }
             // Jika slug belum ada (artikel baru), arahkan ke halaman utama berita
             return `${baseUrl}/artikel`

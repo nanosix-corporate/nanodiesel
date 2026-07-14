@@ -3,6 +3,7 @@ import { PortableText } from '@portabletext/react';
 import Link from 'next/link';
 import ArticleImage from '../../../components/ArticleImage';
 import { Metadata } from 'next';
+import { draftMode } from 'next/headers';
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.nanodiesel.id';
 
@@ -10,7 +11,17 @@ export const revalidate = 0;
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const post = await client.fetch(
+  const draft = await draftMode();
+  const fetchClient = draft.isEnabled
+    ? client.withConfig({
+        token: process.env.SANITY_API_READ_TOKEN,
+        perspective: 'previewDrafts',
+        useCdn: false,
+        ignoreBrowserTokenWarning: true,
+      })
+    : client;
+
+  const post = await fetchClient.fetch(
     `*[_type == "post" && slug.current == $slug][0] { title, excerpt, seo { metaTitle, metaDescription, canonicalUrl, seoKeywords, "metaImageUrl": metaImage.asset->url, openGraph { title, description, siteName, "imageUrl": image.asset->url }, twitter { cardType, site, creator } } }`,
     { slug }
   );
@@ -54,7 +65,22 @@ export async function generateStaticParams() {
 
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = await client.fetch(
+  const draft = await draftMode();
+  
+  console.log(`[Article Page] Fetching slug: ${slug}`);
+  console.log(`[Article Page] Draft Mode Enabled: ${draft.isEnabled}`);
+  console.log(`[Article Page] Token exists: ${!!process.env.SANITY_API_READ_TOKEN}`);
+
+  const fetchClient = draft.isEnabled
+    ? client.withConfig({
+        token: process.env.SANITY_API_READ_TOKEN,
+        perspective: 'previewDrafts',
+        useCdn: false,
+        ignoreBrowserTokenWarning: true,
+      })
+    : client;
+
+  const post = await fetchClient.fetch(
     `*[_type == "post" && slug.current == $slug][0] { 
       ..., 
       "mainImageUrl": mainImage.asset->url,
