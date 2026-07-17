@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { Nunito_Sans } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 import { ClientLayoutWrapper } from '../components/ClientLayoutWrapper';
 
@@ -92,6 +93,20 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           {children}
         </ClientLayoutWrapper>
       </body>
+
+      {/* Google Analytics 4 — berlaku otomatis di semua halaman termasuk artikel baru */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-XHNP23VTHP"
+        strategy="afterInteractive"
+      />
+      <Script id="ga4-config" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-XHNP23VTHP');
+        `}
+      </Script>
     </html>
   );
 }
