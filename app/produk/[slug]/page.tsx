@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 import { Metadata } from 'next';
 import { getProductBySlug, getAllSlugs } from '../../../lib/product-details';
 import { BackButton } from '../../../components/BackButton';
-import { OrderModal } from '../../../components/OrderModal';
+import { MarketplaceButtons } from '../../../components/MarketplaceButtons';
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.nanodiesel.id';
 
@@ -163,38 +163,11 @@ export default async function ProductDetailPage({
               </div>
 
               <div className="flex flex-col gap-3 mt-auto">
-                <div className="flex gap-3">
-                  {product.shopee && (
-                    <a
-                      href={product.shopee}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 py-3 px-4 bg-white border border-olive-200 hover:border-emerald-200 rounded-xl text-sm font-bold text-brand-dark transition-all"
-                    >
-                      <img
-                        src="/images/icon/shopee_icon.svg"
-                        alt="Shopee"
-                        className="w-4 h-4 object-contain"
-                      />
-                      Shopee
-                    </a>
-                  )}
-                  {product.tokopedia && (
-                    <a
-                      href={product.tokopedia}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 py-3 px-4 bg-white border border-olive-200 hover:border-emerald-200 rounded-xl text-sm font-bold text-brand-dark transition-all"
-                    >
-                      <img
-                        src="/images/icon/tokopedia_icon.svg"
-                        alt="Tokopedia"
-                        className="w-4 h-4 object-contain"
-                      />
-                      Tokopedia
-                    </a>
-                  )}
-                </div>
+                <MarketplaceButtons
+                  productTitle={product.title}
+                  shopeeUrl={product.shopee}
+                  tokopediaUrl={product.tokopedia}
+                />
               </div>
             </div>
           </div>

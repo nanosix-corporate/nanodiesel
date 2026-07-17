@@ -1,6 +1,8 @@
 'use client';
 
 import Image from 'next/image';
+import { buildMarketplaceUrl, trackMarketplaceClick } from '../lib/utm';
+
 interface OrderModalProps {
   open: boolean;
   onClose: () => void;
@@ -17,12 +19,24 @@ interface OrderModalProps {
 export function OrderModal({ open, onClose, product }: OrderModalProps) {
   if (!open) return null;
 
+  const productName = product?.title ?? 'Nano Diesel';
+
+  const shopeeUrl = product?.shopee
+    ? buildMarketplaceUrl(product.shopee, 'shopee', productName, 'order_modal')
+    : null;
+
+  const tokopediaUrl = product?.tokopedia
+    ? buildMarketplaceUrl(product.tokopedia, 'tokopedia', productName, 'order_modal')
+    : null;
+
+  const waUrl = `https://wa.me/+622122483303?text=Halo%20Nano%20Diesel%2C%20saya%20ingin%20memesan%20${encodeURIComponent(product?.wa ?? 'Nano Diesel')}`;
+
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-brand-dark/90 px-4 py-6 backdrop-blur-sm">
       <div className="w-full max-w-md overflow-hidden rounded-[1rem] bg-white shadow-2xl">
         <div className="flex items-center justify-between border-b border-emerald-100 px-6 py-5">
           <div>
-            <h3 className="text-2xl font-bold text-brand-dark">Order {product?.title ?? 'Nano Diesel'}</h3>
+            <h3 className="text-2xl font-bold text-brand-dark">Order {productName}</h3>
           </div>
           <button
             type="button"
@@ -35,7 +49,8 @@ export function OrderModal({ open, onClose, product }: OrderModalProps) {
 
         <div className="space-y-5 px-6 py-6 text-sm text-brand-copy">
           <p>
-            Pilih platform belanja favorit Anda untuk mendapatkan produk <strong className="text-brand-dark">Nano Diesel</strong> secara aman dan terjamin.
+            Pilih platform belanja favorit Anda untuk mendapatkan produk{' '}
+            <strong className="text-brand-dark">Nano Diesel</strong> secara aman dan terjamin.
           </p>
           <div className="rounded-3xl bg-olive-50 p-4">
             <p className="text-sm text-brand-dark font-semibold">Harga</p>
@@ -43,11 +58,12 @@ export function OrderModal({ open, onClose, product }: OrderModalProps) {
             <p className="text-sm text-brand-copy">{product?.label}</p>
           </div>
           <div className="grid gap-4">
-            {product?.shopee && (
+            {shopeeUrl && (
               <a
-                href={product.shopee}
+                href={shopeeUrl}
                 target="_blank"
                 rel="noreferrer"
+                onClick={() => trackMarketplaceClick('shopee', productName, 'order_modal')}
                 className="flex items-center justify-between rounded-2xl bg-olive-900 px-4 py-4 text-white transition hover:bg-emerald-600"
               >
                 <div className="flex items-center gap-3">
@@ -57,11 +73,12 @@ export function OrderModal({ open, onClose, product }: OrderModalProps) {
                 <span className="material-symbols-outlined">arrow_forward</span>
               </a>
             )}
-            {product?.tokopedia && (
+            {tokopediaUrl && (
               <a
-                href={product.tokopedia}
+                href={tokopediaUrl}
                 target="_blank"
                 rel="noreferrer"
+                onClick={() => trackMarketplaceClick('tokopedia', productName, 'order_modal')}
                 className="flex items-center justify-between rounded-2xl bg-olive-900 px-4 py-4 text-white transition hover:bg-emerald-600"
               >
                 <div className="flex items-center gap-3">
@@ -72,9 +89,10 @@ export function OrderModal({ open, onClose, product }: OrderModalProps) {
               </a>
             )}
             <a
-              href={`https://wa.me/+622122483303?text=Halo%20Nano%20Diesel%2C%20saya%20ingin%20memesan%20${encodeURIComponent(product?.wa ?? 'Nano Diesel')}`}
+              href={waUrl}
               target="_blank"
               rel="noreferrer"
+              onClick={() => trackMarketplaceClick('whatsapp', productName, 'order_modal')}
               className="flex items-center justify-between rounded-2xl border border-emerald-600 bg-white px-4 py-4 text-brand-dark transition hover:bg-emerald-50"
             >
               <div className="flex items-center gap-3">
