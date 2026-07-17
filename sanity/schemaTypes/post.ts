@@ -102,6 +102,56 @@ export default defineType({
               },
             ],
           },
+        },
+        {
+          type: 'object',
+          name: 'productCard',
+          title: 'Card Produk',
+          fields: [
+            {
+              name: 'title',
+              title: 'Nama Produk',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: 'description',
+              title: 'Deskripsi Singkat',
+              type: 'text',
+              rows: 3,
+            },
+            {
+              name: 'image',
+              title: 'Gambar Produk',
+              type: 'image',
+              options: { hotspot: true },
+            },
+            {
+              name: 'linkUrl',
+              title: 'Link Tujuan (Opsional)',
+              type: 'url',
+            },
+            {
+              name: 'buttonText',
+              title: 'Teks Tombol (Opsional)',
+              type: 'string',
+              initialValue: 'Lihat Produk',
+            }
+          ],
+          preview: {
+            select: {
+              title: 'title',
+              media: 'image'
+            },
+            prepare(selection) {
+              const {title, media} = selection;
+              return {
+                title: title || 'Card Produk',
+                subtitle: 'Card Produk (Custom Block)',
+                media: media
+              };
+            }
+          }
         }
       ],
     }),

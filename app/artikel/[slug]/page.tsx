@@ -86,6 +86,10 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       "mainImageUrl": mainImage.asset->url,
       content[] {
         ...,
+        _type == "productCard" => {
+          ...,
+          "imageUrl": image.asset->url
+        },
         markDefs[] {
           ...,
           _type == "internalLink" => {
@@ -177,6 +181,30 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             <PortableText 
               value={post.content} 
               components={{
+                types: {
+                  productCard: ({ value }: any) => {
+                    if (!value) return null;
+                    return (
+                      <div className="my-10 rounded-2xl border border-olive-200 bg-olive-50 overflow-hidden flex flex-col sm:flex-row shadow-sm hover:shadow-md transition-shadow not-prose">
+                        {value.imageUrl && (
+                          <div className="sm:w-1/3 aspect-square sm:aspect-auto sm:min-h-[200px] bg-white relative border-b sm:border-b-0 sm:border-r border-olive-100 flex items-center justify-center p-4">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src={value.imageUrl} alt={value.title || 'Product Image'} className="max-w-full max-h-full object-contain" />
+                          </div>
+                        )}
+                        <div className="p-6 sm:p-8 flex flex-col justify-center flex-1">
+                          <h3 className="text-2xl font-bold text-brand-dark mb-3 leading-tight">{value.title}</h3>
+                          {value.description && <p className="text-olive-700 text-base mb-6 leading-relaxed">{value.description}</p>}
+                          {value.linkUrl && (
+                            <a href={value.linkUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-xl text-sm w-fit transition-all shadow-sm shadow-emerald-900/10">
+                              {value.buttonText || 'Lihat Produk'}
+                            </a>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  }
+                },
                 marks: {
                   internalLink: ({value, children}: any) => {
                     const slug = value?.slug || '';
