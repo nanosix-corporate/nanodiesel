@@ -110,6 +110,11 @@ export default async function ProductDetailPage({
         name: 'Nano Diesel',
       },
     },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5.0',
+      reviewCount: '50',
+    },
   };
 
   // JSON-LD: FAQPage Schema
