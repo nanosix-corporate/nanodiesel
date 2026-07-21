@@ -109,45 +109,83 @@ export default defineType({
           title: 'Card Produk',
           fields: [
             {
-              name: 'title',
-              title: 'Nama Produk',
+              name: 'productId',
+              title: 'Pilih Produk (Pengisian Otomatis)',
+              description: 'Jika dipilih, data gambar, judul, dan tautan akan diisi otomatis dari sistem web. (Abaikan field di bawah)',
               type: 'string',
-              validation: (Rule) => Rule.required(),
+              options: {
+                list: [
+                  { title: 'Nano Diesel 1 Botol', value: 'nano-diesel-1-botol-70ml' },
+                  { title: 'Nano Diesel 2 Botol', value: 'nano-diesel-2-botol-2x70ml' },
+                  { title: 'Nano Diesel Paket 3 Botol', value: 'nano-diesel-3-botol-3x70ml' },
+                  { title: 'Nano Diesel Paket Hemat 6 Botol', value: 'nano-diesel-6-botol-6x70ml' },
+                  { title: 'Nano Diesel Fleet Pack Pro 12 Botol', value: 'nano-diesel-12-botol-12x70ml' },
+                ]
+              }
+            },
+            {
+              name: 'buttonTarget',
+              title: 'Tujuan Tombol Klik (Bisa Pilih Lebih Dari 1)',
+              type: 'array',
+              of: [{ type: 'string' }],
+              initialValue: ['internal'],
+              hidden: ({parent}: any) => !parent?.productId,
+              options: {
+                list: [
+                  { title: 'Halaman Produk Lokal (Rekomendasi SEO)', value: 'internal' },
+                  { title: 'Shopee', value: 'shopee' },
+                  { title: 'Tokopedia', value: 'tokopedia' },
+                ]
+              }
+            },
+            {
+              name: 'title',
+              title: 'Nama Produk (Manual)',
+              type: 'string',
+              hidden: ({parent}: any) => !!parent?.productId,
             },
             {
               name: 'description',
-              title: 'Deskripsi Singkat',
+              title: 'Deskripsi Singkat (Manual)',
               type: 'text',
               rows: 3,
+              hidden: ({parent}: any) => !!parent?.productId,
             },
             {
               name: 'image',
-              title: 'Gambar Produk',
+              title: 'Gambar Produk (Manual)',
               type: 'image',
               options: { hotspot: true },
+              hidden: ({parent}: any) => !!parent?.productId,
             },
             {
               name: 'linkUrl',
-              title: 'Link Tujuan (Opsional)',
+              title: 'Link Tujuan (Manual)',
               type: 'url',
+              hidden: ({parent}: any) => !!parent?.productId,
             },
             {
               name: 'buttonText',
-              title: 'Teks Tombol (Opsional)',
+              title: 'Teks Tombol (Manual)',
               type: 'string',
               initialValue: 'Lihat Produk',
+              hidden: ({parent}: any) => !!parent?.productId,
             }
           ],
           preview: {
             select: {
               title: 'title',
+              productId: 'productId',
+              target: 'buttonTarget',
               media: 'image'
             },
-            prepare(selection) {
-              const {title, media} = selection;
+            prepare(selection: any) {
+              const {title, productId, target, media} = selection;
+              const autoTitle = productId ? productId.replace('nano-diesel-', '').replace(/-/g, ' ').toUpperCase() : '';
+              const targetStr = Array.isArray(target) ? target.join(', ') : (target || 'internal');
               return {
-                title: title || 'Card Produk',
-                subtitle: 'Card Produk (Custom Block)',
+                title: productId ? `[Auto] ${autoTitle}` : (title || 'Card Produk'),
+                subtitle: productId ? `Target: ${targetStr}` : 'Card Produk (Manual)',
                 media: media
               };
             }
