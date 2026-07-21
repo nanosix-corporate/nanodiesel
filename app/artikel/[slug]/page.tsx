@@ -240,9 +240,9 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                     return (
                       <div className="my-10 rounded-2xl border border-olive-200 bg-olive-50 overflow-hidden flex flex-col sm:flex-row shadow-sm hover:shadow-md transition-shadow not-prose">
                         {displayImage && (
-                          <div className="sm:w-1/3 aspect-square sm:aspect-auto sm:min-h-[200px] bg-white relative border-b sm:border-b-0 sm:border-r border-olive-100 flex items-center justify-center p-4">
+                          <div className="sm:w-1/3 aspect-square sm:aspect-auto sm:min-h-[200px] bg-white relative border-b sm:border-b-0 sm:border-r border-olive-100 flex items-center justify-center overflow-hidden">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src={displayImage} alt={displayTitle || 'Product Image'} className="max-w-full max-h-full object-contain" />
+                            <img src={displayImage} alt={displayTitle || 'Product Image'} className="w-full h-full object-cover" />
                           </div>
                         )}
                         <div className="p-6 sm:p-8 flex flex-col justify-center flex-1">
