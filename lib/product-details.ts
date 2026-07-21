@@ -6,6 +6,7 @@ export interface ProductDetail {
   description: string;
   image: string;
   sections: { heading: string; body: string[] }[];
+  faq: { q: string; a: string }[];
   shopee: string | null;
   tokopedia: string | null;
 }
@@ -14,7 +15,7 @@ const productDetails: Record<string, ProductDetail> = {
   'nano-diesel-1-botol-70ml': {
     id: 'Nano Diesel 1 Botol (70ml)',
     title: '1 Botol',
-    subtitle: 'Aditif Solar Diesel Nanodiesel 70 ml - Hemat Bahan Bakar & Performa Mesin Diesel 1 botol',
+    subtitle: 'Nano Diesel 70ml — Aditif Solar Premium untuk Perlindungan Mesin dan Performa Optimal',
     price: 'Rp 70.000',
     description: 'Cocok untuk satu kali pengisian penuh. Coba rasakan perbedaannya di tangki kendaraan Anda.',
     image: '/images/product/product-image-1.webp',
@@ -22,9 +23,9 @@ const productDetails: Record<string, ProductDetail> = {
       {
         heading: 'Cocok Digunakan Untuk',
         body: [
-          'Semua jenis mobil diesel',
-          'Truk & kendaraan logistik',
-          'Alat berat',
+          'Mobil Keluarga & SUV Diesel (Innova, Fortuner, Pajero, dll)',
+          'Truk, Bus & Kendaraan Niaga',
+          'Alat Berat (Excavator, Bulldozer, Dump Truck)',
         ],
       },
       {
@@ -36,12 +37,11 @@ const productDetails: Record<string, ProductDetail> = {
       {
         heading: 'Manfaat Penggunaan',
         body: [
-          'Menaikan angkat Cetane',
-          'Konsumsi bahan bakar mesin lebih hemat',
-          'Tarikan mesin lebih responsif',
-          'Mesin lebih halus',
-          'Membantu memperpanjang umur mesin',
-          'Biaya operasional lebih efisien',
+          'Tarikan terasa lebih ringan dan responsif',
+          'Suara mesin menjadi lebih halus',
+          'Membantu mengoptimalkan efisiensi konsumsi solar',
+          'Menjaga injektor dari sumbatan kotoran',
+          'Membantu memperpanjang usia pakai mesin',
         ],
       },
       {
@@ -80,9 +80,11 @@ const productDetails: Record<string, ProductDetail> = {
       {
         heading: 'Kenapa Pilih Nano Diesel?',
         body: [
-          'Teknologi telah diuji berdasarkan data dari LEMIGAS dan Mutu Agung Lestari',
-          'Satu solusi untuk semua mesin diesel',
-          'Performa maksimal, biaya operasional lebih rendah',
+          'Tersertifikasi resmi LEMIGAS & Mutuagung Lestari',
+          'Teruji di Dyno Test: Peningkatan HP (Horsepower) signifikan',
+          'Satu solusi premium untuk merawat semua jenis mesin diesel',
+          'Andal menaklukkan berbagai kualitas Biodiesel (B30 hingga B100)',
+          'Performa maksimal dengan efisiensi biaya operasional',
         ],
       },
       {
@@ -92,13 +94,20 @@ const productDetails: Record<string, ProductDetail> = {
         ],
       },
     ],
+    faq: [
+      { q: 'Apakah Nano Diesel cocok untuk mobil diesel saya?', a: 'Ya. Nano Diesel cocok untuk semua jenis mesin diesel, termasuk mobil keluarga, SUV, truk, dan alat berat yang menggunakan bahan bakar Solar, Dexlite, Pertamina Dex, maupun Biodiesel B30 hingga B100.' },
+      { q: 'Berapa dosis pemakaian Nano Diesel?', a: 'Dosis pemakaian adalah 1 ml Nano Diesel untuk setiap 1 liter solar. Satu botol 70 ml cukup untuk satu kali pengisian tangki penuh (kapasitas ±70 liter).' },
+      { q: 'Kapan saya bisa merasakan hasilnya?', a: 'Sebagian besar pengguna merasakan perbedaan tarikan mesin sejak pengisian pertama. Hasil optimal, seperti penurunan suara mesin dan peningkatan efisiensi BBM.' },
+      { q: 'Apakah Nano Diesel sudah memiliki sertifikasi resmi?', a: 'Ya. Nano Diesel telah tersertifikasi oleh LEMIGAS dan Mutuagung Lestari, serta teruji melalui Dyno Test. Anda dapat melihat detail hasil uji kami di <a href="/teknologi-kami" class="text-emerald-600 hover:underline">Halaman Teknologi Kami</a>.' },
+      { q: 'Apakah aman digunakan bersama Biodiesel B35 atau B50?', a: 'Nano Diesel dirancang khusus untuk bekerja optimal dengan Biodiesel B30 hingga B100. Formulasi Oxygenated Technology-nya membantu mengatasi masalah atomisasi dan residu karbon yang umum terjadi pada Biodiesel.' }
+    ],
     shopee: 'https://tinyurl.com/yt764pn9',
     tokopedia: 'https://tinyurl.com/9dfysxtz',
   },
   'nano-diesel-2-botol-2x70ml': {
     id: 'Nano Diesel 2 Botol (2x70ml)',
     title: '2 Botol',
-    subtitle: 'Aditif Solar Diesel, Value Pack (2 botol) - Hemat Bahan Bakar, Mesin Diesel Optimal - Nanodiesel 70 ml',
+    subtitle: 'Nano Diesel 70ml (Value Pack 2 Botol) — Aditif Solar Premium untuk Perlindungan Mesin dan Performa Optimal',
     price: 'Rp 135.000',
     description: 'Pilihan paling populer. Cukup untuk dua kali pengisian dan merasakan manfaat penuh Nano Diesel.',
     image: '/images/product/product-image-2.webp',
@@ -176,13 +185,20 @@ const productDetails: Record<string, ProductDetail> = {
         ],
       },
     ],
+    faq: [
+      { q: 'Apakah Nano Diesel cocok untuk mobil diesel saya?', a: 'Ya. Nano Diesel cocok untuk semua jenis mesin diesel, termasuk mobil keluarga, SUV, truk, dan alat berat yang menggunakan bahan bakar Solar, Dexlite, Pertamina Dex, maupun Biodiesel B30 hingga B100.' },
+      { q: 'Berapa dosis pemakaian Nano Diesel?', a: 'Dosis pemakaian adalah 1 ml Nano Diesel untuk setiap 1 liter solar. Satu botol 70 ml cukup untuk satu kali pengisian tangki penuh (kapasitas ±70 liter).' },
+      { q: 'Kapan saya bisa merasakan hasilnya?', a: 'Sebagian besar pengguna merasakan perbedaan tarikan mesin sejak pengisian pertama. Hasil optimal, seperti penurunan suara mesin dan peningkatan efisiensi BBM.' },
+      { q: 'Apakah Nano Diesel sudah memiliki sertifikasi resmi?', a: 'Ya. Nano Diesel telah tersertifikasi oleh LEMIGAS dan Mutuagung Lestari, serta teruji melalui Dyno Test. Anda dapat melihat detail hasil uji kami di <a href="/teknologi-kami" class="text-emerald-600 hover:underline">Halaman Teknologi Kami</a>.' },
+      { q: 'Apakah aman digunakan bersama Biodiesel B35 atau B50?', a: 'Nano Diesel dirancang khusus untuk bekerja optimal dengan Biodiesel B30 hingga B100. Formulasi Oxygenated Technology-nya membantu mengatasi masalah atomisasi dan residu karbon yang umum terjadi pada Biodiesel.' }
+    ],
     shopee: 'https://tinyurl.com/yfrk2wcj',
     tokopedia: 'https://tinyurl.com/2nme32bu',
   },
   'nano-diesel-3-botol-3x70ml': {
     id: 'Nano Diesel 3 Botol (3x70ml)',
     title: '3 Botol',
-    subtitle: 'Aditif Solar Diesel | Nanodiesel PAKET 3 BOTOL - Boost Performa Mesin, Lubrikasi Maksimal, Mesin Awet',
+    subtitle: 'Nano Diesel 70ml (Paket 3 Botol) — Aditif Solar Premium untuk Perlindungan Mesin dan Performa Optimal',
     price: 'Rp 185.000',
     description: 'Pilihan tengah yang pas untuk pemakaian beberapa kali. Cocok untuk perjalanan jauh dan aktivitas harian.',
     image: '/images/product/product-image-5.webp',
@@ -260,13 +276,20 @@ const productDetails: Record<string, ProductDetail> = {
         ],
       },
     ],
+    faq: [
+      { q: 'Apakah Nano Diesel cocok untuk mobil diesel saya?', a: 'Ya. Nano Diesel cocok untuk semua jenis mesin diesel, termasuk mobil keluarga, SUV, truk, dan alat berat yang menggunakan bahan bakar Solar, Dexlite, Pertamina Dex, maupun Biodiesel B30 hingga B100.' },
+      { q: 'Berapa dosis pemakaian Nano Diesel?', a: 'Dosis pemakaian adalah 1 ml Nano Diesel untuk setiap 1 liter solar. Satu botol 70 ml cukup untuk satu kali pengisian tangki penuh (kapasitas ±70 liter).' },
+      { q: 'Kapan saya bisa merasakan hasilnya?', a: 'Sebagian besar pengguna merasakan perbedaan tarikan mesin sejak pengisian pertama. Hasil optimal, seperti penurunan suara mesin dan peningkatan efisiensi BBM.' },
+      { q: 'Apakah Nano Diesel sudah memiliki sertifikasi resmi?', a: 'Ya. Nano Diesel telah tersertifikasi oleh LEMIGAS dan Mutuagung Lestari, serta teruji melalui Dyno Test. Anda dapat melihat detail hasil uji kami di <a href="/teknologi-kami" class="text-emerald-600 hover:underline">Halaman Teknologi Kami</a>.' },
+      { q: 'Apakah aman digunakan bersama Biodiesel B35 atau B50?', a: 'Nano Diesel dirancang khusus untuk bekerja optimal dengan Biodiesel B30 hingga B100. Formulasi Oxygenated Technology-nya membantu mengatasi masalah atomisasi dan residu karbon yang umum terjadi pada Biodiesel.' }
+    ],
     shopee: 'https://tinyurl.com/4t43cnbx',
     tokopedia: 'https://tinyurl.com/3s5bp2s6',
   },
   'nano-diesel-6-botol-6x70ml': {
     id: 'Nano Diesel 6 Botol (6x70ml)',
     title: '5 Botol Gratis 1 Botol',
-    subtitle: 'Aditif Solar Nano Technology - Fleet pack 70 ml (PAKET HEMAT 6 BOTOL) - Hemat Operasional Diesel',
+    subtitle: 'Nano Diesel 70ml (Paket Hemat 6 Botol) — Aditif Solar Premium untuk Perlindungan Mesin dan Performa Optimal',
     price: 'Rp 350.000',
     description: 'Paket ekonomis untuk pemakaian rutin. Ideal untuk armada kecil atau stok bulanan kendaraan diesel Anda.',
     image: '/images/product/product-image-3.webp',
@@ -344,13 +367,20 @@ const productDetails: Record<string, ProductDetail> = {
         ],
       },
     ],
+    faq: [
+      { q: 'Apakah Nano Diesel cocok untuk mobil diesel saya?', a: 'Ya. Nano Diesel cocok untuk semua jenis mesin diesel, termasuk mobil keluarga, SUV, truk, dan alat berat yang menggunakan bahan bakar Solar, Dexlite, Pertamina Dex, maupun Biodiesel B30 hingga B100.' },
+      { q: 'Berapa dosis pemakaian Nano Diesel?', a: 'Dosis pemakaian adalah 1 ml Nano Diesel untuk setiap 1 liter solar. Satu botol 70 ml cukup untuk satu kali pengisian tangki penuh (kapasitas ±70 liter).' },
+      { q: 'Kapan saya bisa merasakan hasilnya?', a: 'Sebagian besar pengguna merasakan perbedaan tarikan mesin sejak pengisian pertama. Hasil optimal, seperti penurunan suara mesin dan peningkatan efisiensi BBM.' },
+      { q: 'Apakah Nano Diesel sudah memiliki sertifikasi resmi?', a: 'Ya. Nano Diesel telah tersertifikasi oleh LEMIGAS dan Mutuagung Lestari, serta teruji melalui Dyno Test. Anda dapat melihat detail hasil uji kami di <a href="/teknologi-kami" class="text-emerald-600 hover:underline">Halaman Teknologi Kami</a>.' },
+      { q: 'Apakah aman digunakan bersama Biodiesel B35 atau B50?', a: 'Nano Diesel dirancang khusus untuk bekerja optimal dengan Biodiesel B30 hingga B100. Formulasi Oxygenated Technology-nya membantu mengatasi masalah atomisasi dan residu karbon yang umum terjadi pada Biodiesel.' }
+    ],
     shopee: 'https://tinyurl.com/2kh92vwd',
     tokopedia: 'https://tinyurl.com/3b5ukya2',
   },
   'nano-diesel-12-botol-12x70ml': {
     id: 'Nano Diesel 12 Botol (12x70ml)',
     title: '10 Botol Gratis 2 Botol',
-    subtitle: 'BELI 10 GRATIS 2 | Nano Diesel Fleet Pack Pro 70ml - Paket Hemat Operasional Diesel',
+    subtitle: 'Nano Diesel 70ml (Fleet Pack Pro 12 Botol) — Aditif Solar Premium untuk Perlindungan Mesin dan Performa Optimal',
     price: 'Rp 700.000',
     description: 'Paket super hemat untuk pemakaian jangka panjang. Solusi paling ekonomis untuk armada atau stok besar.',
     image: '/images/product/product-image-6.webp',
@@ -427,6 +457,13 @@ const productDetails: Record<string, ProductDetail> = {
           'Simpan di tempat yang sejuk dan jauhkan dari jangkauan anak-anak',
         ],
       },
+    ],
+    faq: [
+      { q: 'Apakah Nano Diesel cocok untuk mobil diesel saya?', a: 'Ya. Nano Diesel cocok untuk semua jenis mesin diesel, termasuk mobil keluarga, SUV, truk, dan alat berat yang menggunakan bahan bakar Solar, Dexlite, Pertamina Dex, maupun Biodiesel B30 hingga B100.' },
+      { q: 'Berapa dosis pemakaian Nano Diesel?', a: 'Dosis pemakaian adalah 1 ml Nano Diesel untuk setiap 1 liter solar. Satu botol 70 ml cukup untuk satu kali pengisian tangki penuh (kapasitas ±70 liter).' },
+      { q: 'Kapan saya bisa merasakan hasilnya?', a: 'Sebagian besar pengguna merasakan perbedaan tarikan mesin sejak pengisian pertama. Hasil optimal, seperti penurunan suara mesin dan peningkatan efisiensi BBM.' },
+      { q: 'Apakah Nano Diesel sudah memiliki sertifikasi resmi?', a: 'Ya. Nano Diesel telah tersertifikasi oleh LEMIGAS dan Mutuagung Lestari, serta teruji melalui Dyno Test. Anda dapat melihat detail hasil uji kami di <a href="/teknologi-kami" class="text-emerald-600 hover:underline">Halaman Teknologi Kami</a>.' },
+      { q: 'Apakah aman digunakan bersama Biodiesel B35 atau B50?', a: 'Nano Diesel dirancang khusus untuk bekerja optimal dengan Biodiesel B30 hingga B100. Formulasi Oxygenated Technology-nya membantu mengatasi masalah atomisasi dan residu karbon yang umum terjadi pada Biodiesel.' }
     ],
     shopee: 'https://tinyurl.com/yk8tbyer',
     tokopedia: 'https://tinyurl.com/bdd9c26c',

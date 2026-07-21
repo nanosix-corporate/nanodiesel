@@ -8,7 +8,7 @@ export function Footer() {
         <div className="space-y-6">
           <Image src="/images/logo/nanodiesel-logo-mono-white.svg" alt="Nano Diesel" width={160} height={40} className="h-10 w-auto object-contain" />
           <p className="leading-relaxed text-white text-sm">
-            Solusi Aditif Solar & Cetane Booster berteknologi nano untuk menaklukkan batasan Biodiesel B35 dan B50. Bersih, mesin bertenaga, uang terjaga.
+            Aditif Solar Premium berteknologi nano. Satu solusi perlindungan dan peningkatan performa untuk pengalaman berkendara diesel yang optimal, dirancang khusus menaklukkan tantangan Biodiesel B35 hingga B100.
           </p>
         </div>
 

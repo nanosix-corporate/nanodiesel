@@ -71,12 +71,12 @@ const benefits = [
   {
     icon: 'shield_with_heart',
     title: 'Bersihkan Injektor & Ruang Bakar',
-    description: 'Membersihkan injektor diesel dan ruang bakar dari deposit karbon sisa pembakaran Biodiesel secara menyeluruh.',
+    description: 'Membantu membersihkan kerak kotoran dan deposit karbon pada injektor akibat sisa pembakaran. Injektor yang bersih membuat mesin lebih awet dan tarikan tetap stabil.',
   },
   {
     icon: 'bolt',
     title: 'Cetane Booster Bertenaga',
-    description: 'Meningkatkan cetane number solar secara efektif untuk pembakaran yang lebih sempurna dan tarikan mesin lebih responsif.',
+    description: 'Meningkatkan cetane number solar secara efektif untuk pembakaran yang lebih sempurna. Rasakan tarikan yang lebih ringan, dan responsif di berbagai kondisi jalan.',
   },
   {
     icon: 'eco',
@@ -91,7 +91,7 @@ const benefits = [
 ];
 
 const dosageRows = [
-  { vehicle: 'SUV & MPV Keluarga', examples: 'Innova, Pajero Sport, Fortuner', capacity: '55 – 80 Liter', dose: '55 – 80 ml' },
+  { vehicle: 'Mobil Keluarga & SUV', examples: 'Innova, Fortuner, Pajero Sport, Palisade', capacity: '55 – 80 Liter', dose: '55 – 80 ml' },
   { vehicle: 'Pickup & Truk Engkel (Niaga)', examples: 'Targa, L300, Elf Engkel', capacity: '50 – 75 Liter', dose: '50 – 75 ml' },
   { vehicle: 'Truk Medium & Canter (CDE/CDD)', examples: 'Fuso Canter, Hino Dutro', capacity: '100 – 200 Liter', dose: '100 – 200 ml' },
   { vehicle: 'Truk Besar & Bus AKAP', examples: 'Fuso Fighter, Hino500, Bus Mercedes-Benz', capacity: '200 – 400 Liter', dose: '200 – 400 ml' },
@@ -167,11 +167,11 @@ export default function HomeContent() {
               </span>
               <span className="inline-flex items-center gap-2 px-8">
                 <span className="material-symbols-outlined text-base md:text-lg text-[#F5F9FA]">local_gas_station</span>
-                Hemat BBM Hingga 20%
+                Efisiensi Konsumsi BBM Terukur
               </span>
               <span className="inline-flex items-center gap-2 px-8">
                 <span className="material-symbols-outlined text-base md:text-lg text-[#F5F9FA]">oil_barrel</span>
-                Cocok Untuk Biodiesel B35–B50
+                Cocok Untuk Biodiesel B30–B100
               </span>
               {/* Duplicate for seamless loop */}
               <span className="inline-flex items-center gap-2 px-8">
@@ -188,11 +188,11 @@ export default function HomeContent() {
               </span>
               <span className="inline-flex items-center gap-2 px-8">
                 <span className="material-symbols-outlined text-base md:text-lg text-[#F5F9FA]">local_gas_station</span>
-                Hemat BBM Hingga 20%
+                Efisiensi Konsumsi BBM Terukur
               </span>
               <span className="inline-flex items-center gap-2 px-8">
                 <span className="material-symbols-outlined text-base md:text-lg text-[#F5F9FA]">oil_barrel</span>
-                Cocok Untuk Biodiesel B35–B50
+                Cocok Untuk Biodiesel B30–B100
               </span>
             </div>
           </div>
@@ -202,12 +202,12 @@ export default function HomeContent() {
         <div className="relative mx-auto max-w-[1200px] pt-24 md:pt-36 pb-24">
           <div className="text-center">
             <h1 className="mx-auto max-w-4xl text-fs-xl font-headline font-normal tracking-tight text-white md:text-fs-xxl leading-[1.1]">
-              Aditif Solar Diesel Terbaik
+              Aditif Solar Diesel Premium
               <br />
-              <span className="font-extrabold">Hemat BBM Hingga 20%</span>
+              <span className="font-extrabold">Performa Maksimal, Konsumsi Optimal</span>
             </h1>
             <p className="mx-auto mt-6 max-w-3xl text-fs-base leading-relaxed text-slate-200 md:text-fs-md">
-              Nano Diesel adalah <strong>aditif bahan bakar diesel</strong> berbasis nano teknologi yang membuat mesin diesel lebih bertenaga, konsumsi BBM lebih irit, suara mesin lebih halus, dan emisi gas buang jauh lebih bersih. Cocok untuk Biodiesel <strong>B35, B40, dan B50</strong>.
+              Nano Diesel adalah aditif diesel premium dengan formulasi Bio Nano Aditif dan <strong>Oxygenated Technology</strong> yang dirancang untuk mengoptimalkan molekul pembakaran. Menjaga mesin tetap awet dan menghasilkan tenaga ekstra. Solusi andal untuk pemakaian harian mobil keluarga maupun armada niaga, sangat cocok untuk <strong>Biodiesel B30 hingga B50</strong>.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
@@ -469,11 +469,11 @@ export default function HomeContent() {
       <section className="py-16 md:py-24 px-6 lg:px-12 bg-brand-dark relative overflow-hidden">
         <div className="max-w-[px] mx-auto text-center relative z-10">
           <h2 className="text-2xl md:text-5xl font-headline font-black text-white mb-6">
-            Beli Aditif Solar Diesel Terbaik Sekarang
+            Tingkatkan Performa Mesin Anda Sekarang
           </h2>
           <p className="text-base md:text-lg text-olive-300 mb-8 md:mb-10 leading-relaxed">
-            Rasakan sendiri perbedaan mesin diesel setelah menggunakan <strong className="text-white">Nano Diesel - aditif bahan bakar</strong> berbasis nano teknologi.
-            <br />Tersedia di Shopee dan Tokopedia Official Store.
+            Bergabunglah dengan pengguna mesin diesel cerdas lainnya yang sudah merasakan peningkatan performa dari kendaraannya.
+            <br /> Cukup dengan <strong className="text-white">Nano Diesel</strong> untuk mesin yang lebih bertenaga. Tersedia di Shopee dan Tokopedia Official Store.
           </p>
           <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4">
             <a

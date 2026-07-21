@@ -41,7 +41,7 @@ export default function OurTechnologyPage() {
             Teknologi Kami
           </h1>
           <p className="text-xl md:text-2xl font-semibold text-brand-copy mb-6 max-w-3xl leading-snug">
-            Bio Nano Aditif dengan Oxygenated Technology — dirancang khusus untuk mendukung pembakaran yang lebih bersih, efisien, dan optimal pada Mesin Diesel.
+            Bio Nano Aditif dengan Oxygenated Technology — formula premium yang dirancang untuk memaksimalkan efisiensi pembakaran, melindungi injektor, dan membangkitkan performa mesin diesel yang sesungguhnya.
           </p>
           <p className="text-base md:text-lg text-olive-700 max-w-[800px] leading-relaxed">
             Ketika biodiesel (B30, B35, B50) mulai diwajibkan, pengemudi diesel menghadapi tantangan baru:

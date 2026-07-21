@@ -4,7 +4,7 @@ import { ShopModalController } from '../../components/ShopModalController';
 import { generateSeoMetadata, BASE_URL } from '../../lib/seo';
 
 export const metadata = generateSeoMetadata({
-  title: 'Harga Aditif Solar Diesel Nano Diesel | Beli Online Indonesia',
+  title: 'Aditif Solar Premium Nano Diesel | Proteksi & Performa Optimal',
   description: 'Beli aditif solar diesel Nano Diesel mulai 1 botol 70ml. Pengiriman ke seluruh Indonesia.',
   path: '/produk',
 });
@@ -165,7 +165,7 @@ export default function ShopPage() {
                 Pilih Sesuai Kebutuhan Anda
               </h1>
               <p className="text-base md:text-lg text-olive-300 leading-relaxed max-w-2xl mb-8">
-                Cari kemasan Nano Diesel yang tepat untuk kendaraan atau industri Anda? Jangan dikira-kira. Yuk, hitung pasti hematnya tiap bulan pakai Kalkulator Hemat BBM berbasis data uji resmi LEMIGAS!
+                Mesin diesel Anda layak mendapat perlindungan terbaik. Pilih kemasan Nano Diesel yang sesuai — dan hitung langsung seberapa efisien pengeluaran Anda setiap bulannya.
               </p>
               <Link
                 href="/kalkulator-hemat-bbm"

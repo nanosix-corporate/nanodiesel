@@ -33,7 +33,7 @@ export async function generateMetadata({
 
   return {
     title: `Beli Aditif Solar ${product.title} - Nano Diesel Original`,
-    description: `Beli aditif solar ${product.title.toLowerCase()} dari Nano Diesel. Praktis untuk pemakaian, hemat BBM, dan bersihkan injektor. Pesan sekarang untuk mesin awet!`,
+    description: `Nano Diesel ${product.title} — ${product.price}. Aditif solar premium untuk perlindungan injektor, efisiensi BBM terukur, dan performa optimal. Tersertifikasi LEMIGAS. Cocok untuk B30–B100. Beli di Shopee & Tokopedia.`,
     alternates: { canonical },
     keywords: [
       'aditif solar',
@@ -46,10 +46,10 @@ export async function generateMetadata({
     ],
     openGraph: {
       title: `Beli Aditif Solar ${product.title} - Nano Diesel Original`,
-      description: `Beli aditif solar ${product.title.toLowerCase()} dari Nano Diesel. Praktis untuk pemakaian, hemat BBM, dan bersihkan injektor. Pesan sekarang untuk mesin awet!`,
+      description: `Nano Diesel ${product.title} — ${product.price}. Aditif solar premium untuk perlindungan injektor, efisiensi BBM terukur, dan performa optimal. Tersertifikasi LEMIGAS. Cocok untuk B30–B100. Beli di Shopee & Tokopedia.`,
       url: canonical,
       siteName: 'Nano Diesel',
-      images: [{ url: `${BASE_URL}${product.image}` }],
+      images: [{ url: `${BASE_URL}${product.image}`, width: 800, height: 600 }],
     },
   };
 }
@@ -84,6 +84,7 @@ export default async function ProductDetailPage({
   }
 
   const price = parsePrice(product.price);
+  const nextYear = new Date().getFullYear() + 1;
 
   // JSON-LD: Product Schema
   const productJsonLd = {
@@ -101,6 +102,7 @@ export default async function ProductDetailPage({
       '@type': 'Offer',
       priceCurrency: 'IDR',
       price: price,
+      priceValidUntil: `${nextYear}-12-31`,
       availability: 'https://schema.org/InStock',
       url: `${BASE_URL}/produk/${slug}`,
       seller: {
@@ -110,6 +112,20 @@ export default async function ProductDetailPage({
     },
   };
 
+  // JSON-LD: FAQPage Schema
+  const faqJsonLd = product.faq ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: product.faq.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.a
+      }
+    }))
+  } : null;
+
   return (
     <>
       {/* JSON-LD Structured Data */}
@@ -117,6 +133,12 @@ export default async function ProductDetailPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
 
       <main className="pt-[72px] min-h-screen bg-white">
         <div className="max-w-[1000px] mx-auto px-6 lg:px-12 py-8 md:py-12">
@@ -195,6 +217,28 @@ export default async function ProductDetailPage({
                 </ul>
               </div>
             ))}
+
+            {/* FAQ Section */}
+            {product.faq && (
+              <div className="mt-16 border-t border-olive-200 pt-16">
+                <h2 className="text-2xl md:text-3xl font-headline font-black text-brand-dark mb-8">
+                  Pertanyaan yang Sering Diajukan
+                </h2>
+                <div className="space-y-4">
+                  {product.faq.map((item, i) => (
+                    <details key={i} className="group bg-olive-50 rounded-xl border border-olive-200 [&_summary::-webkit-details-marker]:hidden">
+                      <summary className="flex items-center justify-between cursor-pointer p-5 font-semibold text-brand-dark">
+                        <span>{item.q}</span>
+                        <span className="transition group-open:rotate-180 material-symbols-outlined text-olive-500">
+                          expand_more
+                        </span>
+                      </summary>
+                      <div className="p-5 pt-0 text-brand-copy leading-relaxed" dangerouslySetInnerHTML={{ __html: item.a }} />
+                    </details>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </main>

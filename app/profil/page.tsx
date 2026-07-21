@@ -49,7 +49,7 @@ export default function OurStoryPage() {
             Cerita Kami
           </h1>
           <p className="text-xl md:text-2xl font-semibold text-brand-copy mb-6 max-w-3xl leading-snug">
-            Nano Diesel lahir dari kebutuhan nyata: membawa teknologi diesel yang lebih bersih, lebih efisien, dan lebih tangguh ke jalanan Indonesia.
+            Nano Diesel lahir dari kebutuhan nyata: membawa solusi aditif diesel premium yang lebih bersih, lebih efisien, dan bertenaga — untuk pengguna yang peduli dengan performa dan umur panjang kendaraannya.
           </p>
           <p className="text-base md:text-lg text-olive-700 max-w-[800px] leading-relaxed">
             Ketika pemerintah mulai mewajibkan Biodiesel B30, B35, dan B50, para pengemudi merasakan dampaknya:
