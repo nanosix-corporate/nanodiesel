@@ -5,6 +5,8 @@ import ArticleImage from '../../../components/ArticleImage';
 import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
 import { getProductBySlug } from '../../../lib/product-details';
+import { buildMarketplaceUrl } from '../../../lib/utm';
+import { ArticleProductCardButtons } from '../../../components/ArticleProductCardButtons';
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.nanodiesel.id';
 
@@ -192,6 +194,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                     const displayImage = productInfo ? productInfo.image : value.imageUrl;
                     
                     let buttonsToRender: any[] = [];
+
+                    // Label produk: dipakai untuk GA4 event & UTM campaign & aria-label SEO
+                    const productLabel = productInfo
+                      ? `Nano Diesel ${productInfo.title}`
+                      : (value.title || 'Nano Diesel');
                     
                     if (productInfo) {
                       // Ambil target (bisa array atau string, default ['internal'])
@@ -205,15 +212,25 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                       targets.forEach((t: string) => {
                         if (t === 'shopee' && productInfo.shopee) {
                           buttonsToRender.push({
-                            url: productInfo.shopee,
+                            // UTM di-inject di server — medium: article_card
+                            url: buildMarketplaceUrl(productInfo.shopee, 'shopee', productLabel, 'article_card'),
                             text: 'Shopee',
+                            // aria-label: keyword transactional Purchase-stage (SEO)
+                            ariaLabel: `Beli aditif solar ${productLabel} di Shopee`,
+                            platform: 'shopee',
+                            productLabel,
                             btnClass: "bg-[#EE4D2D] hover:bg-[#D74326] text-white shadow-[#EE4D2D]/20 border border-[#EE4D2D]",
                             isExternal: true
                           });
                         } else if (t === 'tokopedia' && productInfo.tokopedia) {
                           buttonsToRender.push({
-                            url: productInfo.tokopedia,
+                            // UTM di-inject di server — medium: article_card
+                            url: buildMarketplaceUrl(productInfo.tokopedia, 'tokopedia', productLabel, 'article_card'),
                             text: 'Tokopedia',
+                            // aria-label: keyword transactional Purchase-stage (SEO)
+                            ariaLabel: `Beli aditif solar ${productLabel} di Tokopedia`,
+                            platform: 'tokopedia',
+                            productLabel,
                             btnClass: "bg-[#00AA5B] hover:bg-[#008F4C] text-white shadow-[#00AA5B]/20 border border-[#00AA5B]",
                             isExternal: true
                           });
@@ -221,6 +238,8 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                           buttonsToRender.push({
                             url: `/produk/${value.productId}`,
                             text: 'Lihat Detail Produk',
+                            ariaLabel: `Lihat detail produk aditif solar ${productLabel}`,
+                            productLabel,
                             btnClass: "bg-emerald-600 hover:bg-emerald-700 text-white shadow-emerald-900/10 border border-emerald-600",
                             isExternal: false
                           });
@@ -229,9 +248,17 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                     } else if (value.linkUrl) {
                       // Fallback untuk artikel lama
                       const isExt = value.linkUrl.includes('shopee') || value.linkUrl.includes('tokopedia');
+                      const legacyPlatform = value.linkUrl.includes('shopee') ? 'shopee' : value.linkUrl.includes('tokopedia') ? 'tokopedia' : undefined;
                       buttonsToRender.push({
-                        url: value.linkUrl,
+                        url: legacyPlatform
+                          ? buildMarketplaceUrl(value.linkUrl, legacyPlatform, productLabel, 'article_card')
+                          : value.linkUrl,
                         text: value.buttonText || 'Lihat Produk',
+                        ariaLabel: legacyPlatform
+                          ? `Beli aditif solar ${productLabel} di ${legacyPlatform.charAt(0).toUpperCase() + legacyPlatform.slice(1)}`
+                          : undefined,
+                        platform: legacyPlatform,
+                        productLabel,
                         btnClass: "bg-emerald-600 hover:bg-emerald-700 text-white shadow-emerald-900/10 border border-emerald-600",
                         isExternal: isExt
                       });
@@ -249,21 +276,8 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                           <h3 className="text-2xl font-bold text-brand-dark mb-3 leading-tight">{displayTitle}</h3>
                           {displayDesc && <p className="text-olive-700 text-base mb-6 leading-relaxed">{displayDesc}</p>}
                           
-                          {buttonsToRender.length > 0 && (
-                            <div className="flex flex-wrap gap-3 mt-auto">
-                              {buttonsToRender.map((btn, idx) => (
-                                btn.isExternal ? (
-                                  <a key={idx} href={btn.url} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center justify-center font-bold py-2.5 px-6 rounded-xl text-sm transition-all shadow-sm ${btn.btnClass}`}>
-                                    {btn.text}
-                                  </a>
-                                ) : (
-                                  <Link key={idx} href={btn.url} className={`inline-flex items-center justify-center font-bold py-2.5 px-6 rounded-xl text-sm transition-all shadow-sm ${btn.btnClass}`}>
-                                    {btn.text}
-                                  </Link>
-                                )
-                              ))}
-                            </div>
-                          )}
+                          {/* ArticleProductCardButtons: Client Component untuk GA4 onClick + aria-label SEO */}
+                          <ArticleProductCardButtons buttons={buttonsToRender} />
                         </div>
                       </div>
                     );
