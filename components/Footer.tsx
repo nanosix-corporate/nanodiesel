@@ -43,7 +43,7 @@ export function Footer() {
           </h4>
           <ul className="space-y-3 text-white">
             <li><a href="https://www.instagram.com/nanodiesel.official/" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">Instagram</a></li>
-            <li><a href="https://shopee.co.id/srkhv4y1b8?originalCategoryId=11043727&page=0" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">Shopee</a></li>
+            <li><a href="https://shopee.co.id/nanodiesel" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">Shopee</a></li>
             <li><a href="https://www.tokopedia.com/nanodiesel" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">Tokopedia</a></li>
           </ul>
         </div>

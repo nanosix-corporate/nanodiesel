@@ -16,8 +16,8 @@ const products = [
     badge: null,
     badgeColor: '',
     dark: false,
-    shopee: 'https://tinyurl.com/yt764pn9',
-    tokopedia: 'https://tinyurl.com/9dfysxtz',
+    shopee: 'https://shopee.co.id/Aditif-Solar-Nanodiesel-Hemat-BBM-Boost-Performa-Mesin-Diesel-70-ml-1-botol-Aditif-Solar-Premium-i.1822722168.47810303561',
+    tokopedia: 'https://www.tokopedia.com/nanodiesel/hemat-bbm-aditif-solar-diesel-nanodiesel-70ml-performa-mesin-diesel-lebih-maksimal-1-botol-1735927704744003386',
     wa: 'Nano Diesel 1 Botol (70ml)',
   },
   {
@@ -31,8 +31,8 @@ const products = [
     badge: 'Best Seller',
     badgeColor: 'bg-emerald-500',
     dark: false,
-    shopee: 'https://tinyurl.com/yfrk2wcj',
-    tokopedia: 'https://tinyurl.com/2nme32bu',
+    shopee: 'https://shopee.co.id/Aditif-Solar-Nanodiesel-Value-Pack-2-botol-Hemat-Bahan-Bakar-Aditif-Solar-Premium-i.1822722168.46911170264',
+    tokopedia: 'https://www.tokopedia.com/nanodiesel/paket-hemat-nanodiesel-70ml-2-botol-aditif-solar-diesel-hemat-bahan-bakar-1735928198678349626',
     wa: 'Nano Diesel 2 Botol (2x70ml)',
   },
   {
@@ -46,8 +46,8 @@ const products = [
     badge: 'Hemat',
     badgeColor: 'bg-amber-500',
     dark: false,
-    shopee: 'https://tinyurl.com/2kh92vwd',
-    tokopedia: 'https://tinyurl.com/3b5ukya2',
+    shopee: 'https://shopee.co.id/Aditif-Solar-Nanodiesel-Hemat-Operasional-Diesel-PAKET-5-Botol-1-70-ml-Adtif-Solar-Premium-i.1822722168.55661503493',
+    tokopedia: 'https://www.tokopedia.com/nanodiesel/fleet-pack-beli-5-gratis-1-nanodiesel-70ml-untuk-mobil-diesel-truk-kendaraan-diesel-lain-1735928297609987898',
     wa: 'Nano Diesel 6 Botol (6x70ml)',
   },
   {
@@ -477,7 +477,7 @@ export default function HomeContent() {
           </p>
           <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4">
             <a
-              href="https://tinyurl.com/mrtp9mbb"
+              href="https://shopee.co.id/nanodiesel"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2.5 justify-center bg-white hover:bg-olive-100 text-brand-dark font-bold py-3 md:py-4 px-5 md:px-8 rounded-2xl text-sm md:text-base w-full sm:w-auto transition-all"
@@ -486,7 +486,7 @@ export default function HomeContent() {
               Beli di Shopee
             </a>
             <a
-              href="https://tinyurl.com/42zbd83u"
+              href="https://www.tokopedia.com/nanodiesel"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2.5 justify-center bg-white hover:bg-olive-100 text-brand-dark font-bold py-3 md:py-4 px-5 md:px-8 rounded-2xl text-sm md:text-base w-full sm:w-auto transition-all"

@@ -101,8 +101,8 @@ const productDetails: Record<string, ProductDetail> = {
       { q: 'Apakah Nano Diesel sudah memiliki sertifikasi resmi?', a: 'Ya. Nano Diesel telah tersertifikasi oleh LEMIGAS dan Mutuagung Lestari, serta teruji melalui Dyno Test. Anda dapat melihat detail hasil uji kami di <a href="/teknologi-kami" class="text-emerald-600 hover:underline">Halaman Teknologi Kami</a>.' },
       { q: 'Apakah aman digunakan bersama Biodiesel B35 atau B50?', a: 'Nano Diesel dirancang khusus untuk bekerja optimal dengan Biodiesel B30 hingga B100. Formulasi Oxygenated Technology-nya membantu mengatasi masalah atomisasi dan residu karbon yang umum terjadi pada Biodiesel.' }
     ],
-    shopee: 'https://tinyurl.com/yt764pn9',
-    tokopedia: 'https://tinyurl.com/9dfysxtz',
+    shopee: 'https://shopee.co.id/Aditif-Solar-Nanodiesel-Hemat-BBM-Boost-Performa-Mesin-Diesel-70-ml-1-botol-Aditif-Solar-Premium-i.1822722168.47810303561',
+    tokopedia: 'https://www.tokopedia.com/nanodiesel/hemat-bbm-aditif-solar-diesel-nanodiesel-70ml-performa-mesin-diesel-lebih-maksimal-1-botol-1735927704744003386',
   },
   'nano-diesel-2-botol-2x70ml': {
     id: 'Nano Diesel 2 Botol (2x70ml)',
@@ -192,8 +192,8 @@ const productDetails: Record<string, ProductDetail> = {
       { q: 'Apakah Nano Diesel sudah memiliki sertifikasi resmi?', a: 'Ya. Nano Diesel telah tersertifikasi oleh LEMIGAS dan Mutuagung Lestari, serta teruji melalui Dyno Test. Anda dapat melihat detail hasil uji kami di <a href="/teknologi-kami" class="text-emerald-600 hover:underline">Halaman Teknologi Kami</a>.' },
       { q: 'Apakah aman digunakan bersama Biodiesel B35 atau B50?', a: 'Nano Diesel dirancang khusus untuk bekerja optimal dengan Biodiesel B30 hingga B100. Formulasi Oxygenated Technology-nya membantu mengatasi masalah atomisasi dan residu karbon yang umum terjadi pada Biodiesel.' }
     ],
-    shopee: 'https://tinyurl.com/yfrk2wcj',
-    tokopedia: 'https://tinyurl.com/2nme32bu',
+    shopee: 'https://shopee.co.id/Aditif-Solar-Nanodiesel-Value-Pack-2-botol-Hemat-Bahan-Bakar-Aditif-Solar-Premium-i.1822722168.46911170264',
+    tokopedia: 'https://www.tokopedia.com/nanodiesel/paket-hemat-nanodiesel-70ml-2-botol-aditif-solar-diesel-hemat-bahan-bakar-1735928198678349626',
   },
   'nano-diesel-3-botol-3x70ml': {
     id: 'Nano Diesel 3 Botol (3x70ml)',
@@ -283,8 +283,8 @@ const productDetails: Record<string, ProductDetail> = {
       { q: 'Apakah Nano Diesel sudah memiliki sertifikasi resmi?', a: 'Ya. Nano Diesel telah tersertifikasi oleh LEMIGAS dan Mutuagung Lestari, serta teruji melalui Dyno Test. Anda dapat melihat detail hasil uji kami di <a href="/teknologi-kami" class="text-emerald-600 hover:underline">Halaman Teknologi Kami</a>.' },
       { q: 'Apakah aman digunakan bersama Biodiesel B35 atau B50?', a: 'Nano Diesel dirancang khusus untuk bekerja optimal dengan Biodiesel B30 hingga B100. Formulasi Oxygenated Technology-nya membantu mengatasi masalah atomisasi dan residu karbon yang umum terjadi pada Biodiesel.' }
     ],
-    shopee: 'https://tinyurl.com/4t43cnbx',
-    tokopedia: 'https://tinyurl.com/3s5bp2s6',
+    shopee: 'https://shopee.co.id/Aditif-Solar-Nanodiesel-PAKET-3-BOTOL-Boost-Performa-Mesin-Lubrikasi-Maksimal-Mesin-Awet-Aditif-Solar-Premium-i.1822722168.56511892375',
+    tokopedia: 'https://www.tokopedia.com/nanodiesel/aditif-solar-diesel-nanodiesel-paket-3-botol-boost-performa-mesin-lubrikasi-maksimal-mesin-awet-1735997067861460794',
   },
   'nano-diesel-6-botol-6x70ml': {
     id: 'Nano Diesel 6 Botol (6x70ml)',
@@ -374,8 +374,8 @@ const productDetails: Record<string, ProductDetail> = {
       { q: 'Apakah Nano Diesel sudah memiliki sertifikasi resmi?', a: 'Ya. Nano Diesel telah tersertifikasi oleh LEMIGAS dan Mutuagung Lestari, serta teruji melalui Dyno Test. Anda dapat melihat detail hasil uji kami di <a href="/teknologi-kami" class="text-emerald-600 hover:underline">Halaman Teknologi Kami</a>.' },
       { q: 'Apakah aman digunakan bersama Biodiesel B35 atau B50?', a: 'Nano Diesel dirancang khusus untuk bekerja optimal dengan Biodiesel B30 hingga B100. Formulasi Oxygenated Technology-nya membantu mengatasi masalah atomisasi dan residu karbon yang umum terjadi pada Biodiesel.' }
     ],
-    shopee: 'https://tinyurl.com/2kh92vwd',
-    tokopedia: 'https://tinyurl.com/3b5ukya2',
+    shopee: 'https://shopee.co.id/Aditif-Solar-Nanodiesel-Hemat-Operasional-Diesel-PAKET-5-Botol-1-70-ml-Adtif-Solar-Premium-i.1822722168.55661503493',
+    tokopedia: 'https://www.tokopedia.com/nanodiesel/fleet-pack-beli-5-gratis-1-nanodiesel-70ml-untuk-mobil-diesel-truk-kendaraan-diesel-lain-1735928297609987898',
   },
   'nano-diesel-12-botol-12x70ml': {
     id: 'Nano Diesel 12 Botol (12x70ml)',
@@ -465,8 +465,8 @@ const productDetails: Record<string, ProductDetail> = {
       { q: 'Apakah Nano Diesel sudah memiliki sertifikasi resmi?', a: 'Ya. Nano Diesel telah tersertifikasi oleh LEMIGAS dan Mutuagung Lestari, serta teruji melalui Dyno Test. Anda dapat melihat detail hasil uji kami di <a href="/teknologi-kami" class="text-emerald-600 hover:underline">Halaman Teknologi Kami</a>.' },
       { q: 'Apakah aman digunakan bersama Biodiesel B35 atau B50?', a: 'Nano Diesel dirancang khusus untuk bekerja optimal dengan Biodiesel B30 hingga B100. Formulasi Oxygenated Technology-nya membantu mengatasi masalah atomisasi dan residu karbon yang umum terjadi pada Biodiesel.' }
     ],
-    shopee: 'https://tinyurl.com/yk8tbyer',
-    tokopedia: 'https://tinyurl.com/bdd9c26c',
+    shopee: 'https://shopee.co.id/Aditif-Solar-Nanodiesel-Fleet-Pack-Pro-70ml-Paket-Hemat-Operasional-Diesel-10-2-Aditif-Solar-Premium-i.1822722168.51361706484',
+    tokopedia: 'https://www.tokopedia.com/nanodiesel/beli-10-gratis-2-nanodiesel-fleet-pack-pro-70ml-paket-hemat-operasional-diesel-1735928328344602426',
   },
 };
 

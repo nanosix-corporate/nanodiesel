@@ -24,8 +24,8 @@ export const shopProducts = [
     image: '/images/product/product-image-1.webp',
     badge: null as string | null,
     dark: false,
-    shopee: 'https://tinyurl.com/yt764pn9',
-    tokopedia: 'https://tinyurl.com/9dfysxtz',
+    shopee: 'https://shopee.co.id/Aditif-Solar-Nanodiesel-Hemat-BBM-Boost-Performa-Mesin-Diesel-70-ml-1-botol-Aditif-Solar-Premium-i.1822722168.47810303561',
+    tokopedia: 'https://www.tokopedia.com/nanodiesel/hemat-bbm-aditif-solar-diesel-nanodiesel-70ml-performa-mesin-diesel-lebih-maksimal-1-botol-1735927704744003386',
     wa: 'Nano Diesel 1 Botol (70ml)',
   },
   {
@@ -41,8 +41,8 @@ export const shopProducts = [
     image: '/images/product/product-image-2.webp',
     badge: 'Best Seller' as string | null,
     dark: false,
-    shopee: 'https://tinyurl.com/yfrk2wcj',
-    tokopedia: 'https://tinyurl.com/2nme32bu',
+    shopee: 'https://shopee.co.id/Aditif-Solar-Nanodiesel-Value-Pack-2-botol-Hemat-Bahan-Bakar-Aditif-Solar-Premium-i.1822722168.46911170264',
+    tokopedia: 'https://www.tokopedia.com/nanodiesel/paket-hemat-nanodiesel-70ml-2-botol-aditif-solar-diesel-hemat-bahan-bakar-1735928198678349626',
     wa: 'Nano Diesel 2 Botol (2x70ml)',
   },
   {
@@ -58,8 +58,8 @@ export const shopProducts = [
     image: '/images/product/product-image-5.webp',
     badge: null as string | null,
     dark: false,
-    shopee: 'https://tinyurl.com/4t43cnbx',
-    tokopedia: 'https://tinyurl.com/3s5bp2s6',
+    shopee: 'https://shopee.co.id/Aditif-Solar-Nanodiesel-PAKET-3-BOTOL-Boost-Performa-Mesin-Lubrikasi-Maksimal-Mesin-Awet-Aditif-Solar-Premium-i.1822722168.56511892375',
+    tokopedia: 'https://www.tokopedia.com/nanodiesel/aditif-solar-diesel-nanodiesel-paket-3-botol-boost-performa-mesin-lubrikasi-maksimal-mesin-awet-1735997067861460794',
     wa: 'Nano Diesel 3 Botol (3x70ml)',
   },
   {
@@ -75,8 +75,8 @@ export const shopProducts = [
     image: '/images/product/product-image-3.webp',
     badge: 'Hemat' as string | null,
     dark: false,
-    shopee: 'https://tinyurl.com/2kh92vwd',
-    tokopedia: 'https://tinyurl.com/3b5ukya2',
+    shopee: 'https://shopee.co.id/Aditif-Solar-Nanodiesel-Hemat-Operasional-Diesel-PAKET-5-Botol-1-70-ml-Adtif-Solar-Premium-i.1822722168.55661503493',
+    tokopedia: 'https://www.tokopedia.com/nanodiesel/fleet-pack-beli-5-gratis-1-nanodiesel-70ml-untuk-mobil-diesel-truk-kendaraan-diesel-lain-1735928297609987898',
     wa: 'Nano Diesel 6 Botol (6x70ml)',
   },
   {
@@ -92,8 +92,8 @@ export const shopProducts = [
     image: '/images/product/product-image-6.webp',
     badge: 'Hemat' as string | null,
     dark: false,
-    shopee: 'https://tinyurl.com/yk8tbyer',
-    tokopedia: 'https://tinyurl.com/bdd9c26c',
+    shopee: 'https://shopee.co.id/Aditif-Solar-Nanodiesel-Fleet-Pack-Pro-70ml-Paket-Hemat-Operasional-Diesel-10-2-Aditif-Solar-Premium-i.1822722168.51361706484',
+    tokopedia: 'https://www.tokopedia.com/nanodiesel/beli-10-gratis-2-nanodiesel-fleet-pack-pro-70ml-paket-hemat-operasional-diesel-1735928328344602426',
     wa: 'Nano Diesel 12 Botol (12x70ml)',
   },
   {
@@ -311,7 +311,7 @@ export default function ShopPage() {
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
                   <a
-                    href="https://tinyurl.com/mrtp9mbb"
+                    href="https://shopee.co.id/nanodiesel"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2.5 bg-white hover:bg-olive-100 text-brand-dark font-bold py-3.5 px-7 rounded-xl text-sm transition-all hover:shadow-lg"
@@ -326,7 +326,7 @@ export default function ShopPage() {
                     Shopee Official Store
                   </a>
                   <a
-                    href="https://tinyurl.com/42zbd83u"
+                    href="https://www.tokopedia.com/nanodiesel"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2.5 bg-white hover:bg-olive-100 text-brand-dark font-bold py-3.5 px-7 rounded-xl text-sm transition-all hover:shadow-lg"

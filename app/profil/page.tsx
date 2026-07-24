@@ -120,7 +120,7 @@ export default function OurStoryPage() {
           </p>
           <div className="flex flex-wrap justify-center items-center gap-4">
             <a
-              href="https://tinyurl.com/mrtp9mbb"
+              href="https://shopee.co.id/nanodiesel"
               target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-2.5 bg-white border-2 border-brand-dark text-brand-dark font-bold py-3.5 px-7 rounded-xl text-sm transition-all hover:shadow-lg hover:bg-olive-100"
             >
@@ -128,7 +128,7 @@ export default function OurStoryPage() {
               Shopee Official Store
             </a>
             <a
-              href="https://tinyurl.com/42zbd83u"
+              href="https://www.tokopedia.com/nanodiesel"
               target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-2.5 bg-white border-2 border-brand-dark text-brand-dark font-bold py-3.5 px-7 rounded-xl text-sm transition-all hover:shadow-lg hover:bg-olive-100"
             >
