@@ -120,6 +120,7 @@ export default defineType({
                   { title: 'Nano Diesel Paket 3 Botol', value: 'nano-diesel-3-botol-3x70ml' },
                   { title: 'Nano Diesel Paket Hemat 6 Botol', value: 'nano-diesel-6-botol-6x70ml' },
                   { title: 'Nano Diesel Fleet Pack Pro 12 Botol', value: 'nano-diesel-12-botol-12x70ml' },
+                  { title: '📦 Bulk / Pemesanan Grosir (via WhatsApp)', value: 'nano-diesel-bulk-order' },
                 ]
               }
             },

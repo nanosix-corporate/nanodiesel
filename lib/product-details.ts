@@ -468,6 +468,50 @@ const productDetails: Record<string, ProductDetail> = {
     shopee: 'https://shopee.co.id/Aditif-Solar-Nanodiesel-Fleet-Pack-Pro-70ml-Paket-Hemat-Operasional-Diesel-10-2-Aditif-Solar-Premium-i.1822722168.51361706484',
     tokopedia: 'https://www.tokopedia.com/nanodiesel/beli-10-gratis-2-nanodiesel-fleet-pack-pro-70ml-paket-hemat-operasional-diesel-1735928328344602426',
   },
+  'nano-diesel-bulk-order': {
+    id: 'Nano Diesel Bulk Order',
+    title: 'Bulk / Pemesanan Grosir',
+    subtitle: 'Pemesanan jumlah besar untuk distributor, armada korporat, dan kebutuhan industri — harga & kuantitas custom via WhatsApp.',
+    price: 'Harga Custom',
+    description: 'Untuk kebutuhan armada besar, distributor, atau perusahaan. Dapatkan harga khusus dan penawaran eksklusif langsung dari tim kami via WhatsApp.',
+    image: '/images/product/product-image-6.webp',
+    sections: [
+      {
+        heading: 'Untuk Siapa Bulk Order Ini?',
+        body: [
+          'Perusahaan transportasi & logistik (bus, truk, armada)',
+          'Kontraktor & operator alat berat (excavator, bulldozer, dump truck)',
+          'Pengelola genset industri, pabrik, dan gedung',
+          'Distributor & reseller Nano Diesel',
+          'Koperasi & bengkel dengan pelanggan fleet besar',
+        ],
+      },
+      {
+        heading: 'Keuntungan Bulk Order',
+        body: [
+          'Harga grosir lebih hemat dari harga eceran',
+          'Kuantitas fleksibel sesuai kebutuhan operasional',
+          'Pengiriman langsung ke lokasi armada / gudang',
+          'Dukungan teknis & konsultasi pemakaian dari tim kami',
+          'Dapat disiapkan dengan faktur resmi untuk kebutuhan perusahaan',
+        ],
+      },
+      {
+        heading: 'Cara Pesan',
+        body: [
+          'Hubungi tim kami via WhatsApp dengan menyebutkan jenis kendaraan / mesin, estimasi jumlah unit, dan lokasi pengiriman.',
+          'Tim kami akan memberikan penawaran harga & estimasi penghematan operasional secara langsung.',
+        ],
+      },
+    ],
+    faq: [
+      { q: 'Berapa minimal order untuk pembelian bulk?', a: 'Tidak ada minimal order yang baku. Namun umumnya pembelian bulk dimulai dari 20 botol ke atas. Hubungi tim kami via WhatsApp untuk penawaran terbaik sesuai kebutuhan Anda.' },
+      { q: 'Apakah tersedia harga distributor / reseller?', a: 'Ya. Kami membuka program kemitraan untuk distributor dan reseller. Silakan hubungi kami via WhatsApp untuk informasi lebih lanjut.' },
+      { q: 'Apakah bisa dikirim ke luar Jabodetabek?', a: 'Ya. Pengiriman tersedia ke seluruh wilayah Indonesia. Tim kami akan mengatur opsi pengiriman terbaik sesuai lokasi dan volume pesanan Anda.' },
+    ],
+    shopee: null,
+    tokopedia: null,
+  },
 };
 
 export function getProductBySlug(slug: string): ProductDetail | undefined {

@@ -202,8 +202,10 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                     
                     if (productInfo) {
                       // Ambil target (bisa array atau string, default ['internal'])
-                      let targets = ['internal'];
-                      if (Array.isArray(value.buttonTarget)) {
+                      // Khusus produk bulk (tidak punya Shopee/Tokopedia), default ke ['whatsapp']
+                      const isBulkProduct = !productInfo.shopee && !productInfo.tokopedia;
+                      let targets = isBulkProduct ? ['whatsapp'] : ['internal'];
+                      if (Array.isArray(value.buttonTarget) && value.buttonTarget.length > 0) {
                         targets = value.buttonTarget;
                       } else if (typeof value.buttonTarget === 'string' && value.buttonTarget.trim() !== '') {
                         targets = [value.buttonTarget];
