@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 
 // ────────────────────────────────────────────────────────────
@@ -11,11 +11,7 @@ interface CalcResult {
   monthlyLiter: number;
   monthlySpend: number;
   savingPerMonth: number;
-  additiveCostPerMonth: number;
-  netSavingPerMonth: number;
-  netSavingPerYear: number;
   bottlesNeeded: number;
-  roi: number;
 }
 
 const ADDITIVE_PRICE = 70000;  // Rp per botol 70ml
@@ -31,30 +27,84 @@ function calculate(literPerMonth: number, solarPrice: number, vehicleType: strin
     'genset': 11,
   };
   const savingPercent = savingMap[vehicleType] ?? 12;
-
   const monthlySpend = literPerMonth * solarPrice;
   const savingPerMonth = monthlySpend * (savingPercent / 100);
   const bottlesNeeded = Math.ceil(literPerMonth / ADDITIVE_COVERAGE);
-  const additiveCostPerMonth = bottlesNeeded * ADDITIVE_PRICE;
-  const netSavingPerMonth = savingPerMonth - additiveCostPerMonth;
-  const netSavingPerYear = netSavingPerMonth * 12;
-  const roi = additiveCostPerMonth > 0 ? (netSavingPerMonth / additiveCostPerMonth) * 100 : 0;
 
   return {
     savingPercent,
     monthlyLiter: literPerMonth,
     monthlySpend,
     savingPerMonth,
-    additiveCostPerMonth,
-    netSavingPerMonth,
-    netSavingPerYear,
     bottlesNeeded,
-    roi,
   };
 }
 
 function formatRp(n: number) {
   return 'Rp ' + Math.round(n).toLocaleString('id-ID');
+}
+
+// ────────────────────────────────────────────────────────────
+// Estimasi Penghematan Biaya Servis (amortisasi bulanan)
+//
+// Angka dihitung berdasarkan biaya nyata komponen × interval
+// penggantian wajar, dibagi ke dalam satuan bulan:
+//
+//   Filter Solar        → ganti tiap  6 bulan
+//   Servis Injektor     → tiap 24 bulan
+//   Glow Plug Set       → tiap 36 bulan
+//   Overhaul Pompa Injeksi → tiap 60 bulan
+//
+// Estimasi harga bengkel Jabodetabek 2025, sudah termasuk jasa.
+// ────────────────────────────────────────────────────────────
+interface MaintenanceItem {
+  label: string;
+  cost: number;     // harga satuan (Rp)
+  interval: number; // interval penggantian (bulan)
+}
+
+const maintenanceData: Record<string, MaintenanceItem[]> = {
+  'suv': [
+    { label: 'Ganti Filter Solar', cost: 200000, interval: 6 },
+    { label: 'Servis/Bersihkan Injektor', cost: 350000, interval: 24 },
+    { label: 'Ganti Set Glow Plug', cost: 700000, interval: 36 },
+    { label: 'Overhaul Pompa Injeksi', cost: 2500000, interval: 60 },
+  ],
+  'pickup': [
+    { label: 'Ganti Filter Solar', cost: 300000, interval: 6 },
+    { label: 'Servis/Bersihkan Injektor', cost: 500000, interval: 24 },
+    { label: 'Ganti Set Glow Plug', cost: 1000000, interval: 36 },
+    { label: 'Overhaul Pompa Injeksi', cost: 3500000, interval: 60 },
+  ],
+  'truk': [
+    { label: 'Ganti Filter Solar', cost: 600000, interval: 6 },
+    { label: 'Servis/Bersihkan Injektor', cost: 1200000, interval: 24 },
+    { label: 'Ganti Set Glow Plug', cost: 2200000, interval: 36 },
+    { label: 'Overhaul Pompa Injeksi', cost: 7000000, interval: 60 },
+  ],
+  'bus': [
+    { label: 'Ganti Filter Solar', cost: 500000, interval: 6 },
+    { label: 'Servis/Bersihkan Injektor', cost: 1000000, interval: 24 },
+    { label: 'Ganti Set Glow Plug', cost: 1800000, interval: 36 },
+    { label: 'Overhaul Pompa Injeksi', cost: 6000000, interval: 60 },
+  ],
+  'alat-berat': [
+    { label: 'Ganti Filter Solar', cost: 800000, interval: 6 },
+    { label: 'Servis/Bersihkan Injektor', cost: 1500000, interval: 24 },
+    { label: 'Ganti Set Glow Plug', cost: 3500000, interval: 36 },
+    { label: 'Overhaul Pompa Injeksi', cost: 10000000, interval: 60 },
+  ],
+  'genset': [
+    { label: 'Ganti Filter Solar', cost: 350000, interval: 6 },
+    { label: 'Servis/Bersihkan Injektor', cost: 800000, interval: 24 },
+    { label: 'Ganti Set Glow Plug', cost: 1400000, interval: 36 },
+    { label: 'Overhaul Pompa Injeksi', cost: 4000000, interval: 60 },
+  ],
+};
+
+function getMonthlyRepairAvoidance(vehicleType: string): number {
+  const items = maintenanceData[vehicleType] ?? maintenanceData['suv'];
+  return items.reduce((sum, item) => sum + item.cost / item.interval, 0);
 }
 
 // ────────────────────────────────────────────────────────────
@@ -66,6 +116,7 @@ export default function KalkulatorContent() {
   const [vehicle, setVehicle] = useState('suv');
   const [result, setResult] = useState<CalcResult | null>(null);
   const [hasCalculated, setHasCalculated] = useState(false);
+  const [showRepairDetail, setShowRepairDetail] = useState(false);
 
   const handleCalc = () => {
     const l = parseFloat(liter);
@@ -75,13 +126,28 @@ export default function KalkulatorContent() {
     setHasCalculated(true);
   };
 
-  useEffect(() => {
-    if (!hasCalculated) return;
-    const l = parseFloat(liter);
-    const p = parseFloat(price);
-    if (!l || !p || l <= 0 || p <= 0) return;
-    setResult(calculate(l, p, vehicle));
-  }, [liter, price, vehicle, hasCalculated]);
+  const handleInputChange = (
+    setter: (v: string) => void,
+    otherLiter?: string,
+    otherPrice?: string
+  ) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    setter(e.target.value);
+    if (hasCalculated) {
+      const l = parseFloat(setter === setLiter ? e.target.value : (otherLiter ?? liter));
+      const p = parseFloat(setter === setPrice ? e.target.value : (otherPrice ?? price));
+      if (l > 0 && p > 0) setResult(calculate(l, p, vehicle));
+    }
+  };
+
+  const handleVehicleChange = (v: string) => {
+    setVehicle(v);
+    setShowRepairDetail(false);
+    if (hasCalculated) {
+      const l = parseFloat(liter);
+      const p = parseFloat(price);
+      if (l > 0 && p > 0) setResult(calculate(l, p, v));
+    }
+  };
 
   const vehicleOptions = [
     { value: 'suv', label: 'SUV / Kendaraan Pribadi', icon: 'directions_car' },
@@ -91,6 +157,10 @@ export default function KalkulatorContent() {
     { value: 'alat-berat', label: 'Alat Berat / Excavator', icon: 'agriculture' },
     { value: 'genset', label: 'Genset / Generator', icon: 'bolt' },
   ];
+
+  const monthlyRepairSaving = getMonthlyRepairAvoidance(vehicle);
+  const repairItems = maintenanceData[vehicle] ?? maintenanceData['suv'];
+  const totalBenefit = result ? result.savingPerMonth + monthlyRepairSaving : 0;
 
   return (
     <main className="pt-[72px] min-h-screen bg-olive-50">
@@ -118,10 +188,10 @@ export default function KalkulatorContent() {
 
       {/* ── Calculator ── */}
       <section className="py-16 md:py-24 px-6 lg:px-12">
-        <div className="max-w-[900px] mx-auto">
+        <div className="max-w-[960px] mx-auto">
           <div className="grid md:grid-cols-2 gap-8 lg:gap-10 items-start">
 
-            {/* Input Panel */}
+            {/* ── Input Panel ── */}
             <div className="bg-white rounded-3xl border border-olive-200 shadow-sm p-6 md:p-8">
               <h2 className="text-lg font-headline font-black text-brand-dark mb-6">
                 Masukkan Data Konsumsi BBM Anda
@@ -137,10 +207,10 @@ export default function KalkulatorContent() {
                     <button
                       key={opt.value}
                       type="button"
-                      onClick={() => setVehicle(opt.value)}
+                      onClick={() => handleVehicleChange(opt.value)}
                       className={`flex items-center gap-2 px-3 py-2.5 rounded-xl border text-xs font-semibold text-left transition-all ${vehicle === opt.value
-                        ? 'bg-emerald-600 border-emerald-600 text-white shadow-sm'
-                        : 'bg-white border-olive-200 text-brand-copy hover:border-emerald-300 hover:bg-emerald-50'
+                          ? 'bg-emerald-600 border-emerald-600 text-white shadow-sm'
+                          : 'bg-white border-olive-200 text-brand-copy hover:border-emerald-300 hover:bg-emerald-50'
                         }`}
                     >
                       <span className="material-symbols-outlined text-lg shrink-0">{opt.icon}</span>
@@ -160,7 +230,7 @@ export default function KalkulatorContent() {
                     id="liter-input"
                     type="number"
                     value={liter}
-                    onChange={(e) => setLiter(e.target.value)}
+                    onChange={handleInputChange(setLiter, undefined, price)}
                     min="1"
                     className="w-full bg-olive-50 border border-olive-200 rounded-xl px-4 py-3 pr-16 text-brand-dark font-semibold text-base focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 transition-all"
                     placeholder="100"
@@ -170,7 +240,7 @@ export default function KalkulatorContent() {
                   </span>
                 </div>
                 <p className="text-xs text-olive-400 mt-1.5">
-                  SUV: ~60–80 L • Truk: ~300–600 L • Alat berat: 500–1.000+ L • Dapat berbeda tergantung pemakaian masing-masing
+                  SUV: ~60–80 L • Truk: ~300–600 L • Alat berat: 500–1.000+ L
                 </p>
               </div>
 
@@ -187,14 +257,18 @@ export default function KalkulatorContent() {
                     id="price-input"
                     type="number"
                     value={price}
-                    onChange={(e) => setPrice(e.target.value)}
+                    onChange={handleInputChange(setPrice, liter, undefined)}
                     min="1"
                     className="w-full bg-olive-50 border border-olive-200 rounded-xl px-4 py-3 pl-12 text-brand-dark font-semibold text-base focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 transition-all"
                     placeholder="9000"
                   />
                 </div>
                 <p className="text-xs text-olive-400 mt-1.5">
-                  Bingung soal harga solar? Cek <a className="underline" href="https://pertaminapatraniaga.com/page/harga-terbaru-bbm" target="_blank" rel="noopener noreferrer">Harga Terbaru BBM</a> untuk mengetahui harga BBM di daerah kamu.
+                  Bingung soal harga solar? Cek{' '}
+                  <a className="underline" href="https://pertaminapatraniaga.com/page/harga-terbaru-bbm" target="_blank" rel="noopener noreferrer">
+                    Harga Terbaru BBM
+                  </a>{' '}
+                  untuk mengetahui harga BBM di daerah kamu.
                 </p>
               </div>
 
@@ -208,7 +282,7 @@ export default function KalkulatorContent() {
               </button>
             </div>
 
-            {/* Result Panel */}
+            {/* ── Result Panel ── */}
             <div className="flex flex-col gap-4">
               {!hasCalculated ? (
                 <div className="bg-white rounded-3xl border border-dashed border-olive-300 p-8 text-center flex flex-col items-center justify-center gap-4 min-h-[380px]">
@@ -216,64 +290,89 @@ export default function KalkulatorContent() {
                     <span className="material-symbols-outlined text-3xl">calculate</span>
                   </div>
                   <p className="text-brand-copy/50 font-medium text-sm">
-                    Isi data di kiri dan klik<br />"Hitung Penghematan Saya"
+                    Isi data di kiri dan klik<br />&quot;Hitung Penghematan Saya&quot;
                   </p>
                 </div>
               ) : result && (
                 <>
-                  {/* Main result */}
+                  {/* Main Result Card */}
                   <div className="bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-3xl p-6 text-white shadow-xl shadow-emerald-600/20">
-                    <p className="text-emerald-100 text-sm font-medium mb-1">Penghematan Bersih per Bulan</p>
+                    <p className="text-emerald-100 text-sm font-medium mb-1">Total Estimasi Manfaat per Bulan</p>
                     <div className="text-4xl md:text-5xl font-headline font-black mb-1">
-                      {result.netSavingPerMonth >= 0
-                        ? formatRp(result.netSavingPerMonth)
-                        : '—'}
+                      {formatRp(totalBenefit)}
                     </div>
-                    {result.netSavingPerMonth >= 0 && (
-                      <p className="text-emerald-200 text-sm">
-                        Atau <strong className="text-white">{formatRp(result.netSavingPerYear)}</strong> per tahun
-                      </p>
-                    )}
-                    {result.roi > 0 && (
-                      <div className="mt-4 pt-4 border-t border-white/20 flex items-baseline gap-2">
-                        <span className="text-emerald-100 text-xs">Return on Investment:</span>
-                        <span className="text-white font-black text-xl">{Math.round(result.roi)}%</span>
-                        <span className="text-emerald-200 text-xs">/ bulan</span>
-                      </div>
-                    )}
+                    <p className="text-emerald-200 text-sm">
+                      Atau <strong className="text-white">{formatRp(totalBenefit * 12)}</strong> per tahun
+                    </p>
+                    <div className="mt-4 pt-4 border-t border-white/20 flex items-baseline gap-2">
+                      <span className="text-emerald-100 text-xs">Efisiensi BBM lebih baik:</span>
+                      <span className="text-white font-black text-xl">{result.savingPercent}%</span>
+                    </div>
                   </div>
 
-                  {/* Breakdown */}
+                  {/* Rincian Perhitungan */}
                   <div className="bg-white rounded-2xl border border-olive-200 p-5">
                     <h3 className="text-xs font-black text-brand-dark uppercase tracking-widest mb-4">
                       Rincian Perhitungan
                     </h3>
-                    <div className="space-y-2.5 text-sm">
-                      {[
-                        { label: 'Konsumsi solar/bulan', value: `${result.monthlyLiter} liter` },
-                        { label: 'Pengeluaran BBM saat ini', value: formatRp(result.monthlySpend) },
-                        { label: `Estimasi hemat BBM (${result.savingPercent}%)`, value: `– ${formatRp(result.savingPerMonth)}`, accent: true },
-                        { label: `Biaya Nano Diesel (${result.bottlesNeeded} botol)`, value: `– ${formatRp(result.additiveCostPerMonth)}` },
-                      ].map((row) => (
-                        <div key={row.label} className="flex justify-between items-center py-2 border-b border-olive-100 last:border-0">
-                          <span className="text-brand-copy/70">{row.label}</span>
-                          <span className={`font-semibold ${row.accent ? 'text-emerald-600' : 'text-brand-dark'}`}>
-                            {row.value}
+
+                    <div className="space-y-0 text-sm">
+                      {/* BBM rows */}
+                      <div className="flex justify-between items-center py-2.5 border-b border-olive-100">
+                        <span className="text-brand-copy/70">Konsumsi solar/bulan</span>
+                        <span className="font-semibold text-brand-dark">{result.monthlyLiter} liter</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2.5 border-b border-olive-100">
+                        <span className="text-brand-copy/70">Pengeluaran BBM saat ini</span>
+                        <span className="font-semibold text-brand-dark">{formatRp(result.monthlySpend)}</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2.5 border-b border-olive-200">
+                        <span className="text-brand-copy/70">Estimasi hemat BBM ({result.savingPercent}%)</span>
+                        <span className="font-semibold text-emerald-600">+ {formatRp(result.savingPerMonth)}</span>
+                      </div>
+
+                      {/* Divider: servis section */}
+                      <div className="pt-3 pb-1">
+                        <p className="text-[10px] font-bold text-brand-copy/40 uppercase tracking-widest">
+                          Potensi Hemat Biaya Servis
+                        </p>
+                      </div>
+
+                      {/* Repair avoidance rows */}
+                      {repairItems.map((item) => (
+                        <div key={item.label} className="flex justify-between items-center py-2 border-b border-olive-50">
+                          <div>
+                            <span className="text-brand-copy/70">{item.label}</span>
+                            <span className="text-olive-300 text-xs ml-1">(tiap {item.interval} bln)</span>
+                          </div>
+                          <span className="font-semibold text-amber-600 shrink-0 ml-3">
+                            + {formatRp(Math.round(item.cost / item.interval))}/bln
                           </span>
                         </div>
                       ))}
-                      <div className="flex justify-between items-center py-2 bg-emerald-50 rounded-xl px-3 mt-2">
-                        <span className="font-bold text-brand-dark text-sm">Penghematan bersih/bulan</span>
-                        <span className={`font-black text-base ${result.netSavingPerMonth >= 0 ? 'text-emerald-600' : 'text-amber-600'}`}>
-                          {formatRp(result.netSavingPerMonth)}
+
+                      {/* Repair subtotal */}
+                      <div className="flex justify-between items-center py-2.5 border-b border-olive-200">
+                        <span className="text-brand-copy/60 text-xs">Subtotal hemat biaya servis</span>
+                        <span className="font-semibold text-amber-600">{formatRp(monthlyRepairSaving)}/bln</span>
+                      </div>
+
+                      {/* Grand total */}
+                      <div className="flex justify-between items-center py-3 bg-emerald-50 rounded-xl px-3 mt-2">
+                        <span className="font-bold text-brand-dark text-sm">Total Estimasi Manfaat/Bulan</span>
+                        <span className="font-black text-base text-emerald-600">
+                          {formatRp(totalBenefit)}
                         </span>
                       </div>
                     </div>
-                  </div>
 
-                  <p className="text-xs text-olive-400 leading-relaxed px-1">
-                    *Estimasi berdasarkan data uji LEMIGAS & Mutuagung Lestari. Hasil aktual bervariasi tergantung kondisi mesin, kualitas BBM, dan gaya berkendara.
-                  </p>
+                    {/* Disclaimer inline */}
+                    <div className="mt-4 pt-3 border-t border-olive-100 flex items-start gap-2">
+                      <p className="text-[11px] text-brand-copy/50 leading-relaxed">
+                        Estimasi hemat servis dihitung dari amortisasi biaya komponen nyata dibagi interval penggantian wajar (Jabodetabek 2025, sudah termasuk jasa). Hasil aktual bervariasi tergantung kondisi mesin dan intensitas pemakaian. Penggunaan Nano Diesel berpotensi memperpanjang umur komponen sistem bahan bakar — bukan jaminan mutlak.
+                      </p>
+                    </div>
+                  </div>
 
                   <Link
                     href="/produk"
