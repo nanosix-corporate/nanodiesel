@@ -234,6 +234,17 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                             btnClass: "bg-[#00AA5B] hover:bg-[#008F4C] text-white shadow-[#00AA5B]/20 border border-[#00AA5B]",
                             isExternal: true
                           });
+                        } else if (t === 'whatsapp') {
+                          const waText = encodeURIComponent(`Halo Nano Diesel, saya berminat memesan ${productLabel} (order via Artikel)`);
+                          buttonsToRender.push({
+                            url: `https://wa.me/+622122483303?text=${waText}`,
+                            text: 'Pesan via WhatsApp',
+                            ariaLabel: `Order aditif solar ${productLabel} via WhatsApp`,
+                            platform: 'whatsapp',
+                            productLabel,
+                            btnClass: "bg-[#25D366] hover:bg-[#20BD5A] text-white shadow-[#25D366]/20 border border-[#25D366]",
+                            isExternal: true
+                          });
                         } else if (t === 'internal') {
                           buttonsToRender.push({
                             url: `/produk/${value.productId}`,

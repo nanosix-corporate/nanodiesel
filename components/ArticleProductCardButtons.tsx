@@ -8,8 +8,8 @@ interface ButtonConfig {
   text: string;
   btnClass: string;
   isExternal: boolean;
-  /** Platform untuk GA4 event — hanya diisi untuk tombol Shopee & Tokopedia */
-  platform?: 'shopee' | 'tokopedia';
+  /** Platform untuk GA4 event — diisi untuk tombol Shopee, Tokopedia, atau WhatsApp */
+  platform?: 'shopee' | 'tokopedia' | 'whatsapp';
   /** Nama produk untuk GA4 event & UTM campaign */
   productLabel: string;
   /** aria-label yang mengandung keyword transactional untuk SEO */

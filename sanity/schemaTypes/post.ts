@@ -135,6 +135,7 @@ export default defineType({
                   { title: 'Halaman Produk Lokal (Rekomendasi SEO)', value: 'internal' },
                   { title: 'Shopee', value: 'shopee' },
                   { title: 'Tokopedia', value: 'tokopedia' },
+                  { title: 'WhatsApp (Bulk / Direct Order)', value: 'whatsapp' },
                 ]
               }
             },
