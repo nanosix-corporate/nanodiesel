@@ -474,7 +474,7 @@ const productDetails: Record<string, ProductDetail> = {
     subtitle: 'Pemesanan jumlah besar untuk distributor, armada korporat, dan kebutuhan industri — harga & kuantitas custom via WhatsApp.',
     price: 'Harga Custom',
     description: 'Untuk kebutuhan armada besar, distributor, atau perusahaan. Dapatkan harga khusus dan penawaran eksklusif langsung dari tim kami via WhatsApp.',
-    image: '/images/product/product-image-6.webp',
+    image: '/images/product/product-image-4.webp',
     sections: [
       {
         heading: 'Untuk Siapa Bulk Order Ini?',
