@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 import { getProductBySlug, getAllSlugs } from '../../../lib/product-details';
 import { BackButton } from '../../../components/BackButton';
 import { MarketplaceButtons } from '../../../components/MarketplaceButtons';
+import { PriceTooltip } from '../../../components/PriceTooltip';
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.nanodiesel.id';
 
@@ -185,8 +186,9 @@ export default async function ProductDetailPage({
                 {product.description}
               </p>
 
-              <div className="text-2xl md:text-3xl font-black text-emerald-700 mb-6">
+              <div className="flex items-center gap-2 text-2xl md:text-3xl font-black text-emerald-700 mb-6">
                 {product.price}
+                {product.price.startsWith('Rp') && <PriceTooltip size={16} />}
               </div>
 
               <div className="flex flex-col gap-3 mt-auto">

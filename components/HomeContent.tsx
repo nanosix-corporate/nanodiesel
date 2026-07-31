@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { OrderModal } from '../components/OrderModal';
+import { PriceTooltip } from '../components/PriceTooltip';
 
 const products = [
   {
@@ -302,8 +303,9 @@ export default function HomeContent() {
                       </>
                     ) : (
                       <div className="flex flex-col gap-2">
-                        <div className="text-sm md:text-base font-black text-brand-dark whitespace-nowrap">
+                        <div className="flex items-center gap-1.5 text-sm md:text-base font-black text-brand-dark whitespace-nowrap">
                           {product.price}
+                          {product.price.startsWith('Rp') && <PriceTooltip />}
                         </div>
                         <button
                           type="button"

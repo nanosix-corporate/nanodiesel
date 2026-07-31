@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ShopModalController } from '../../components/ShopModalController';
 import { generateSeoMetadata, BASE_URL } from '../../lib/seo';
+import { PriceTooltip } from '../../components/PriceTooltip';
 
 export const metadata = generateSeoMetadata({
   title: 'Aditif Solar Premium Nano Diesel | Proteksi & Performa Optimal',
@@ -276,8 +277,9 @@ export default function ShopPage() {
                         </>
                       ) : (
                         <div className="flex flex-col gap-2">
-                          <div className="text-sm md:text-base font-black text-brand-dark whitespace-nowrap">
+                        <div className="flex items-center gap-1.5 text-sm md:text-base font-black text-brand-dark whitespace-nowrap">
                             {product.price}
+                            {product.price.startsWith('Rp') && <PriceTooltip />}
                           </div>
                           {/* Placeholder — akan di-hydrate oleh ShopModalController */}
                           <button

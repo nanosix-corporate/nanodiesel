@@ -7,6 +7,7 @@ import { draftMode } from 'next/headers';
 import { getProductBySlug } from '../../../lib/product-details';
 import { buildMarketplaceUrl } from '../../../lib/utm';
 import { ArticleProductCardButtons } from '../../../components/ArticleProductCardButtons';
+import { PriceTooltip } from '../../../components/PriceTooltip';
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.nanodiesel.id';
 
@@ -289,6 +290,14 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                           <h3 className="text-2xl font-bold text-brand-dark mb-3 leading-tight">{displayTitle}</h3>
                           {displayDesc && <p className="text-olive-700 text-base mb-6 leading-relaxed">{displayDesc}</p>}
                           
+                          {/* Harga + Tooltip Disclaimer */}
+                          {productInfo?.price && (
+                            <div className="flex items-center gap-1.5 text-lg font-black text-emerald-700 mb-5">
+                              {productInfo.price}
+                              {productInfo.price.startsWith('Rp') && <PriceTooltip size={15} />}
+                            </div>
+                          )}
+
                           {/* ArticleProductCardButtons: Client Component untuk GA4 onClick + aria-label SEO */}
                           <ArticleProductCardButtons buttons={buttonsToRender} />
                         </div>
