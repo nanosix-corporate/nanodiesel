@@ -286,13 +286,13 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                             <img src={displayImage} alt={displayTitle || 'Product Image'} className="w-full h-full object-cover" />
                           </div>
                         )}
-                        <div className="p-6 sm:p-8 flex flex-col justify-center flex-1">
-                          <h3 className="text-2xl font-bold text-brand-dark mb-3 leading-tight">{displayTitle}</h3>
-                          {displayDesc && <p className="text-olive-700 text-base mb-6 leading-relaxed">{displayDesc}</p>}
+                        <div className="p-5 sm:p-7 flex flex-col justify-center flex-1">
+                          <h3 className="text-xl sm:text-2xl font-bold text-brand-dark mb-2 leading-tight">{displayTitle}</h3>
+                          {displayDesc && <p className="text-olive-700 text-sm sm:text-base mb-3 leading-relaxed">{displayDesc}</p>}
                           
                           {/* Harga + Tooltip Disclaimer */}
                           {productInfo?.price && (
-                            <div className="flex items-center gap-1.5 text-lg font-black text-emerald-700 mb-5">
+                            <div className="flex items-center gap-1.5 text-base sm:text-lg font-black text-emerald-700 mb-4">
                               {productInfo.price}
                               {productInfo.price.startsWith('Rp') && <PriceTooltip size={15} />}
                             </div>
