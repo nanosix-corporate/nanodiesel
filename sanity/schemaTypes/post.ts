@@ -192,7 +192,120 @@ export default defineType({
               };
             }
           }
-        }
+        },
+        // ─── TABLE BLOCK ─────────────────────────────────────
+        {
+          type: 'object',
+          name: 'tableBlock',
+          title: 'Tabel',
+          fields: [
+            {
+              name: 'caption',
+              title: 'Judul Tabel (Opsional)',
+              type: 'string',
+            },
+            {
+              name: 'headers',
+              title: 'Header Kolom',
+              description: 'Tambahkan nama-nama kolom (misalnya: Produk, Torsi, Tenaga)',
+              type: 'array',
+              of: [{ type: 'string' }],
+            },
+            {
+              name: 'rows',
+              title: 'Baris Data',
+              type: 'array',
+              of: [
+                {
+                  type: 'object',
+                  name: 'tableRow',
+                  title: 'Baris',
+                  fields: [
+                    {
+                      name: 'cells',
+                      title: 'Isi Sel (urutan sesuai kolom)',
+                      type: 'array',
+                      of: [{ type: 'string' }],
+                    },
+                  ],
+                  preview: {
+                    select: { cells: 'cells' },
+                    prepare({ cells }: any) {
+                      return { title: Array.isArray(cells) ? cells.join(' | ') : 'Baris' };
+                    }
+                  }
+                },
+              ],
+            },
+          ],
+          preview: {
+            select: { caption: 'caption', headers: 'headers' },
+            prepare({ caption, headers }: any) {
+              const colCount = Array.isArray(headers) ? headers.length : 0;
+              return {
+                title: caption || 'Tabel',
+                subtitle: colCount > 0 ? `${colCount} kolom: ${headers.join(', ')}` : 'Belum ada kolom',
+              };
+            }
+          }
+        },
+        // ─── FAQ SECTION ─────────────────────────────────────
+        {
+          type: 'object',
+          name: 'faqSection',
+          title: 'Modul FAQ (Tanya Jawab)',
+          fields: [
+            {
+              name: 'sectionTitle',
+              title: 'Judul Bagian FAQ (Opsional)',
+              description: 'Contoh: "Pertanyaan Umum" atau "FAQ Produk Ini"',
+              type: 'string',
+            },
+            {
+              name: 'items',
+              title: 'Daftar Pertanyaan & Jawaban',
+              type: 'array',
+              of: [
+                {
+                  type: 'object',
+                  name: 'faqItem',
+                  title: 'FAQ Item',
+                  fields: [
+                    {
+                      name: 'question',
+                      title: 'Pertanyaan',
+                      type: 'string',
+                      validation: (Rule: any) => Rule.required(),
+                    },
+                    {
+                      name: 'answer',
+                      title: 'Jawaban',
+                      type: 'text',
+                      rows: 4,
+                      validation: (Rule: any) => Rule.required(),
+                    },
+                  ],
+                  preview: {
+                    select: { question: 'question' },
+                    prepare({ question }: any) {
+                      return { title: question || 'FAQ Item' };
+                    }
+                  }
+                },
+              ],
+            },
+          ],
+          preview: {
+            select: { sectionTitle: 'sectionTitle', items: 'items' },
+            prepare({ sectionTitle, items }: any) {
+              const count = Array.isArray(items) ? items.length : 0;
+              return {
+                title: sectionTitle || 'Modul FAQ',
+                subtitle: `${count} pertanyaan`,
+              };
+            }
+          }
+        },
       ],
     }),
   ],

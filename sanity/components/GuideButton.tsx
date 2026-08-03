@@ -66,7 +66,31 @@ export function GuideButton() {
               </Stack>
 
               <Stack space={3}>
-                <Heading as="h3" size={3}>3. Fitur Live Preview</Heading>
+                <Heading as="h3" size={3}>3. Menambahkan Tabel di Artikel</Heading>
+                <Text size={2}>
+                  Anda dapat menyisipkan tabel data langsung di dalam teks artikel untuk menyajikan perbandingan data, spesifikasi produk, atau hasil pengujian secara terstruktur.
+                </Text>
+                <Text size={2} weight="semibold">Cara Penggunaan:</Text>
+                <Text size={2}>1. Di kolom Konten, klik tombol <strong>+</strong> (Add item) di akhir paragraf.</Text>
+                <Text size={2}>2. Pilih opsi <strong>Tabel</strong> dari daftar blok.</Text>
+                <Text size={2}>3. Isi <strong>Header Kolom</strong> (nama-nama kolom), lalu tambahkan <strong>Baris Data</strong> satu per satu. Urutan sel harus sesuai urutan kolom.</Text>
+                <Text size={2}>4. Isi <strong>Judul Tabel</strong> (opsional) sebagai keterangan di atas tabel.</Text>
+              </Stack>
+
+              <Stack space={3}>
+                <Heading as="h3" size={3}>4. Menambahkan Modul FAQ (Tanya Jawab)</Heading>
+                <Text size={2}>
+                  Modul FAQ memungkinkan Anda menyisipkan daftar tanya-jawab interaktif di dalam artikel. Selain tampil sebagai accordion, FAQ otomatis menghasilkan schema SEO <strong>FAQPage</strong> yang berpotensi muncul sebagai <em>Rich Snippet</em> di Google.
+                </Text>
+                <Text size={2} weight="semibold">Cara Penggunaan:</Text>
+                <Text size={2}>1. Di kolom Konten, klik tombol <strong>+</strong> dan pilih <strong>Modul FAQ (Tanya Jawab)</strong>.</Text>
+                <Text size={2}>2. Isi <strong>Judul Bagian FAQ</strong> (opsional), misalnya "Pertanyaan Umum".</Text>
+                <Text size={2}>3. Klik <strong>Add item</strong> untuk menambahkan pertanyaan baru. Isi <strong>Pertanyaan</strong> dan <strong>Jawaban</strong>.</Text>
+                <Text size={2}>4. Ulangi langkah 3 untuk setiap pertanyaan tambahan, lalu klik Publish.</Text>
+              </Stack>
+
+              <Stack space={3}>
+                <Heading as="h3" size={3}>5. Fitur Live Preview</Heading>
                 <Text size={2}>
                   Anda kini tidak perlu lagi bolak-balik buka tab baru untuk melihat hasil ketikan Anda.
                 </Text>
@@ -77,7 +101,7 @@ export function GuideButton() {
               </Stack>
 
               <Stack space={3}>
-                <Heading as="h3" size={3}>4. Mengubah URL (Auto-Redirect 301)</Heading>
+                <Heading as="h3" size={3}>6. Mengubah URL (Auto-Redirect 301)</Heading>
                 <Text size={2}>
                   Jika Anda perlu merevisi judul artikel lama, jangan biarkan URL lama rusak/error 404!
                 </Text>

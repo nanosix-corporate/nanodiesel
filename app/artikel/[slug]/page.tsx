@@ -152,13 +152,39 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     },
   };
 
+  // JSON-LD: FAQPage Schema — dibangun otomatis dari blok faqSection dalam konten
+  const faqItems = (post.content || [])
+    .filter((block: any) => block._type === 'faqSection' && Array.isArray(block.items) && block.items.length > 0)
+    .flatMap((block: any) => block.items)
+    .filter((item: any) => item.question && item.answer);
+
+  const faqPageJsonLd = faqItems.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item: any) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  } : null;
+
   return (
     <>
-      {/* JSON-LD Structured Data */}
+      {/* JSON-LD: Article Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
+      {/* JSON-LD: FAQPage (hanya jika artikel mengandung Modul FAQ) */}
+      {faqPageJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageJsonLd) }}
+        />
+      )}
       <main className="pt-[72px] min-h-screen">
       {/* Page Header */}
       <div
@@ -304,6 +330,92 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                       </div>
                     );
                   }
+                },
+                // ─── TABLE BLOCK RENDERER ──────────────────────────
+                tableBlock: ({ value }: any) => {
+                  if (!value) return null;
+                  const { caption, headers, rows } = value;
+                  const hasHeaders = Array.isArray(headers) && headers.length > 0;
+                  const hasRows = Array.isArray(rows) && rows.length > 0;
+                  if (!hasHeaders && !hasRows) return null;
+                  return (
+                    <div className="my-10 not-prose overflow-x-auto rounded-xl border border-olive-200 shadow-sm">
+                      {caption && (
+                        <p className="px-4 py-2 text-xs font-semibold text-olive-500 uppercase tracking-wider bg-olive-50 border-b border-olive-200">
+                          {caption}
+                        </p>
+                      )}
+                      <table className="w-full text-sm text-left">
+                        {hasHeaders && (
+                          <thead className="bg-emerald-900 text-white">
+                            <tr>
+                              {headers.map((header: string, i: number) => (
+                                <th
+                                  key={i}
+                                  scope="col"
+                                  className="px-4 py-3 font-semibold text-xs uppercase tracking-wider whitespace-nowrap"
+                                >
+                                  {header}
+                                </th>
+                              ))}
+                            </tr>
+                          </thead>
+                        )}
+                        {hasRows && (
+                          <tbody className="divide-y divide-olive-100">
+                            {rows.map((row: any, rowIdx: number) => (
+                              <tr
+                                key={rowIdx}
+                                className={rowIdx % 2 === 0 ? 'bg-white' : 'bg-olive-50'}
+                              >
+                                {Array.isArray(row.cells) && row.cells.map((cell: string, cellIdx: number) => (
+                                  <td
+                                    key={cellIdx}
+                                    className="px-4 py-3 text-brand-dark align-top"
+                                  >
+                                    {cell}
+                                  </td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        )}
+                      </table>
+                    </div>
+                  );
+                },
+                // ─── FAQ SECTION RENDERER ─────────────────────────
+                faqSection: ({ value }: any) => {
+                  if (!value || !Array.isArray(value.items) || value.items.length === 0) return null;
+                  return (
+                    <div className="my-10 not-prose">
+                      {value.sectionTitle && (
+                        <h2 className="text-xl font-headline font-bold text-brand-dark mb-4">
+                          {value.sectionTitle}
+                        </h2>
+                      )}
+                      <div className="divide-y divide-olive-200 border border-olive-200 rounded-xl overflow-hidden">
+                        {value.items.map((item: any, idx: number) => (
+                          <details
+                            key={idx}
+                            name={`faq-article-${value._key || 'block'}`}
+                            className="group bg-white"
+                          >
+                            <summary className="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer font-semibold text-brand-dark text-base list-none [&::-webkit-details-marker]:hidden hover:bg-olive-50 transition-colors">
+                              <span>{item.question}</span>
+                              <div className="w-7 h-7 rounded bg-olive-100 text-brand-dark flex items-center justify-center shrink-0 transition-colors group-hover:bg-emerald-100 group-hover:text-emerald-800">
+                                <span className="text-xl leading-none font-normal mt-[-2px] group-open:hidden">+</span>
+                                <span className="text-xl leading-none font-normal mt-[-2px] hidden group-open:block">&#8722;</span>
+                              </div>
+                            </summary>
+                            <div className="px-5 pb-5 pt-3 text-brand-copy text-sm leading-relaxed border-t border-olive-100 bg-olive-50">
+                              {item.answer}
+                            </div>
+                          </details>
+                        ))}
+                      </div>
+                    </div>
+                  );
                 },
                 marks: {
                   internalLink: ({value, children}: any) => {
