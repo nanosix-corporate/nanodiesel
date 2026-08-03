@@ -417,29 +417,30 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                     </div>
                   );
                 },
-                marks: {
-                  internalLink: ({value, children}: any) => {
-                    const slug = value?.slug || '';
-                    return (
-                      <Link href={`/artikel/${slug}`} className="text-emerald-600 hover:text-emerald-700 font-semibold underline decoration-emerald-600/30 underline-offset-2">
-                        {children}
-                      </Link>
-                    );
-                  },
-                  link: ({value, children}: any) => {
-                    const { blank, href } = value || {};
-                    return blank ? (
-                      <a href={href} target="_blank" rel="noopener noreferrer" className="text-brand-dark hover:text-emerald-600 font-semibold underline decoration-brand-dark/30 underline-offset-2">
-                        {children}
-                      </a>
-                    ) : (
-                      <a href={href} className="text-brand-dark hover:text-emerald-600 font-semibold underline decoration-brand-dark/30 underline-offset-2">
-                        {children}
-                      </a>
-                    );
-                  }
+              },
+              marks: {
+                internalLink: ({value, children}: any) => {
+                  const slug = value?.slug || '';
+                  return (
+                    <Link href={`/artikel/${slug}`} className="text-emerald-600 hover:text-emerald-700 font-semibold underline decoration-emerald-600/30 underline-offset-2">
+                      {children}
+                    </Link>
+                  );
+                },
+                link: ({value, children}: any) => {
+                  const { blank, href } = value || {};
+                  return blank ? (
+                    <a href={href} target="_blank" rel="noopener noreferrer" className="text-brand-dark hover:text-emerald-600 font-semibold underline decoration-brand-dark/30 underline-offset-2">
+                      {children}
+                    </a>
+                  ) : (
+                    <a href={href} className="text-brand-dark hover:text-emerald-600 font-semibold underline decoration-brand-dark/30 underline-offset-2">
+                      {children}
+                    </a>
+                  );
                 }
-              }}
+              }
+            }}
             />
           </div>
         </div>
