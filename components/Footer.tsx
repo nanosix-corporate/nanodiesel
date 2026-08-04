@@ -6,7 +6,7 @@ export function Footer() {
     <footer className="bg-[#121E10] border-t border-olive-800/50 text-olive-400 text-sm">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12 py-12 md:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-12 lg:gap-10">
         <div className="space-y-6">
-          <Image src="/images/logo/nanodiesel-logo-mono-white.svg" alt="Nano Diesel" width={160} height={40} className="h-10 w-auto object-contain" />
+          <Image src="/images/logo/nanodiesel-logo-mono-white.svg" alt="Nano Diesel" width={160} height={40} className="h-10 w-auto object-contain" style={{ width: 'auto' }} />
           <p className="leading-relaxed text-white text-sm">
             Aditif Solar Premium berteknologi nano. Satu solusi perlindungan dan peningkatan performa untuk pengalaman berkendara diesel yang optimal, dirancang khusus menaklukkan tantangan Biodiesel B35 hingga B100.
           </p>
@@ -30,10 +30,14 @@ export function Footer() {
             Informasi
           </h4>
           <ul className="space-y-3 text-white">
+            <li><a href="/produk" className="hover:text-emerald-400 transition-colors">Produk</a></li>
+            <li><a href="/profil" className="hover:text-emerald-400 transition-colors">Profil</a></li>
+            <li><a href="/artikel" className="hover:text-emerald-400 transition-colors">Artikel</a></li>
+            <li><a href="/teknologi-kami" className="hover:text-emerald-400 transition-colors">Teknologi Kami</a></li>
+            <li><a href="/industri" className="hover:text-emerald-400 transition-colors">Industri</a></li>
             <li><a href="/bukti-uji" className="hover:text-emerald-400 transition-colors">Bukti Uji</a></li>
             <li><a href="/cara-pakai" className="hover:text-emerald-400 transition-colors">Cara Pakai</a></li>
             <li><a href="/faq" className="hover:text-emerald-400 transition-colors">FAQ</a></li>
-            <li><a href="/profil" className="hover:text-emerald-400 transition-colors">Profil</a></li>
           </ul>
         </div>
 

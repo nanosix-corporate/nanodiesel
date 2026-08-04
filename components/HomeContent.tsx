@@ -276,17 +276,15 @@ export default function HomeContent() {
                   <p className={`text-fs-sm leading-relaxed line-clamp-1 ${product.dark ? 'text-olive-400' : 'text-brand-copy/80'}`}>
                     {product.description}
                   </p>
-                  {!product.dark && (
-                    <a
-                      href={`/produk/${product.id.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '')}?from=home`}
-                      className="inline-flex items-center gap-1 text-fs-sm font-medium text-emerald-600 hover:text-emerald-700 hover:underline underline-offset-2 transition-all my-2"
-                    >
-                      Lihat deskripsi produk
-                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="transition-transform group-hover:translate-x-0.5">
-                        <path d="M3 1L7 5L3 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </a>
-                  )}
+                  <a
+                    href={product.dark ? '/industri' : `/produk/${product.id.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '')}?from=home`}
+                    className={`inline-flex items-center gap-1 text-fs-sm font-medium hover:underline underline-offset-2 transition-all my-2 ${product.dark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-600 hover:text-emerald-700'}`}
+                  >
+                    {product.dark ? 'Lihat industri' : 'Lihat deskripsi produk'}
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="transition-transform group-hover:translate-x-0.5">
+                      <path d="M3 1L7 5L3 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </a>
                   <div className="mt-auto">
                     {product.dark ? (
                       <>
