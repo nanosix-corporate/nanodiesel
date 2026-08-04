@@ -383,9 +383,9 @@ const industriList: IndustriData[] = [
     emoji: '⛽',
     icon: 'oil_barrel',
     keyword: 'aditif solar industri BBM depot tangki',
-    headline: 'Kualitas Solar di Tangki Anda Menentukan Kualitas Operasional Seluruh Armada.',
+    headline: 'Jaga Kualitas Solar dari Tangki Anda. Jaga Kepercayaan Klien Anda.',
     subheadline:
-      'Dari depot penyimpanan hingga SPBU industri, Nano Diesel menjaga stabilitas dan performa bahan bakar solar Anda — melindungi setiap liter dari degradasi, kontaminasi air, dan pembentukan endapan.',
+      'Distributor dan pemasok solar industri menanggung konsekuensi dari kualitas bahan bakar yang diterima klien — bukan hanya yang dikirim. Nano Diesel bekerja di dalam tangki penyimpanan Anda untuk mencegah degradasi sebelum terjadi, sehingga solar yang sampai ke penerima konsisten kualitasnya — dan nama Anda terlindungi.',
     bodyCopy:
       'Solar industri dijual dengan harga tinggi — dan perusahaan penerima membelinya dengan ekspektasi kualitas yang sepadan. Tapi antara kilang dan tangki mesin penerima, ada perjalanan panjang yang tidak selalu ramah terhadap kualitas bahan bakar.\n\nTangki penyimpanan besar adalah titik paling rentan. Oksidasi berjalan diam-diam selama penyimpanan, mengubah solar menjadi gum dan lacquer. Kondensasi di dinding tangki menghasilkan air di dasar — media ideal bagi bakteri dan jamur yang menghasilkan bio-sludge. Endapan ini ikut terbawa saat solar dipompa keluar dan akhirnya masuk ke sistem injeksi mesin penerima.\n\nHasilnya: perusahaan penerima mengalami masalah operasional dari solar yang mereka beli dengan harga penuh. Bagi distributor, ini bukan hanya masalah teknis — ini masalah reputasi. Keluhan kualitas dari klien tidak hanya membawa biaya klaim, tapi mempertaruhkan kepercayaan dan kontrak berikutnya.\n\nNano Diesel ditambahkan langsung ke tangki penyimpanan atau sistem distribusi sebelum solar dikirim. Memperlambat oksidasi, menghambat mikroba, dan memecah kandungan air — sehingga solar yang sampai ke penerima dalam kondisi yang konsisten dan terlindungi. Bagi distributor, ini investasi dalam kualitas produk yang dikirimkan dan kepercayaan klien yang menerimanya.',
     painPoints: [
