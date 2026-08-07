@@ -69,6 +69,8 @@ const organizationJsonLd = {
   ],
 };
 
+import { GoogleAnalytics } from '../components/GoogleAnalytics';
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="id" className={`${nunitoSans.variable}`}>
@@ -94,19 +96,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </ClientLayoutWrapper>
       </body>
 
-      {/* Google Analytics 4 — berlaku otomatis di semua halaman termasuk artikel baru */}
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-XHNP23VTHP"
-        strategy="afterInteractive"
-      />
-      <Script id="ga4-config" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-XHNP23VTHP');
-        `}
-      </Script>
+      <GoogleAnalytics />
     </html>
   );
 }

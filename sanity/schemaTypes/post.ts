@@ -49,7 +49,7 @@ export default defineType({
     defineField({
       name: 'seo',
       title: 'SEO',
-      type: 'seoMetaFields',
+      type: 'articleSeo',
     }),
     defineField({
       name: 'author',

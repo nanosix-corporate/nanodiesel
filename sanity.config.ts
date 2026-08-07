@@ -2,7 +2,7 @@ import React from 'react'
 import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
-import {seoMetaFields} from 'sanity-plugin-seo'
+
 import {schemaTypes} from './sanity/schemaTypes'
 import {dataset, projectId} from './sanity/env'
 import {defaultDocumentNode} from './sanity/defaultDocumentNode'
@@ -14,7 +14,7 @@ export default defineConfig({
   title: 'nanodiesel',
   projectId,
   dataset,
-  plugins: [structureTool({ defaultDocumentNode }), visionTool(), seoMetaFields()],
+  plugins: [structureTool({ defaultDocumentNode }), visionTool()],
   schema: {
     types: schemaTypes,
   },
