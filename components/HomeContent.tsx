@@ -41,7 +41,7 @@ const products = [
     title: '5 Botol Gratis 1 Botol',
     subtitle: 'Nano Diesel (6 × 70 ml)',
     label: 'Paket Ekonomis Armada',
-    price: 'Rp 350.000',
+    price: 'Rp 365.000',
     description: 'Paket ekonomis untuk pemakaian rutin. Ideal untuk armada kecil atau stok bulanan kendaraan diesel Anda.',
     image: '/images/product/product-image-3.webp',
     badge: 'Hemat',

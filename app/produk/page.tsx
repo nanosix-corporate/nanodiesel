@@ -52,8 +52,8 @@ export const shopProducts = [
     title: '3 Botol',
     subtitle: 'Nano Diesel (3 × 70 ml)',
     label: 'Cocok Untuk Perjalanan Jauh',
-    price: 'Rp 185.000',
-    numericPrice: 185000,
+    price: 'Rp 188.000',
+    numericPrice: 188000,
     description:
       'Pilihan tengah yang pas untuk pemakaian beberapa kali. Cocok untuk perjalanan jauh dan aktivitas harian.',
     image: '/images/product/product-image-5.webp',
@@ -69,8 +69,8 @@ export const shopProducts = [
     title: '5 Botol Gratis 1 Botol',
     subtitle: 'Nano Diesel (6 × 70 ml)',
     label: 'Paket Paling Hemat',
-    price: 'Rp 350.000',
-    numericPrice: 350000,
+    price: 'Rp 365.000',
+    numericPrice: 365000,
     description:
       'Paket ekonomis untuk pemakaian rutin. Ideal untuk armada kecil atau stok bulanan kendaraan diesel Anda.',
     image: '/images/product/product-image-3.webp',
@@ -86,8 +86,8 @@ export const shopProducts = [
     title: '10 Botol Gratis 2 Botol',
     subtitle: 'Nano Diesel (12 × 70 ml)',
     label: 'Super Hemat Untuk Armada',
-    price: 'Rp 700.000',
-    numericPrice: 700000,
+    price: 'Rp 720.000',
+    numericPrice: 720000,
     description:
       'Paket super hemat untuk pemakaian jangka panjang. Solusi paling ekonomis untuk armada atau stok besar.',
     image: '/images/product/product-image-6.webp',

@@ -199,7 +199,7 @@ const productDetails: Record<string, ProductDetail> = {
     id: 'Nano Diesel 3 Botol (3x70ml)',
     title: '3 Botol',
     subtitle: 'Nano Diesel 70ml (Paket 3 Botol) — Aditif Solar Premium untuk Perlindungan Mesin dan Performa Optimal',
-    price: 'Rp 185.000',
+    price: 'Rp 188.000',
     description: 'Pilihan tengah yang pas untuk pemakaian beberapa kali. Cocok untuk perjalanan jauh dan aktivitas harian.',
     image: '/images/product/product-image-5.webp',
     sections: [
@@ -290,7 +290,7 @@ const productDetails: Record<string, ProductDetail> = {
     id: 'Nano Diesel 6 Botol (6x70ml)',
     title: '5 Botol Gratis 1 Botol',
     subtitle: 'Nano Diesel 70ml (Paket Hemat 6 Botol) — Aditif Solar Premium untuk Perlindungan Mesin dan Performa Optimal',
-    price: 'Rp 350.000',
+    price: 'Rp 365.000',
     description: 'Paket ekonomis untuk pemakaian rutin. Ideal untuk armada kecil atau stok bulanan kendaraan diesel Anda.',
     image: '/images/product/product-image-3.webp',
     sections: [
@@ -381,7 +381,7 @@ const productDetails: Record<string, ProductDetail> = {
     id: 'Nano Diesel 12 Botol (12x70ml)',
     title: '10 Botol Gratis 2 Botol',
     subtitle: 'Nano Diesel 70ml (Fleet Pack Pro 12 Botol) — Aditif Solar Premium untuk Perlindungan Mesin dan Performa Optimal',
-    price: 'Rp 700.000',
+    price: 'Rp 720.000',
     description: 'Paket super hemat untuk pemakaian jangka panjang. Solusi paling ekonomis untuk armada atau stok besar.',
     image: '/images/product/product-image-6.webp',
     sections: [
