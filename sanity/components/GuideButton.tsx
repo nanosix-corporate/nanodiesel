@@ -51,11 +51,26 @@ export function GuideButton() {
                 <Text size={2} weight="semibold">Cara Penggunaan:</Text>
                 <Text size={2}>1. Buka atau buat artikel baru di menu <strong>Artikel</strong>.</Text>
                 <Text size={2}>2. Scroll ke bawah hingga menemukan bagian <strong>SEO</strong>.</Text>
-                <Text size={2}>3. Di dalam panel ini, Anda bisa mengisi Meta Title & Description serta Open Graph / Twitter image.</Text>
+                <Text size={2}>3. Di dalam panel ini, Anda bisa mengisi Meta Title, Description, OG Image, dan Focus Keywords.</Text>
               </Stack>
 
               <Stack space={3}>
-                <Heading as="h3" size={3}>2. Membuat Internal Link</Heading>
+                <Heading as="h3" size={3}>2. Skor GEO & AEO (Penilaian Otomatis)</Heading>
+                <Text size={2}>
+                  Di bagian paling atas panel SEO terdapat <strong>GEO Score</strong> dan <strong>AEO Score</strong> yang dihitung secara real-time saat Anda mengetik.
+                </Text>
+                <Text size={2} weight="semibold">Apa artinya?</Text>
+                <Text size={2}>• <strong>GEO Score</strong> — seberapa siap artikel ini muncul di AI Search seperti Google AI Overview, ChatGPT, dan Perplexity.</Text>
+                <Text size={2}>• <strong>AEO Score</strong> — seberapa siap artikel ini muncul sebagai jawaban langsung (Featured Snippet, Voice Search).</Text>
+                <Text size={2} weight="semibold">Tips meningkatkan skor:</Text>
+                <Text size={2}>• Tambahkan <strong>Tabel Data</strong> di konten untuk GEO (+20 pts)</Text>
+                <Text size={2}>• Tambahkan <strong>Modul FAQ</strong> di konten untuk AEO (+25 pts)</Text>
+                <Text size={2}>• Isi Meta Title, Meta Description, dan Focus Keywords</Text>
+                <Text size={2}>• Gunakan heading H2/H3 dan Internal Links</Text>
+              </Stack>
+
+              <Stack space={3}>
+                <Heading as="h3" size={3}>3. Membuat Internal Link</Heading>
                 <Text size={2}>
                   Menautkan satu artikel ke artikel lain sangat disukai oleh Google karena mencegah adanya artikel "yatim".
                 </Text>
@@ -66,7 +81,7 @@ export function GuideButton() {
               </Stack>
 
               <Stack space={3}>
-                <Heading as="h3" size={3}>3. Menambahkan Tabel di Artikel</Heading>
+                <Heading as="h3" size={3}>4. Menambahkan Tabel di Artikel</Heading>
                 <Text size={2}>
                   Anda dapat menyisipkan tabel data langsung di dalam teks artikel untuk menyajikan perbandingan data, spesifikasi produk, atau hasil pengujian secara terstruktur.
                 </Text>
@@ -78,7 +93,7 @@ export function GuideButton() {
               </Stack>
 
               <Stack space={3}>
-                <Heading as="h3" size={3}>4. Menambahkan Modul FAQ (Tanya Jawab)</Heading>
+                <Heading as="h3" size={3}>5. Menambahkan Modul FAQ (Tanya Jawab)</Heading>
                 <Text size={2}>
                   Modul FAQ memungkinkan Anda menyisipkan daftar tanya-jawab interaktif di dalam artikel. Selain tampil sebagai accordion, FAQ otomatis menghasilkan schema SEO <strong>FAQPage</strong> yang berpotensi muncul sebagai <em>Rich Snippet</em> di Google.
                 </Text>
@@ -90,7 +105,7 @@ export function GuideButton() {
               </Stack>
 
               <Stack space={3}>
-                <Heading as="h3" size={3}>5. Fitur Live Preview</Heading>
+                <Heading as="h3" size={3}>6. Fitur Live Preview</Heading>
                 <Text size={2}>
                   Anda kini tidak perlu lagi bolak-balik buka tab baru untuk melihat hasil ketikan Anda.
                 </Text>
@@ -101,7 +116,7 @@ export function GuideButton() {
               </Stack>
 
               <Stack space={3}>
-                <Heading as="h3" size={3}>6. Mengubah URL (Auto-Redirect 301)</Heading>
+                <Heading as="h3" size={3}>7. Mengubah URL (Auto-Redirect 301)</Heading>
                 <Text size={2}>
                   Jika Anda perlu merevisi judul artikel lama, jangan biarkan URL lama rusak/error 404!
                 </Text>

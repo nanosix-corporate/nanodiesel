@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity'
+import { SEOScoreDashboard } from '../components/SEOScoreDashboard'
 
 /**
  * Custom SEO object untuk artikel Nano Diesel.
@@ -10,6 +11,16 @@ export default defineType({
   title: 'SEO',
   type: 'object',
   fields: [
+    // ─── GEO & AEO Score Dashboard (read-only, real-time) ────────────────────
+    defineField({
+      name: 'scorePanel',
+      title: 'Skor GEO & AEO',
+      type: 'string',
+      readOnly: true,
+      components: {
+        input: SEOScoreDashboard,
+      },
+    }),
     defineField({
       name: 'metaTitle',
       title: 'Meta Title',
